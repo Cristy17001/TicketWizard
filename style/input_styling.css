@@ -1,0 +1,70 @@
+/*
+Based on https://uiverse.io/
+*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    margin-top: 1.5rem;
+    gap: 2rem;
+    width: 50%;
+}
+
+.group {
+    position: relative;
+}
+
+.input {
+    color: var(--text-color);
+    font-family: var(--text-font);
+    font-size: 1rem;
+    padding: 10px 0 10px 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    background: transparent;
+}
+
+.input:focus {
+    outline: none;
+}
+
+label {
+    color: var(--text-color);
+    font-family: var(--text-font);
+    font-size: 1.25rem;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    top: -20px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+
+form > button {
+    font-size: 1.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border-radius: 50px;
+    border: solid 2px var(--highlight-color);
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+form > button:hover {
+    box-shadow: 2px 2px 15px var(--highlight-color) inset;
+}
+
+form > button:active {
+    box-shadow: 2px 2px 20px var(--highlight-color) inset;
+}
