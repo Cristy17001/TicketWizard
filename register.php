@@ -11,28 +11,28 @@
 <body>
   <div class="left">
     <h1 class="highlight">Register</h1>
-    <form>
+    <form method="post  " action="index.php">
       <div class="group">
-        <input required="" type="text" class="input">
+        <input required="" type="text" class="input" name="name">
         <label>Name</label>
       </div>
       <div class="group">
-        <input required="" type="text" class="input">
+        <input required="" type="email" class="input" name="email">
         <label>Email</label>
       </div>
       <div class="group">
-        <input required="" type="text" class="input">
+        <input required="" type="text" class="input" name="username">
         <label>Username</label>
       </div>
       <div class="group">
-        <input required="" type="password" class="input">
+        <input required="" type="password" class="input" name="password">
         <label>Password</label>
       </div>
       <div class="group">
-        <input required="" type="password" class="input">
+        <input required="" type="password" class="input" name="confirmpassword">
         <label>Confirm Password</label>
       </div>
-      <button class="btn highlight">Sign Up</button>
+      <button type="submit" value="submit" class="btn highlight">Sign Up</button>
     </form>
   </div>
   <div class="right">

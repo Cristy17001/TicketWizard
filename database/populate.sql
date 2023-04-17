@@ -1,1 +1,2 @@
-DROP TABLE Client;
+INSERT INTO User(id,username,password,email,full_name,created_at)  VALUES (4,'teste','teste1','testegmail.com','teste','20120618 10:34:09 AM');
+INSERT INTO User(id,username,password,email,full_name,created_at)  VALUES (3,'teste','teste1','testegmail.com','teste','20120618 10:34:09 AM');
