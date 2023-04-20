@@ -147,37 +147,54 @@
     margin-bottom: 3%;
 }
 
-.tickets-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 3% 0 3% 0;
+.main-content {
+    width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
-.tickets-container::-webkit-scrollbar {
+.main-content > h1 {
+    margin-top: 3%;
+    text-align: center;
+    color: var(--highlight-color);
+    font: var(--text-font);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.tickets-container {
+    width: 90%;
+    margin-top: 3%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.main-content::-webkit-scrollbar {
     width: 0.5rem;
 }
 
-.tickets-container::-webkit-scrollbar-track {
+.main-content::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-.tickets-container::-webkit-scrollbar-thumb {
+.main-content::-webkit-scrollbar-thumb {
     background-color: var(--logo-color);
     border-radius: 20px;
 }
 
-.tickets-container::-webkit-scrollbar-thumb:hover {
+.main-content::-webkit-scrollbar-thumb:hover {
     background-color: var(--highlight-color);
 }
 
-.tickets-container::-webkit-scrollbar-thumb:active {
+.main-content::-webkit-scrollbar-thumb:active {
     background-color: var(--highlight-color);
 }
 
-.tickets-container::-webkit-scrollbar-corner {
+.main-content::-webkit-scrollbar-corner {
     background-color: var(--logo-color);
 }
 

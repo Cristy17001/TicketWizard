@@ -1,0 +1,203 @@
+.main-content {
+    width: 100%;
+    display: flex;
+    padding-top: 3rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: var(--logo-color);
+    border-radius: 20px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--highlight-color);
+}
+
+.main-content::-webkit-scrollbar-thumb:active {
+    background-color: var(--highlight-color);
+}
+
+.main-content::-webkit-scrollbar-corner {
+    background-color: var(--logo-color);
+}
+
+/* Personal information - right side */
+
+.avatar-password {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personal-section {
+    width: 50%;
+}
+
+.avatar {
+    min-width: 150px;
+    max-width: 200px;
+    width: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+.camera {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--dark-blue-highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera:hover {
+    cursor: pointer;
+}
+
+.camera svg {
+    fill: var(--text-color);
+    width: 60%;
+}
+
+.name-card {
+    width: max-content;
+    border-radius: 50px;
+    padding-inline: 1.5rem;
+    padding-block: 0.3rem;
+    background-color: var(--highlight-color);
+    font-family: var(--text-font);
+    color: var(--text-color);
+}
+
+.optinal-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.optional-form {
+    width: 60%;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.optional-form h2 {
+    color: var(--text-color);
+    font-family: var(--hightlight-font);
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.optional-form input {
+    width: 100%;
+}
+
+.input-field {
+    border-radius: 50px;
+    padding-block: 1rem;
+    background-color: transparent;
+    border: 2px var(--highlight-color) solid;
+    color: white;
+}
+
+.input-field::placeholder {
+    color: var(--text-color);
+    padding-left: 5%;
+}
+
+
+/* Personal information - right side */
+
+.personal-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.personal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: var(--text-color);
+    gap: 0.75rem;
+    width: 70%;
+}
+
+.personal-form label {
+    font-family: var(--text-font);
+    font-weight: 400;
+    font-size: 1.2rem;
+
+}
+
+.personal-form h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+}
+
+.personal-form button {
+    color: var(--text-color);
+    background-color: var(--dark-blue-highlight);
+    border: none;
+    border-radius: 20px;
+    width: 8rem;
+    padding-inline: 0.9rem;
+    padding-block: 0.7rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    font-family: var(--text-font);
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .main-content {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .personal-section {
+        width: 100%;
+    }
+
+    .avatar-password {
+        width: 100%;
+    }
+
+}

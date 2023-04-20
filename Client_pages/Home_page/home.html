@@ -5,7 +5,7 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="constants.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="navigation.css">
     <link rel="stylesheet" href="ticket.css">
     <script src="rotate_ticket.js"></script>
 </head>
@@ -86,362 +86,324 @@
                 </a>
             </div>
         </nav>
-        <div class="tickets-container">
-            <div class="ticket unselectable" state="pending">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">PENDING</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+        <div class="main-content">
+            <h1>Dashboard:</h1>
+            <div class="tickets-container">
+                <div class="ticket unselectable" state="pending">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">PENDING</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="closed">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">CLOSED</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="closed">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">CLOSED</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
                         </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
-                        </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
-                    </div>
-                </div>
-            </div>
-            <div class="ticket unselectable" state="open">
-                <div class="innerCard transition">
-                    <div class="frontSide">
-                        <p class="state">OPEN</p>
-                        <h2 class="title">Computer blue screen</h2>
-                        <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                        <p class="hashtags">#informatics #something</p>
-                        <p class="created">Created, April 14 2023</p>
-                    </div>
-                    <div class="backSide">
-                        <h2>Assigned</h2>
-                        <p class="agent"><span>Agent:</span> Agent1234</p>
-                        <p class="department"><span>Department:</span> Informatics</p>
-                        <div class="circle">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
-                        </div>
-                        <p class="date">Updated, April 15 2023</p>
-                        <p class="time">19:12</p>
-                    </div>
                 </div>
             </div>
         </div>
