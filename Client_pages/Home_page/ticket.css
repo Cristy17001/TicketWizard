@@ -210,3 +210,46 @@
     color: var(--closed-color);
 }
 
+/* Filter form style*/
+.filter {
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.filter select, .filter #search {
+    color: var(--highlight-color);
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    padding-block: 0.3rem;
+    font-family: var(--text-font);
+}
+
+.filter #search {
+    padding-left: 1.5rem;
+    margin-left: -0.5rem;
+}
+
+.filter #search::placeholder {
+    color: var(--highlight-color);
+}
+
+.filter select {
+    padding-inline: 0.6rem;
+}
+
+.filter input[type="submit"] {
+    color: var(--text-color);
+    border-radius: 20px;
+    border: none;
+    background-color: var(--dark-blue-highlight);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-weight: bold;
+    font-family: var(--text-font);
+}

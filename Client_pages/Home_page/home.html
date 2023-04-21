@@ -87,7 +87,25 @@
             </div>
         </nav>
         <div class="main-content">
-            <h1>Dashboard:</h1>
+            <form class="filter">
+                <label for="search"></label>
+                <input id="search" type="text" placeholder="Search...">
+                <label for="Department"></label>
+                <select id="Department" name="Department">
+                    <option value="" disabled selected>Department</option>
+                    <option value="option1">Informatics</option>
+                    <option value="option2">Design</option>
+                    <option value="option3">Real State</option>
+                </select>
+                <label for="State"></label>
+                <select id="State" name="State">
+                    <option value="" disabled selected>State</option>
+                    <option value="option1">Open</option>
+                    <option value="option2">Closed</option>
+                    <option value="option3">Assigned</option>
+                </select>
+                <input type="submit" value="Filter">
+            </form>
             <div class="tickets-container">
                 <div class="ticket unselectable" state="pending">
                     <div class="innerCard transition">
