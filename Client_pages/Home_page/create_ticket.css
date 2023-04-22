@@ -1,0 +1,112 @@
+.fixed {
+    position: fixed;
+    overflow: hidden;
+}
+
+.hide {
+    display: none;
+}
+
+.filter-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-y: hidden;
+    background: rgba(0, 0, 0, 20%);
+}
+
+.create-card {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50%;
+    height: auto;
+    min-height: 80%;
+    background-color: var(--dark-blue);
+    padding: 2rem;
+    border-radius: 30px;
+    font-family: var(--text-font);
+}
+
+.create-card input, .create-card textarea {
+    color: var(--text-color);
+    background-color: transparent;
+    border-radius: 30px;
+    border: 1px solid var(--highlight-color);
+    padding-inline: 1rem;
+    padding-block: 0.8rem;
+    font-family: var(--text-font);
+    font-size: 1rem;
+}
+
+.create-card textarea {
+    height: 5rem;
+    resize: none;
+}
+
+.create-card textarea::placeholder, input::placeholder {
+    color: var(--text-color);
+}
+
+.create-card > label {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.create-card > select {
+    padding-block: 0.8rem;
+    text-align: center;
+    border: none;
+    color: var(--text-color);
+    font-weight: bold;
+    background-color: var(--highlight-color);
+
+}
+
+.create-card > button {
+    min-width: 5rem;
+    width: 30%;
+    padding-block: 1rem;
+    background-color: var(--dark-blue-highlight);
+    font-weight: bold;
+    color: var(--text-color);
+    border: none;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+/*Scroll styling*/
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--logo-color);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--highlight-color);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--logo-color);
+}
+
+@media screen and (max-width: 780px) {
+    .create-card {
+        width: 80%;
+    }
+}

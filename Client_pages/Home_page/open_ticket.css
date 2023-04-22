@@ -16,7 +16,7 @@
     background: rgba(0, 0, 0, 20%);
 }
 
-.edit-ticket-card {
+.opened-ticket {
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -26,18 +26,18 @@
     margin-inline: auto;
 }
 
-.edit-ticket-card > .close {
+.opened-ticket > .close {
     width: 30px;
     height: fit-content;
     margin-left: auto;
     cursor: pointer;
 }
 
-.edit-ticket-card > .close * {
+.opened-ticket > .close * {
     fill: var(--text-color);
 }
 
-.edit-ticket-card .top {
+.opened-ticket .top {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,7 +56,7 @@
     font-weight: bold;
 }
 
-.edit-ticket-card .description {
+.opened-ticket .description {
     height: fit-content;
     margin-block: 2rem;
     padding: 1rem;
@@ -66,66 +66,19 @@
     font-family: var(--text-font);
 }
 
-
-.edit-ticket-card label {
-    color: var(--text-color);
-    font-family: var(--text-font);
-    margin-block: 0.5rem;
-}
-
-.edit-ticket-card select, .edit-ticket-card input {
-    color: var(--text-color);
-    background-color: var(--highlight-color);
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    padding-inline: 0.5rem;
-    padding-block: 0.2rem;
-    max-width: fit-content;
-}
-
-.edit-ticket-card input::placeholder {
-    color: var(--text-color);
-    font-family: var(--text-font);
-}
-
-.chip-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.chip {
-    color: var(--text-color);
-    background-color: var(--dark-blue-highlight);
-    font-family: var(--text-font);
-    border-radius: 10px;
-    padding-inline: 0.5rem;
-    padding-block: 0.2rem;
-}
-
-.chip span {
-    color: var(--text-color);
-    font-weight: bolder;
-    margin-left: 1rem;
-    cursor: pointer;
-}
-
-.edit-ticket-card a {
-    width: fit-content;
-    color: var(--highlight-color);
-    font-family: var(--text-font);
-    margin-top: 1rem;
-}
-
-.edit-ticket-card h2 {
+.opened-ticket > h2 {
     color: var(--text-color);
     font-size: 1rem;
     font-family: var(--text-font);
-    font-weight: normal;
+    font-weight: bold;
     margin-bottom: 1rem;
     margin-top: 2rem;
+}
+
+.opened-ticket > p {
+    color: var(--highlight-color);
+    font-size: 1rem;
+    font-family: var(--text-font);
 }
 
 .chat {
