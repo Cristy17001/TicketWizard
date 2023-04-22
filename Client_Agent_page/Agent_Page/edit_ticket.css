@@ -1,16 +1,18 @@
+.fixed {
+    position: fixed;
+    overflow: hidden;
+}
+
 .hide {
     display: none;
 }
 
 .filter-background {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    overflow-y: hidden;
     background: rgba(0, 0, 0, 20%);
 }
 
@@ -19,8 +21,20 @@
     flex-direction: column;
     padding: 1rem;
     border-radius: 20px;
-    background-color: var(--background-color);
-    width: 60%;
+    background-color: var(--dark-blue);
+    width: 80%;
+    margin-inline: auto;
+}
+
+.edit-ticket-card > .close {
+    width: 30px;
+    height: fit-content;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.edit-ticket-card > .close * {
+    fill: var(--dark-blue-highlight);
 }
 
 .edit-ticket-card .top {
@@ -43,7 +57,8 @@
 }
 
 .edit-ticket-card .description {
-    margin-block: 3rem;
+    height: fit-content;
+    margin-block: 2rem;
     padding: 1rem;
     border: 1px solid var(--highlight-color);
     border-radius: 10px;
@@ -52,4 +67,170 @@
 }
 
 
+.edit-ticket-card label {
+    color: var(--text-color);
+    font-family: var(--text-font);
+    margin-block: 0.5rem;
+}
 
+.edit-ticket-card select, .edit-ticket-card input {
+    color: var(--text-color);
+    background-color: var(--highlight-color);
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    padding-inline: 0.5rem;
+    padding-block: 0.2rem;
+    max-width: fit-content;
+}
+
+.edit-ticket-card input::placeholder {
+    color: var(--text-color);
+    font-family: var(--text-font);
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.chip {
+    color: var(--text-color);
+    background-color: var(--dark-blue-highlight);
+    font-family: var(--text-font);
+    border-radius: 10px;
+    padding-inline: 0.5rem;
+    padding-block: 0.2rem;
+}
+
+.chip span {
+    color: var(--text-color);
+    font-weight: bolder;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.edit-ticket-card a {
+    width: fit-content;
+    color: var(--highlight-color);
+    font-family: var(--text-font);
+    margin-top: 1rem;
+}
+
+.edit-ticket-card h2 {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--text-font);
+    font-weight: normal;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.chat {
+    background-color: var(--background-color);
+}
+
+.chat-display {
+    margin-inline: auto;
+    padding: 1rem;
+    width: 95%;
+    height: 50vh;
+    max-height: 20rem;
+    aspect-ratio: 16/9;
+    overflow-y: scroll;
+}
+
+.chat-display .left, .chat-display .right {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    font-family: var(--text-font);
+}
+
+.chat-display .right {
+    justify-content: end;
+}
+
+.chat-display p {
+    padding: 0.5rem;
+    background-color: var(--text-color);
+}
+
+.chat-display img {
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--text-color);
+}
+
+/*Send message styling*/
+
+.chat-response {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1%;
+    width: 90%;
+    height: 5rem;
+    padding-bottom: 0.5rem;
+    margin-inline: auto;
+}
+
+.chat-response textarea {
+    color: var(--text-color);
+    background-color: var(--dark-blue);
+    font-family: var(--text-font);
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    width: 50vw;
+    height: 5vh;
+    resize: none;
+    padding: 1rem;
+}
+
+.chat-response > button {
+    width: 8vh;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--highlight-color);
+    border: none;
+    overflow: hidden;
+}
+
+.chat-response > button svg {
+    width: 50%;
+}
+
+/*Scroll styling*/
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--logo-color);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--highlight-color);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--logo-color);
+}
+
+@media screen and (max-width: 780px){
+    .chat {
+        width: 100%;
+    }
+}

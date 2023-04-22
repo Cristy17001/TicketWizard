@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tickets = document.querySelectorAll(".innerCard");
+    const scroll_fix = document.querySelector("#scroll-fix");
+    const back = document.querySelector(".filter-background");
+    const close = document.querySelector(".close")
 
     tickets.forEach((ticket) => {
         let touchstartX = 0;
@@ -13,6 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 n_dg = 0;
             }
         }
+
+        /*Open and close ticket Agent*/
+        ticket.addEventListener('click', function() {
+            console.log('Ticket clicked!');
+            scroll_fix.classList.add("fixed");
+            back.classList.remove("hide");
+        });
+
+        close.addEventListener('click', function() {
+            console.log('Back clicked!');
+            scroll_fix.classList.remove("fixed");
+            back.classList.add("hide");
+        });
 
         ticket.addEventListener("touchstart", function (event) {
             reset();
