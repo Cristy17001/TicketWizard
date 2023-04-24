@@ -1,4 +1,5 @@
 <?php
+/*
     echo 'entrei';
     $name= $_GET["name"];
     $username= $_GET["username"];
@@ -24,4 +25,19 @@
     } catch(PDOException $e){
         echo "fack";
     }
+*/
+
+    require_once 'database/connection.db.php';
+
+    $db = getDatabaseConnection();
+    
+    $stmt = $db->query('SELECT * FROM User');
+    $results = $stmt->fetchAll();
+    
+    // If we got here without any errors, then the connection is working
+    // and the query executed successfully
+    var_dump($results);
+
+
+    
 ?>
