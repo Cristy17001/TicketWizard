@@ -1,6 +1,8 @@
 <?php
 
-class User{
+declare(strict_types = 1);
+
+class Admin{
     public int $id;
     public string $username;
     public string $password;

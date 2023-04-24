@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types = 1);
+
 class Department {
     private $id;
     private $name;
@@ -7,7 +10,7 @@ class Department {
       $this->id = $id;
       $this->name = $name;
     }
-    
+
 }
     
 ?>

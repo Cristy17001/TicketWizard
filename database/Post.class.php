@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 class Post {
     private $user_id;
     private $id;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 class Ticket {
     private int $id;
     private int $userId;
