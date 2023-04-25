@@ -19,5 +19,4 @@ class Client{
         $this->created_at = $created_at;
     }
 }
-
 ?>

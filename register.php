@@ -11,7 +11,7 @@
 <body>
   <div class="left">
     <h1 class="highlight">Register</h1>
-    <form method="post  " action="index.php">
+    <form method="post" action="../actions/actionregister.php">
       <div class="group">
         <input required="" type="text" class="input" name="name">
         <label>Name</label>

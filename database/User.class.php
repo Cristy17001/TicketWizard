@@ -19,6 +19,11 @@ class User{
         $this->created_at = $created_at;
     }
 
+    public function save($db){
+        $stmt = $db->prepare('INSERT INTO User(username,password,email, fullName) VALUES (?, ?, ?, ?)');
+        $stmt->execute(array($this->username, $this->password, $this->email,$this->fullName));
+    }
+
 
 }
 
