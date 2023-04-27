@@ -7,7 +7,7 @@
   require_once('../database/connection.db.php');
   require_once('../database/User.class.php');
 
-echo 'aaaaaaaa';
+// echo 'aaaaaaaa';
   $name=$_POST['name'];
   $email=$_POST['email'];
   $username=$_POST['username'];
@@ -19,10 +19,11 @@ echo 'aaaaaaaa';
   $User->save($db);
 
   if ($User) {
-    echo 'woooooooooo';
-    $session->setId($User->id);
-    $session->setName($User->name());
-    $session->addMessage('success', 'Login successful!');
+  //   $session->setId($User->id);
+  //   $session->setName($User->name());
+  //   $session->addMessage('success', 'Login successful!');
+    header('Location: ../login.html');
+    
   } else {
     echo 'bleck';
     $session->addMessage('error', 'Wrong password!');
