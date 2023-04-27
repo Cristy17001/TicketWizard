@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="style/register.css">
     <link rel="stylesheet" href="style/input_styling.css">
     <link rel="stylesheet" href="style/constants.css">
+    <script src='script.js'></script>
 </head>
 <body>
   <div class="left">
     <h1 class="highlight">Register</h1>
-    <form method="post" action="../actions/actionregister.php">
+    <form method="post" action="../actions/actionregister.php" onSubmit='return checkPassword(this)'>
       <div class="group">
         <input required="" type="text" class="input" name="name">
         <label>Name</label>

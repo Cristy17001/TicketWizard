@@ -11,22 +11,18 @@
   $name=$_POST['name'];
   $email=$_POST['email'];
   $username=$_POST['username'];
-  $pwd=$_POST['password'];  
+  $pwd=password_hash($_POST['password'],PASSWORD_DEFAULT);  
 
 
   $db = getDatabaseConnection();
   $User= new User($username,$pwd,$email,$name);
   $User->save($db);
-
   if ($User) {
-  //   $session->setId($User->id);
-  //   $session->setName($User->name());
-  //   $session->addMessage('success', 'Login successful!');
     header('Location: ../login.html');
     
   } else {
-    echo 'bleck';
-    $session->addMessage('error', 'Wrong password!');
+    header('Location: ../register.php');
+    echo 'Something went wrong!';
   }
 
 //   header('Location: ' . $_SERVER['HTTP_REFERER']);
