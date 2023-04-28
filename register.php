@@ -45,7 +45,7 @@
       <h2 class="highlight">TicketWizard</h2>
     </div>
     <p class="text">Already have an account?</p>
-    <a href="login.html"><button class="btn highlight">Sign in</button></a>
+    <a href="login.php"><button class="btn highlight">Sign in</button></a>
   </div>
 </body>
 </html>

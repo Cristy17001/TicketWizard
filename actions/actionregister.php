@@ -7,7 +7,6 @@
   require_once('../database/connection.db.php');
   require_once('../database/User.class.php');
 
-// echo 'aaaaaaaa';
   $name=$_POST['name'];
   $email=$_POST['email'];
   $username=$_POST['username'];
@@ -15,10 +14,10 @@
 
 
   $db = getDatabaseConnection();
-  $User= new User($username,$pwd,$email,$name);
+  $User= new User(null,$username,$pwd,$email,$name);
   $User->save($db);
   if ($User) {
-    header('Location: ../login.html');
+    header('Location: ../login.php');
     
   } else {
     header('Location: ../register.php');
