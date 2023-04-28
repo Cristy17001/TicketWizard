@@ -10,12 +10,14 @@
   $db = getDatabaseConnection();
 
   $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+  echo $user->id;
 
   if ($user) {
     echo 'woooo';
-    $session->setId($customer->id);
-    $session->setName($customer->name());
+    $session->setId($user->id);
+    $session->setName($user->username);
     $session->addMessage('success', 'Login successful!');
+    echo 'woooo';
   } else {
     echo 'fack';
     $session->addMessage('error', 'Wrong password!');
