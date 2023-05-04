@@ -36,7 +36,7 @@
             </div>
             <button class="btn highlight">Login</button>
         </form>
-        <p class="text">Dont't have an account? <a class="highlight" href="register.html">Sign Up</a></p>
+        <p class="text">Dont't have an account? <a class="highlight" href="register.php">Sign Up</a></p>
     </div>
 </body>
 </html>
