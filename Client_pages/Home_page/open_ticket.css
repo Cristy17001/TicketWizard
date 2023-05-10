@@ -153,6 +153,7 @@
     background-color: var(--highlight-color);
     border: none;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .chat-response > button svg {
