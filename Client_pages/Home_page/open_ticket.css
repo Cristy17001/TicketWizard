@@ -1,29 +1,10 @@
-.fixed {
-    position: fixed;
-    overflow: hidden;
-}
-
-.hide {
-    display: none;
-}
-
-.filter-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow-y: hidden;
-    background: rgba(0, 0, 0, 20%);
-}
-
 .opened-ticket {
-    display: flex;
-    flex-direction: column;
     padding: 1rem;
     border-radius: 20px;
     background-color: var(--dark-blue);
     width: 80%;
     margin-inline: auto;
+    border: none;
 }
 
 .opened-ticket > .close {

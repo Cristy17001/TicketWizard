@@ -1,15 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const tickets = document.querySelectorAll(".innerCard");
+    // Add ticket necessary variables
     const add_btn = document.querySelector(".add-btn");
-    const scroll_fix = document.querySelector("#scroll-fix");
-    const close = document.querySelector(".close");
-    const filter = document.querySelector(".filter-background");
+    const add_form = document.querySelector(".create-card");
+
+    // Ticket open and rotation necessary variables
+    const tickets = document.querySelectorAll(".innerCard");
     const opened = document.querySelector(".opened-ticket");
-    const create = document.querySelector(".create-card");
+    const opened_closed_btn = document.querySelector(".opened-ticket > .close");
 
 
+    // ADD TICKET LOGIC
+    //====================================================================//
+    add_btn.addEventListener("click", function (event) {
+        add_form.showModal();
+    });
 
+    add_form.addEventListener("click", e => {
+        const dialogDimensions = add_form.getBoundingClientRect()
+        if (
+            e.clientX < dialogDimensions.left ||
+            e.clientX > dialogDimensions.right ||
+            e.clientY < dialogDimensions.top ||
+            e.clientY > dialogDimensions.bottom
+        ) {
+            add_form.close()
+        }
+    });
+    //====================================================================//
+
+    // TICKET LOGIC
+    //====================================================================//
     tickets.forEach((ticket) => {
+        // TICKET ROTATION
+        //====================================================================//
         let touchstartX = 0;
         let touchendX = 0;
         let n_dg = 0;
@@ -21,29 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 n_dg = 0;
             }
         }
-
-        ticket.addEventListener("click", function (event) {
-            scroll_fix.classList.add("fixed");
-            filter.classList.remove("hide");
-            create.classList.add("hide");
-            opened.classList.remove("hide");
-        });
-
-        add_btn.addEventListener("click", function (event) {
-            scroll_fix.classList.add("fixed");
-            filter.classList.remove("hide");
-            opened.classList.add("hide");
-            create.classList.remove("hide");
-        });
-
-        close.addEventListener("click", function (event) {
-            filter.classList.add("hide");
-            opened.classList.add("hide");
-            create.classList.add("hide");
-            scroll_fix.classList.remove("fixed");
-        });
-
-
 
         ticket.addEventListener("touchstart", function (event) {
             reset();
@@ -68,5 +68,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 ticket.style.transform = `rotateY(${n_dg}deg)`;
             }
         }
+        //====================================================================//
+
+        // TICKET OPENING
+        //====================================================================//
+        ticket.addEventListener("click", function (event) {
+            opened.showModal();
+        });
+
+        opened_closed_btn.addEventListener("click", function (event) {
+            opened.close();
+        });
+
+        opened.addEventListener("click", e => {
+            const dialogDimensions = opened.getBoundingClientRect()
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+                opened.close()
+            }
+        });
+        //====================================================================//
+
+
+
     });
+    //====================================================================//
+
 });

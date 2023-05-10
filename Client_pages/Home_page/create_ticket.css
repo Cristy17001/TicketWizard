@@ -1,29 +1,17 @@
-.fixed {
-    position: fixed;
-    overflow: hidden;
-}
-
-.hide {
-    display: none;
-}
-
-.filter-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-    overflow-y: hidden;
-    background: rgba(0, 0, 0, 20%);
-}
-
 .create-card {
+    margin: auto;
+    padding: 0;
+    border: none;
+    width: max-content;
+    background: transparent;
+}
+
+.add-form {
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 50%;
+    width: 30vw;
     height: auto;
     min-height: 80%;
     background-color: var(--dark-blue);
@@ -32,7 +20,7 @@
     font-family: var(--text-font);
 }
 
-.create-card input, .create-card textarea {
+.add-form input, .add-form textarea {
     color: var(--text-color);
     background-color: transparent;
     border-radius: 30px;
@@ -43,22 +31,22 @@
     font-size: 1rem;
 }
 
-.create-card textarea {
+.add-form textarea {
     height: 5rem;
     resize: none;
 }
 
-.create-card textarea::placeholder, input::placeholder {
+.add-form textarea::placeholder, input::placeholder {
     color: var(--text-color);
 }
 
-.create-card > label {
+.add-form > label {
     color: var(--text-color);
     font-size: 2rem;
     font-weight: bold;
 }
 
-.create-card > select {
+.add-form > select {
     padding-block: 0.8rem;
     text-align: center;
     border: none;
@@ -68,7 +56,7 @@
 
 }
 
-.create-card > button {
+.add-form > button {
     min-width: 5rem;
     width: 30%;
     padding-block: 1rem;
@@ -106,7 +94,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .create-card {
+    .add-form {
         width: 80%;
     }
 }

@@ -12,205 +12,203 @@
     <script src="rotate_ticket.js"></script>
 </head>
 <body>
-    <div id="scroll-fix">
-        <header>
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" xml:space="preserve">
-                    <path d="M61.34,61.51c2.46-1.36,4.63-2.39,6.76-3.19l-0.11-0.69c-0.53-0.08-2.28-0.34-6.65-0.67V61.51z"/>
-                    <path d="M35.22,37.04c0.27,0.34,0.38,0.38,0.38,0.38c0.18-0.21,0.21-1.93,0.22-3.08l0.01-0.58c0.04-2.52,1.77-4.58,2.8-4.99  l1.05-2.74c0.06-0.15,0.24-0.23,0.4-0.17c0.16,0.06,0.23,0.24,0.17,0.4l-1.02,2.59c0.28,0.35,0.33,1.21,0.4,3.43  c0.08,2.42,0.19,5.74,1.02,7.3c1.48,2.75,1.75,4.29-0.46,6.71c-1.42,1.56-1.25,2.27-0.84,3.94c0.15,0.56,0.29,1.19,0.42,1.98  c0.4,2.31-3.37,4.16-6.16,5.19c6.63-0.65,18.19-1.62,24.37-1.25c5.81,0.35,8.47,0.65,9.61,0.81c-1.36-1.94-6.06-8.71-12.86-18.8  C46.55,26,42.36,24.26,39.07,23.6c-3.72-0.76-5.39,4.19-5.95,6.35c-0.81,3.2,0.75,5.28,1.89,6.81L35.22,37.04z"/><path d="M32.72,73.29c2.04-0.18,3.99-0.48,5.95-0.95c0,0,0,0,0.01,0c7.04-1.64,12.46-4.86,17.71-7.97c1.12-0.67,2.27-1.35,3.42-2  c-6.62,0.22-13.26,0.74-19.75,1.59c-2.88,0.38-5.78,0.81-8.63,1.3c-0.01,0.01-0.04,0.01-0.05,0.01c-0.07,0-0.13-0.02-0.18-0.07  c-0.07-0.05-0.11-0.12-0.12-0.21l-0.13-1.53l-7.2-1.08c-4.58-0.69-9.17-1.39-13.74-2.08c0.53,3.3,1.79,6.04,3.73,8.16  C19.22,74.43,28.69,73.63,32.72,73.29z"/><path d="M39.98,63.36c6.81-0.9,13.79-1.44,20.75-1.64v-4.8c-0.84-0.06-1.76-0.12-2.79-0.18c-7.01-0.44-21.05,0.9-26.76,1.5h-0.1  l0.56,6.35C34.4,64.14,37.2,63.71,39.98,63.36z"/><path d="M56.71,64.89c-5.04,2.99-10.24,6.08-16.88,7.79c11.61,3.87,27.52,6.61,39.41-1.18c5.18-3.38,11.91-9.95,10.59-12.97  c-0.61-1.37-3.47-2.11-8.08-2.11h-0.29c-4.52,0.02-8.75,0.8-12.91,2.36c-2.31,0.85-4.65,1.96-7.37,3.48  C59.68,63.12,58.16,64.02,56.71,64.89z"/>
-                </svg>
-                <h1 class="unselectable">TicketWizard</h1>
-            </div>
-            <button class="add-btn">
-                <svg width="50" height="50" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
-                    <path fill="#000000" fill-rule="evenodd"
-                          d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"/>
-                </svg>
-            </button>
-        </header>
-        <main>
-            <nav class="nav-bar">
-                <ul>
-                    <li class="nav-item unselectable" selected = "true">
-                        <div class="option-container">
-                            <svg fill="#000000" width="50" height="50" viewBox="-4.5 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                <title>home</title>
-                                <path d="M19.469 12.594l3.625 3.313c0.438 0.406 0.313 0.719-0.281 0.719h-2.719v8.656c0 0.594-0.5 1.125-1.094 1.125h-4.719v-6.063c0-0.594-0.531-1.125-1.125-1.125h-2.969c-0.594 0-1.125 0.531-1.125 1.125v6.063h-4.719c-0.594 0-1.125-0.531-1.125-1.125v-8.656h-2.688c-0.594 0-0.719-0.313-0.281-0.719l10.594-9.625c0.438-0.406 1.188-0.406 1.656 0l2.406 2.156v-1.719c0-0.594 0.531-1.125 1.125-1.125h2.344c0.594 0 1.094 0.531 1.094 1.125v5.875z"></path>
-                            </svg>
-                            <p>Home</p>
-                        </div>
-                    </li>
-                    <li class="nav-item unselectable" selected="false">
-                        <div class="option-container">
-                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="Iconly/Curved/Profile">
-                                    <g id="Profile">
-                                        <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M11.8445 21.6618C8.15273 21.6618 5 21.0873 5 18.7865C5 16.4858 8.13273 14.3618 11.8445 14.3618C15.5364 14.3618 18.6891 16.4652 18.6891 18.766C18.6891 21.0658 15.5564 21.6618 11.8445 21.6618Z" />
-                                        <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M11.8372 11.1735C14.26 11.1735 16.2236 9.2099 16.2236 6.78718C16.2236 4.36445 14.26 2.3999 11.8372 2.3999C9.41452 2.3999 7.44998 4.36445 7.44998 6.78718C7.4418 9.20172 9.3918 11.1654 11.8063 11.1735C11.8172 11.1735 11.8272 11.1735 11.8372 11.1735Z"/>
-                                    </g>
-                                </g>
-                            </svg>
-                            <p>Profile</p>
-                        </div>
-                    </li>
-                    <li class="nav-item unselectable" selected="false">
-                        <div class="option-container">
-                            <svg fill="#000000" width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,22A10,10,0,1,0,2,12,10,10,0,0,0,12,22Zm0-2a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,20ZM8,8.994a3.907,3.907,0,0,1,2.319-3.645,4.061,4.061,0,0,1,3.889.316,4,4,0,0,1,.294,6.456,3.972,3.972,0,0,0-1.411,2.114,1,1,0,0,1-1.944-.47,5.908,5.908,0,0,1,2.1-3.2,2,2,0,0,0-.146-3.23,2.06,2.06,0,0,0-2.006-.14,1.937,1.937,0,0,0-1.1,1.8A1,1,0,0,1,8,9Z"/></svg>
-                            <p>FAQ</p>
-                        </div>
-                    </li>
-                    <li class="nav-item unselectable" selected="false">
-                        <div class="option-container">
-                            <svg width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                <title>about-filled</title>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="drop" fill="#000000" transform="translate(42.666667, 42.666667)">
-                                        <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape">
-
-                                        </path>
-                                    </g>
-                                </g>
-                            </svg>
-                            <p>About</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="user-info unselectable">
-                    <div class="square">
-                        <img src="source/avatar.jpg" alt="user_image">
-                    </div>
-                    <div>
-                        <p class="name">Cristiano Rocha</p>
-                        <p class="role">Client</p>
-                    </div>
-                    <a href="../../Login_Register_pages/login.html">
-                        <svg class="log-out" fill="#000000" width="50" height="50" viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"/><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"/></svg>
-                    </a>
-                </div>
-            </nav>
-            <div class="main-content">
-                <form class="filter">
-                    <label for="search"></label>
-                    <input id="search" type="text" placeholder="Search...">
-                    <label for="Department"></label>
-                    <select id="Department" name="Department">
-                        <option value="" disabled selected>Department</option>
-                        <option value="option1">Informatics</option>
-                        <option value="option2">Design</option>
-                        <option value="option3">Real State</option>
-                    </select>
-                    <label for="State"></label>
-                    <select id="State" name="State">
-                        <option value="" disabled selected>State</option>
-                        <option value="option1">Open</option>
-                        <option value="option2">Closed</option>
-                        <option value="option3">Assigned</option>
-                    </select>
-                    <input type="submit" value="Filter">
-                </form>
-                <div class="tickets-container">
-                    <div class="ticket unselectable" state="pending">
-                        <div class="innerCard transition">
-                            <div class="frontSide">
-                                <p class="state">PENDING</p>
-                                <h2 class="title">Computer blue screen</h2>
-                                <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                                <p class="hashtags">#informatics #something</p>
-                                <p class="created">Created, April 14 2023</p>
-                            </div>
-                            <div class="backSide">
-                                <h2>Assigned</h2>
-                                <p class="agent"><span>Agent:</span> Agent1234</p>
-                                <p class="department"><span>Department:</span> Informatics</p>
-                                <div class="circle">
-                                    <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
-                                </div>
-                                <p class="date">Updated, April 15 2023</p>
-                                <p class="time">19:12</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ticket unselectable" state="open">
-                        <div class="innerCard transition">
-                            <div class="frontSide">
-                                <p class="state">OPEN</p>
-                                <h2 class="title">Computer blue screen</h2>
-                                <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
-                                <p class="hashtags">#informatics #something</p>
-                                <p class="created">Created, April 14 2023</p>
-                            </div>
-                            <div class="backSide">
-                                <h2>Assigned</h2>
-                                <p class="agent"><span>Agent:</span> Agent1234</p>
-                                <p class="department"><span>Department:</span> Informatics</p>
-                                <div class="circle">
-                                    <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
-                                </div>
-                                <p class="date">Updated, April 15 2023</p>
-                                <p class="time">19:12</p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-        </main>
-    </div>
-    <div class="filter-background hide">
-        <form class="create-card hide">
-            <label for="title">Title:</label>
-            <input id="title" type="text" placeholder="Enter a title...">
-            <label for="description">Description:</label>
-            <textarea id="description" placeholder="Enter a Description..."></textarea>
-            <label for="optional">Optional:</label>
-            <select id="optional">
-                <option value="" disabled selected>Select Department</option>
-                <option value="option1">Informatics</option>
-                <option value="option2">Design</option>
-                <option value="option3">Real State</option>
-            </select>
-            <button>Add</button>
-        </form>
-        <div class="opened-ticket hide">
-            <svg class="close" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 1024 1024"><path
-                    fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
+    <header>
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" xml:space="preserve">
+                <path d="M61.34,61.51c2.46-1.36,4.63-2.39,6.76-3.19l-0.11-0.69c-0.53-0.08-2.28-0.34-6.65-0.67V61.51z"/>
+                <path d="M35.22,37.04c0.27,0.34,0.38,0.38,0.38,0.38c0.18-0.21,0.21-1.93,0.22-3.08l0.01-0.58c0.04-2.52,1.77-4.58,2.8-4.99  l1.05-2.74c0.06-0.15,0.24-0.23,0.4-0.17c0.16,0.06,0.23,0.24,0.17,0.4l-1.02,2.59c0.28,0.35,0.33,1.21,0.4,3.43  c0.08,2.42,0.19,5.74,1.02,7.3c1.48,2.75,1.75,4.29-0.46,6.71c-1.42,1.56-1.25,2.27-0.84,3.94c0.15,0.56,0.29,1.19,0.42,1.98  c0.4,2.31-3.37,4.16-6.16,5.19c6.63-0.65,18.19-1.62,24.37-1.25c5.81,0.35,8.47,0.65,9.61,0.81c-1.36-1.94-6.06-8.71-12.86-18.8  C46.55,26,42.36,24.26,39.07,23.6c-3.72-0.76-5.39,4.19-5.95,6.35c-0.81,3.2,0.75,5.28,1.89,6.81L35.22,37.04z"/><path d="M32.72,73.29c2.04-0.18,3.99-0.48,5.95-0.95c0,0,0,0,0.01,0c7.04-1.64,12.46-4.86,17.71-7.97c1.12-0.67,2.27-1.35,3.42-2  c-6.62,0.22-13.26,0.74-19.75,1.59c-2.88,0.38-5.78,0.81-8.63,1.3c-0.01,0.01-0.04,0.01-0.05,0.01c-0.07,0-0.13-0.02-0.18-0.07  c-0.07-0.05-0.11-0.12-0.12-0.21l-0.13-1.53l-7.2-1.08c-4.58-0.69-9.17-1.39-13.74-2.08c0.53,3.3,1.79,6.04,3.73,8.16  C19.22,74.43,28.69,73.63,32.72,73.29z"/><path d="M39.98,63.36c6.81-0.9,13.79-1.44,20.75-1.64v-4.8c-0.84-0.06-1.76-0.12-2.79-0.18c-7.01-0.44-21.05,0.9-26.76,1.5h-0.1  l0.56,6.35C34.4,64.14,37.2,63.71,39.98,63.36z"/><path d="M56.71,64.89c-5.04,2.99-10.24,6.08-16.88,7.79c11.61,3.87,27.52,6.61,39.41-1.18c5.18-3.38,11.91-9.95,10.59-12.97  c-0.61-1.37-3.47-2.11-8.08-2.11h-0.29c-4.52,0.02-8.75,0.8-12.91,2.36c-2.31,0.85-4.65,1.96-7.37,3.48  C59.68,63.12,58.16,64.02,56.71,64.89z"/>
             </svg>
-            <div class="top">
-                <h1>Computer blue screen</h1>
-                <p>State</p>
-            </div>
-            <p class="description">
-                Some description about the problem, like blue screen happened when turning
-                on the pc with a maximum amount of words or it will run out of space
-            </p>
-            <h2>Assigned Department:</h2>
-            <p>Informatics department</p>
-            <h2>Assigned agent:</h2>
-            <p>User1234</p>
-            <h2>Hashtags:</h2>
-            <p>#informatics #something</p>
-            <h2>Chat:</h2>
-            <div class="chat">
-                <div class="chat-display">
-                    <div class="left">
-                        <img src="source/avatar.jpg" alt="replier image">
-                        <p>I really don't know how to solve this can you help me?</p>
+            <h1 class="unselectable">TicketWizard</h1>
+        </div>
+        <button class="add-btn">
+            <svg width="50" height="50" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <path fill="#000000" fill-rule="evenodd"
+                      d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"/>
+            </svg>
+        </button>
+        <dialog data-modal class="create-card">
+            <form class="add-form">
+                <label for="title">Title:</label>
+                <input id="title" type="text" placeholder="Enter a title...">
+                <label for="description">Description:</label>
+                <textarea id="description" placeholder="Enter a Description..."></textarea>
+                <label for="optional">Optional:</label>
+                <select id="optional">
+                    <option value="" disabled selected>Select Department</option>
+                    <option value="option1">Informatics</option>
+                    <option value="option2">Design</option>
+                    <option value="option3">Real State</option>
+                </select>
+                <button>Add</button>
+            </form>
+        </dialog>
+    </header>
+    <main>
+        <nav class="nav-bar">
+            <ul>
+                <li class="nav-item unselectable" selected = "true">
+                    <div class="option-container">
+                        <svg fill="#000000" width="50" height="50" viewBox="-4.5 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <title>home</title>
+                            <path d="M19.469 12.594l3.625 3.313c0.438 0.406 0.313 0.719-0.281 0.719h-2.719v8.656c0 0.594-0.5 1.125-1.094 1.125h-4.719v-6.063c0-0.594-0.531-1.125-1.125-1.125h-2.969c-0.594 0-1.125 0.531-1.125 1.125v6.063h-4.719c-0.594 0-1.125-0.531-1.125-1.125v-8.656h-2.688c-0.594 0-0.719-0.313-0.281-0.719l10.594-9.625c0.438-0.406 1.188-0.406 1.656 0l2.406 2.156v-1.719c0-0.594 0.531-1.125 1.125-1.125h2.344c0.594 0 1.094 0.531 1.094 1.125v5.875z"></path>
+                        </svg>
+                        <p>Home</p>
                     </div>
-                    <div class="right">
-                        <p>Sure you give me a little more context, what does it say in the blue screen?</p>
-                        <img src="source/agent_avatar.jpg" alt="my image">
+                </li>
+                <li class="nav-item unselectable" selected="false">
+                    <div class="option-container">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Iconly/Curved/Profile">
+                                <g id="Profile">
+                                    <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M11.8445 21.6618C8.15273 21.6618 5 21.0873 5 18.7865C5 16.4858 8.13273 14.3618 11.8445 14.3618C15.5364 14.3618 18.6891 16.4652 18.6891 18.766C18.6891 21.0658 15.5564 21.6618 11.8445 21.6618Z" />
+                                    <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M11.8372 11.1735C14.26 11.1735 16.2236 9.2099 16.2236 6.78718C16.2236 4.36445 14.26 2.3999 11.8372 2.3999C9.41452 2.3999 7.44998 4.36445 7.44998 6.78718C7.4418 9.20172 9.3918 11.1654 11.8063 11.1735C11.8172 11.1735 11.8272 11.1735 11.8372 11.1735Z"/>
+                                </g>
+                            </g>
+                        </svg>
+                        <p>Profile</p>
+                    </div>
+                </li>
+                <li class="nav-item unselectable" selected="false">
+                    <div class="option-container">
+                        <svg fill="#000000" width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,22A10,10,0,1,0,2,12,10,10,0,0,0,12,22Zm0-2a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,20ZM8,8.994a3.907,3.907,0,0,1,2.319-3.645,4.061,4.061,0,0,1,3.889.316,4,4,0,0,1,.294,6.456,3.972,3.972,0,0,0-1.411,2.114,1,1,0,0,1-1.944-.47,5.908,5.908,0,0,1,2.1-3.2,2,2,0,0,0-.146-3.23,2.06,2.06,0,0,0-2.006-.14,1.937,1.937,0,0,0-1.1,1.8A1,1,0,0,1,8,9Z"/></svg>
+                        <p>FAQ</p>
+                    </div>
+                </li>
+                <li class="nav-item unselectable" selected="false">
+                    <div class="option-container">
+                        <svg width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                            <title>about-filled</title>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="drop" fill="#000000" transform="translate(42.666667, 42.666667)">
+                                    <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape">
+
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                        <p>About</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="user-info unselectable">
+                <div class="square">
+                    <img src="source/avatar.jpg" alt="user_image">
+                </div>
+                <div>
+                    <p class="name">Cristiano Rocha</p>
+                    <p class="role">Client</p>
+                </div>
+                <a href="../../Login_Register_pages/login.html">
+                    <svg class="log-out" fill="#000000" width="50" height="50" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"/><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"/></svg>
+                </a>
+            </div>
+        </nav>
+        <div class="main-content">
+            <form class="filter">
+                <label for="search"></label>
+                <input id="search" type="text" placeholder="Search...">
+                <label for="Department"></label>
+                <select id="Department" name="Department">
+                    <option value="" disabled selected>Department</option>
+                    <option value="option1">Informatics</option>
+                    <option value="option2">Design</option>
+                    <option value="option3">Real State</option>
+                </select>
+                <label for="State"></label>
+                <select id="State" name="State">
+                    <option value="" disabled selected>State</option>
+                    <option value="option1">Open</option>
+                    <option value="option2">Closed</option>
+                    <option value="option3">Assigned</option>
+                </select>
+                <input type="submit" value="Filter">
+            </form>
+            <div class="tickets-container">
+                <div class="ticket unselectable" state="pending">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">PENDING</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
+                        </div>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
                     </div>
                 </div>
-                <form class="chat-response">
-                    <label><textarea placeholder="Enter your message..."></textarea></label>
-                    <button class="send-message">
-                        <svg width="auto" height="auto" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.4165 17.5833L14.9204 25.7591C15.4026 26.8844 16.9027 27.0034 17.5039 25.9368C18.6905 23.8325 20.4493 20.4388 22.2082 16.0417C25.2915 8.33332 26.8332 2.16666 26.8332 2.16666C26.8332 2.16666 20.6665 3.70832 12.9582 6.79166C8.56107 8.55048 5.16729 10.3093 3.06295 11.4959C1.99652 12.0971 2.11541 13.5972 3.24069 14.0794L11.4165 17.5833Z" stroke="white" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </form>
-            </div>
+                <dialog data-modal class="opened-ticket">
+                    <svg class="close" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 1024 1024"><path
+                            fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
+                    </svg>
+                    <div class="top">
+                        <h1>Computer blue screen</h1>
+                        <p>State</p>
+                    </div>
+                    <p class="description">
+                        Some description about the problem, like blue screen happened when turning
+                        on the pc with a maximum amount of words or it will run out of space
+                    </p>
+                    <h2>Assigned Department:</h2>
+                    <p>Informatics department</p>
+                    <h2>Assigned agent:</h2>
+                    <p>User1234</p>
+                    <h2>Hashtags:</h2>
+                    <p>#informatics #something</p>
+                    <h2>Chat:</h2>
+                    <div class="chat">
+                        <div class="chat-display">
+                            <div class="left">
+                                <img src="source/avatar.jpg" alt="replier image">
+                                <p>I really don't know how to solve this can you help me?</p>
+                            </div>
+                            <div class="right">
+                                <p>Sure you give me a little more context, what does it say in the blue screen?</p>
+                                <img src="source/agent_avatar.jpg" alt="my image">
+                            </div>
+                        </div>
+                        <form class="chat-response">
+                            <label><textarea placeholder="Enter your message..."></textarea></label>
+                            <button class="send-message">
+                                <svg width="30" height="30" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.4165 17.5833L14.9204 25.7591C15.4026 26.8844 16.9027 27.0034 17.5039 25.9368C18.6905 23.8325 20.4493 20.4388 22.2082 16.0417C25.2915 8.33332 26.8332 2.16666 26.8332 2.16666C26.8332 2.16666 20.6665 3.70832 12.9582 6.79166C8.56107 8.55048 5.16729 10.3093 3.06295 11.4959C1.99652 12.0971 2.11541 13.5972 3.24069 14.0794L11.4165 17.5833Z" stroke="white" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </dialog>
+                <div class="ticket unselectable" state="open">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">OPEN</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
+                        </div>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

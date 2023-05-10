@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Ticket open and rotation necessary variables
     const tickets = document.querySelectorAll(".innerCard");
-    const scroll_fix = document.querySelector("#scroll-fix");
-    const back = document.querySelector(".filter-background");
-    const close = document.querySelector(".close")
+    const opened = document.querySelector(".edit-ticket-card-dialog");
+    const opened_closed_btn = document.querySelector(".edit-ticket-card > .close");
 
+
+    // TICKET LOGIC
+    //====================================================================//
     tickets.forEach((ticket) => {
+        // TICKET ROTATION
+        //====================================================================//
         let touchstartX = 0;
         let touchendX = 0;
         let n_dg = 0;
@@ -16,19 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 n_dg = 0;
             }
         }
-
-        /*Open and close ticket Agent*/
-        ticket.addEventListener('click', function() {
-            console.log('Ticket clicked!');
-            scroll_fix.classList.add("fixed");
-            back.classList.remove("hide");
-        });
-
-        close.addEventListener('click', function() {
-            console.log('Back clicked!');
-            scroll_fix.classList.remove("fixed");
-            back.classList.add("hide");
-        });
 
         ticket.addEventListener("touchstart", function (event) {
             reset();
@@ -53,5 +45,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 ticket.style.transform = `rotateY(${n_dg}deg)`;
             }
         }
+        //====================================================================//
+
+        // TICKET OPENING
+        //====================================================================//
+        ticket.addEventListener("click", function (event) {
+            opened.showModal();
+        });
+
+        opened_closed_btn.addEventListener("click", function (event) {
+            opened.close();
+        });
+
+        opened.addEventListener("click", e => {
+            const dialogDimensions = opened.getBoundingClientRect()
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+                opened.close()
+            }
+        });
+        //====================================================================//
+
+
+
     });
+    //====================================================================//
+
 });
