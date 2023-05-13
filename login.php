@@ -25,18 +25,18 @@
     </div>
     <div class="right">
         <h1 class="highlight">Log in</h1>
-        <form>
+        <form action="../actions/actionlogin.php" method="post">
             <div class="group">
-                <input required="" type="text" class="input">
+                <input required="" type="text" class="input" name="username">
                 <label>Username</label>
             </div>
             <div class="group">
-                <input required="" type="password" class="input">
+                <input required="" type="password" class="input" name="password">
                 <label>Password</label>
             </div>
             <button class="btn highlight">Login</button>
         </form>
-        <p class="text">Dont't have an account? <a class="highlight" href="register.html">Sign Up</a></p>
+        <p class="text">Dont't have an account? <a class="highlight" href="register.php">Sign Up</a></p>
     </div>
 </body>
 </html>

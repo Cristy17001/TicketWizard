@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<<< HEAD:Login_Register_pages/register.html
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="input_styling.css">
     <link rel="stylesheet" href="constants_sign.css">
+========
+    <link rel="stylesheet" href="style/register.css">
+    <link rel="stylesheet" href="style/input_styling.css">
+    <link rel="stylesheet" href="style/constants.css">
+    <script src='script.js'></script>
+>>>>>>>> origin/database:register.php
 </head>
 <body>
   <div class="left">
     <h1 class="highlight">Register</h1>
-    <form>
+    <form method="post" action="../actions/actionregister.php" onSubmit='return checkPassword(this)' >
       <div class="group">
-        <input required="" type="text" class="input">
+        <input required="" type="text" class="input" name="name">
         <label>Name</label>
       </div>
       <div class="group">
-        <input required="" type="text" class="input">
+        <input required="" type="email" class="input" name="email">
         <label>Email</label>
       </div>
       <div class="group">
-        <input required="" type="text" class="input">
+        <input required="" type="text" class="input" name="username">
         <label>Username</label>
       </div>
       <div class="group">
-        <input required="" type="password" class="input">
+        <input required="" type="password" class="input" name="password">
         <label>Password</label>
       </div>
       <div class="group">
-        <input required="" type="password" class="input">
+        <input required="" type="password" class="input" name="confirmpassword">
         <label>Confirm Password</label>
       </div>
-      <button class="btn highlight">Sign Up</button>
+      <button type="submit" value="submit" class="btn highlight">Sign Up</button>
     </form>
   </div>
   <div class="right">
@@ -44,7 +51,7 @@
       <h2 class="highlight">TicketWizard</h2>
     </div>
     <p class="text">Already have an account?</p>
-    <a href="login.html"><button class="btn highlight">Sign in</button></a>
+    <a href="login.php"><button class="btn highlight">Sign in</button></a>
   </div>
 </body>
 </html>
