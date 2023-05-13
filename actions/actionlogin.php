@@ -14,6 +14,26 @@
 
   if ($user) {
     echo 'woooo';
+      //checks if admin
+      if($user->hasPermition($db,'Admin')){
+          echo 'isAdmin';
+      } else{
+          echo 'notAdmin';
+      }
+
+      //checks if Agent
+      if($user->hasPermition($db,'Agent')){
+          echo 'isAgent';
+      } else{
+          echo 'notAgent';
+      }
+
+      //Checks if Client
+      if($user->hasPermition($db,'Client')){
+          echo 'isClient';
+      } else{
+          echo 'notClient';
+      }
     $session->setId($user->id);
     $session->setName($user->username);
     $session->addMessage('success', 'Login successful!');

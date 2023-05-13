@@ -43,9 +43,17 @@ class User{
         );
       } else return null;
     }
-
+    public function hasPermition($db,string $typeUser) {
+        $allowedTables = ['Client', 'Admin', 'Agent']; // replace with actual table names
+        if (!in_array($typeUser, $allowedTables)) {
+            throw new InvalidArgumentException('Invalid user type');
+        }
+        $stmt = $db->prepare("SELECT * FROM $typeUser WHERE username = ?");
+        $stmt->execute([$this->username]);
+        $result = $stmt->fetch();
+        return ($result !== false);
+    }
 
 }
-
 
 ?>

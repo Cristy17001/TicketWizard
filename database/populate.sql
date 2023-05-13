@@ -1,2 +1,2 @@
-INSERT INTO User(id,username,password,email,full_name,created_at)  VALUES (4,'teste','teste1','testegmail.com','teste','20120618 10:34:09 AM');
-INSERT INTO User(id,username,password,email,full_name,created_at)  VALUES (3,'teste','teste1','testegmail.com','teste','20120618 10:34:09 AM');
+INSERT INTO User(id,username,password,email,full_name,created_at)  VALUES (6,'admin','$2y$10$z11/BhRA6nqpf4sZU00SNe6LUFjuZGgRUonPLinvgKMkRMgS1cz4q','testegmail.com','teste','20120618 10:34:09 AM');
+INSERT INTO Admin(id,username,password,email,full_name,created_at)  VALUES (6,'admin','$2y$10$z11/BhRA6nqpf4sZU00SNe6LUFjuZGgRUonPLinvgKMkRMgS1cz4q','testegmail.com','teste','20120618 10:34:09 AM');
