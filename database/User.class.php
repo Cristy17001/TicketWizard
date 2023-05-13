@@ -41,7 +41,7 @@ class User{
             $user['email'],
             $user['full_name']
         );
-      }else return null;
+      } else return null;
     }
 
 

@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<<< HEAD:Login_Register_pages/register.html
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="input_styling.css">
-    <link rel="stylesheet" href="constants_sign.css">
-========
     <link rel="stylesheet" href="style/register.css">
     <link rel="stylesheet" href="style/input_styling.css">
     <link rel="stylesheet" href="style/constants.css">
     <script src='script.js'></script>
->>>>>>>> origin/database:register.php
 </head>
 <body>
   <div class="left">
