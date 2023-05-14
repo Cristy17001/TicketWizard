@@ -3,17 +3,17 @@
 declare(strict_types = 1);
 
 class Ticket {
-    private int $id;
-    private int $userId;
-    private int $userAssignedId;
-    private int $departmentId;
-    private string $title;
-    private string $description;
-    private string $status;
-    private string $priority;
-    private datetime $createdAt;
-    private datetime $updatedAt;
-    private datetime $isClosed;
+    public int $id;
+    public int $userId;
+    public int $userAssignedId;
+    public int $departmentId;
+    public string $title;
+    public string $description;
+    public string $status;
+    public string $priority;
+    public datetime $createdAt;
+    public datetime $updatedAt;
+    public datetime $isClosed;
 
     public function __construct(int $id,int $userId,int $userAssignedId,int $departmentId,string $title,string $description,string $status,string $priority,datetime $createdAt,datetime $updatedAt,int $isClosed) {
         $this->id = $id;

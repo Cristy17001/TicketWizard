@@ -2,13 +2,13 @@
 
 declare(strict_types = 1);
 
-class Admin{
+class Admin {
     public int $id;
     public string $username;
     public string $password;
     public string $email;
-    public string $full_name;
     public datetime $created_at;
+    public string $fullName;
 
     public function __construct(int $id,string $username,string $password,string $email,string $fullName,datetime $created_at) {
         $this->id = $id;

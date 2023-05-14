@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-class User{
+class User {
     public ?int $id;
     public string $username;
     public string $password;
@@ -21,10 +21,11 @@ class User{
     public function save($db){
         $stmt = $db->prepare('INSERT INTO User(username,password,email, full_name, created_at) VALUES (?, ?, ?, ?,2015-12-17)');
         $stmt->execute(array($this->username, $this->password, strtolower($this->email),$this->fullName));
-        $this->$id=$db->lastInsertId();
+        $id = 0;
+        $this->$id = $db->lastInsertId();
     }
 
-    static function getUserWithPassword($db, string $username, string $password){
+    static function getUserWithPassword($db, string $username, string $password) {
         $stmt = $db->prepare('
         SELECT id, username, password, email, full_name
         FROM User 
@@ -53,7 +54,5 @@ class User{
         $result = $stmt->fetch();
         return ($result !== false);
     }
-
 }
-
 ?>

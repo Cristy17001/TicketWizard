@@ -7,9 +7,9 @@ class Agent{
     public string $username;
     public string $password;
     public string $email;
-    public string $full_name;
     public datetime $created_at;
     public int $department_id;
+    public string $fullName;
 
     public function __construct(int $id,string $username,string $password,string $email,string $fullName,datetime $created_at,int $department_id) {
         $this->id = $id;
@@ -20,7 +20,6 @@ class Agent{
         $this->created_at = $created_at;
         $this->department_id = $department_id;
     }
-
 
 }
 

@@ -3,10 +3,10 @@
 declare(strict_types = 1);
 
 class Post {
-    private $user_id;
-    private $id;
-    private $title;
-    private $content;
+    public $user_id;
+    public $id;
+    public $title;
+    public $content;
 
     public function __construct($user_id, $id, $title, $content) {
         $this->user_id = $user_id;
