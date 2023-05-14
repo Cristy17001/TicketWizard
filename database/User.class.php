@@ -54,6 +54,42 @@ class User{
         return ($result !== false);
     }
 
+    public function whatPermition($db) {
+
+        $stmt = $db->prepare("SELECT * FROM Admin WHERE id = ?");
+        $stmt->execute([$this->id]);
+        $result = $stmt->fetch();
+        if($result !== false) return 'isAdmin';
+        $stmt = $db->prepare("SELECT * FROM Agent WHERE id = ?");
+        $stmt->execute([$this->id]);
+        $result = $stmt->fetch();
+        if($result !== false) return 'isAgent';
+        $stmt = $db->prepare("SELECT * FROM Client WHERE id = ?");
+        $stmt->execute([$this->id]);
+        $result = $stmt->fetch();
+        if($result !== false) return 'isClient';
+    }
+
+
+    static function getUser(PDO $db, int $id) : User {
+        $stmt = $db->prepare('
+        SELECT id, username, password, email, full_name
+        FROM User 
+        WHERE id = ?
+        ');
+  
+        $stmt->execute(array($id));
+        $customer = $stmt->fetch();
+        
+        return new User(
+            $user['id'],
+            $user['username'],
+            $user['password'],
+            $user['email'],
+            $user['full_name']
+        );
+      }
+
 }
 
 ?>
