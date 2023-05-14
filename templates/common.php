@@ -25,7 +25,7 @@
             <h1 class="unselectable">TicketWizard</h1>
         </div>
         <?php 
-        if($permition=='isClient'){
+        if($permition=='isClient' || $permition=='isAgent'){
             drawAddBotton();
         }
          ?>

@@ -17,7 +17,7 @@
     $session->setId($user->id);
     $session->setName($user->username);
     $session->addMessage('success', 'Login successful!');
-    header('Location: /../Client_pages/Home_page/home.php');
+    header('Location: /../Client_pages/Home_page/client.php');
   } else {
     echo 'fack';
     $session->addMessage('error', 'Wrong password!');

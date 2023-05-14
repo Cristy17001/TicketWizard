@@ -71,7 +71,7 @@ class User{
     }
 
 
-    static function getUser(PDO $db, int $id) : User {
+    static function getUser($db, int $id) : User {
         $stmt = $db->prepare('
         SELECT id, username, password, email, full_name
         FROM User 
@@ -79,7 +79,7 @@ class User{
         ');
   
         $stmt->execute(array($id));
-        $customer = $stmt->fetch();
+        $user = $stmt->fetch();
         
         return new User(
             $user['id'],
