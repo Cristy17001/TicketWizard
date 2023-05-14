@@ -2,12 +2,14 @@
 declare(strict_types=1);
 ?>
 
-<?php function drawNav(){ ?>
+<?php function drawNav(String $permission){ ?>
     <main>
         <nav class="nav-bar">
             <ul>
-                <?php drawNavClient(); ?>
-                <?php drawNavAgent(); ?>
+                <?php
+                  if($permission=='isClient' || $permission== 'isAgent') drawNavClient(); 
+                 ?>
+                <?php if($permission=='isAgent') drawNavAgent(); ?>
                 <!-- //Admin -->
                 <li class="nav-item unselectable" selected="false">
                     <div class="option-container">
