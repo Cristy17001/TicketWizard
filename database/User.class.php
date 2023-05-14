@@ -48,8 +48,8 @@ class User{
         if (!in_array($typeUser, $allowedTables)) {
             throw new InvalidArgumentException('Invalid user type');
         }
-        $stmt = $db->prepare("SELECT * FROM $typeUser WHERE username = ?");
-        $stmt->execute([$this->username]);
+        $stmt = $db->prepare("SELECT * FROM $typeUser WHERE id = ?");
+        $stmt->execute([$this->id]);
         $result = $stmt->fetch();
         return ($result !== false);
     }

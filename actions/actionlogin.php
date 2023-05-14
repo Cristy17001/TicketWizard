@@ -10,34 +10,34 @@
   $db = getDatabaseConnection();
 
   $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
-  echo $user->id;
 
   if ($user) {
-    echo 'woooo';
+    echo 'woooo'. '<br>';
       //checks if admin
       if($user->hasPermition($db,'Admin')){
-          echo 'isAdmin';
+          echo 'isAdmin'. '<br>';
       } else{
-          echo 'notAdmin';
+          echo 'notAdmin'. '<br>';
       }
 
       //checks if Agent
       if($user->hasPermition($db,'Agent')){
-          echo 'isAgent';
+          echo 'isAgent'. '<br>';
       } else{
-          echo 'notAgent';
+          echo 'notAgent'. '<br>';
       }
 
       //Checks if Client
       if($user->hasPermition($db,'Client')){
-          echo 'isClient';
+          echo 'isClient'. '<br>';
       } else{
-          echo 'notClient';
+          echo 'notClient'. '<br>';
       }
     $session->setId($user->id);
+    echo $session->getId(). '<br>';
     $session->setName($user->username);
     $session->addMessage('success', 'Login successful!');
-    echo 'woooo';
+    header('Location: ../mainpage.php');
   } else {
     echo 'fack';
     $session->addMessage('error', 'Wrong password!');
