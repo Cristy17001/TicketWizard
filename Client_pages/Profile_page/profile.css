@@ -31,6 +31,13 @@
     background-color: var(--logo-color);
 }
 
+
+#profile-form {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
 /* Personal information - right side */
 
 .avatar-password {
