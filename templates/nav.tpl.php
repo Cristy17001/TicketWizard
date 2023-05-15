@@ -10,6 +10,7 @@ declare(strict_types=1);
                   if($permission=='isClient' || $permission== 'isAgent') drawNavClient($selected); 
                  ?>
                 <?php if($permission=='isAgent') drawNavAgent($selected); ?>
+
                 <!-- //Admin -->
                 <li class="nav-item unselectable" selected="false">
                     <div class="option-container">
@@ -89,3 +90,4 @@ declare(strict_types=1);
 </a>
                 </li>
 <?php } ?>
+
