@@ -26,11 +26,12 @@ class User{
         $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
         $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
     }
-    public function save($db){
-        $stmt = $db->prepare('INSERT INTO User(username,password,email, full_name, created_at) VALUES (?, ?, ?, ?,2015-12-17)');
-        $stmt->execute(array($this->username, $this->password, strtolower($this->email),$this->fullName));
-        $this->id = intval($db->lastInsertId());
+
+    function save($db) {
+        $stmt = $db->prepare('UPDATE User SET username = ?, full_name  = ? WHERE id = ?');
+        $stmt->execute(array($this->username, $this->fullName , $this->id));
     }
+
 
     static function getUserWithPassword($db, string $username, string $password){
         $stmt = $db->prepare('

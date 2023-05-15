@@ -10,7 +10,6 @@ class Department {
       $this->id = $id;
       $this->name = $name;
     }
-
 }
-    
+
 ?>
