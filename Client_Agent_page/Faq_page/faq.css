@@ -74,14 +74,41 @@
 }
 
 .faq-questions button {
+    position: relative;
     background: transparent;
     border: none;
     width: fit-content;
     height: fit-content;
 }
 
-.faq-questions button:hover {
+.copy-msg, .copied-msg {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.faq-questions button:hover .copy-msg {
+    opacity: 1;
+}
+
+.show-copied {
+    opacity: 1;
+}
+.hide-copied {
+    opacity: 0;
+}
+
+.faq-questions button:hover * {
     cursor: pointer;
+    stroke: var(--highlight-color);
 }
 
 .faq-questions h2 {
@@ -96,7 +123,7 @@
     font-family: var(--text-font);
 }
 
-.faq-questions span {
+.faq-questions > span {
     width: 100%;
     border: 1px solid var(--dark-blue-highlight);
 }
