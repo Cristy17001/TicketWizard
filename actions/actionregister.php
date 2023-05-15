@@ -7,22 +7,15 @@
   require_once('../database/connection.db.php');
   require_once('../database/User.class.php');
 
-  $name=$_POST['name'];
-  $email=$_POST['email'];
-  $username=$_POST['username'];
-  $pwd=password_hash($_POST['password'],PASSWORD_DEFAULT);  
+  // User input validation
+  $name = htmlspecialchars(filter_var($_POST['name'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
+  $email = htmlspecialchars(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL), ENT_QUOTES, 'UTF-8');
+  $username = htmlspecialchars(filter_var($_POST['username'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
+  $pwd = password_hash($_POST['password'],PASSWORD_DEFAULT);
 
-
+  // Write to database
   $db = getDatabaseConnection();
-  $User= new User(null,$username,$pwd,$email,$name);
-  $User->save($db);
-  if ($User) {
-    header('Location: ../login.php');
-    
-  } else {
-    header('Location: ../register.php');
-    echo 'Something went wrong!';
-  }
-
+  $User= new User(null, $username, $pwd, $email, $name);
+  $User->register_save($db);
+  header('Location: ../login.php');
 //   header('Location: ' . $_SERVER['HTTP_REFERER']);
-?>
