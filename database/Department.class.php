@@ -12,5 +12,14 @@ class Department {
     }
 
 }
+
+function getDepartments($db) {
+  $stmt = $db->prepare('
+  SELECT * FROM Department 
+  ');
+  $stmt->execute();
+  $departments = $stmt->fetchAll();
+  return $departments;
+} 
     
 ?>

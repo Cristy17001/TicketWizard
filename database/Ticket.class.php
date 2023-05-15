@@ -6,7 +6,7 @@ class Ticket {
     public int $id;
     public int $userId;
     public int $userAssignedId;
-    public int $departmentId;
+    public String $department;
     public string $title;
     public string $description;
     public string $status;
@@ -15,11 +15,11 @@ class Ticket {
     public datetime $updatedAt;
     public datetime $isClosed;
 
-    public function __construct(int $id,int $userId,int $userAssignedId,int $departmentId,string $title,string $description,string $status,string $priority,datetime $createdAt,datetime $updatedAt,int $isClosed) {
+    public function __construct(int $id,int $userId,int $userAssignedId,String $department,string $title,string $description,string $status,string $priority,datetime $createdAt,datetime $updatedAt,int $isClosed) {
         $this->id = $id;
         $this->userId = $userId;
         $this->userAssignedId = $userAssignedId;
-        $this->departmentId = $departmentId;
+        $this->department = $department;
         $this->title = $title;
         $this->description = $description;
         $this->status = $status;
@@ -42,7 +42,7 @@ class Ticket {
 }
 function getTicketsFromClient($db,int $user_id) {
     $stmt = $db->prepare('
-    SELECT id, user_id, user_assigned_id, department_id, title, description, status, priority, created_at, updated_at, isClosed
+    SELECT id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed
     FROM Ticket 
     WHERE user_id = ?
     ');
@@ -50,5 +50,24 @@ function getTicketsFromClient($db,int $user_id) {
     $tickets = $stmt->fetchAll();
     return $tickets;
 }
+function getTicketsFromAgent($db,int $user_assigned_id) {
+    $stmt = $db->prepare('
+    SELECT id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed
+    FROM Ticket 
+    WHERE user_assigned_id = ?
+    ');
+    $stmt->execute(array($user_assigned_id));
+    $tickets = $stmt->fetchAll();
+    return $tickets;
+}
+
+function createTicket($db, $user_id, $department, $title, $description) {
+    $stmt = $db->prepare('
+    INSERT INTO Ticket(user_id, department, title, description, isClosed)
+    VALUES(?, ?, ?, ?, ?)
+    ');
+    $stmt->execute(array($user_id,$department, $title, $description, 1));
+}
+
 
 ?>

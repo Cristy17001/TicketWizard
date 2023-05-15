@@ -21,9 +21,9 @@ $tickets= getTicketsFromClient($db,$session->getId());
   if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Client') {
     echo 'No permission!';
   } else
-  drawHeader($user->whatPermission($db), 'client');
+  drawHeader($user->whatPermission($db), 'client', $db);
   drawNav($user, $db,'client');
-  drawClientTickets($tickets);
+  drawClientTickets($tickets, $db);
 ?>
 
 <!-- # NAO ESQUECER POR ESPECIFICO PARA ADMIN !!!! -->
