@@ -2,48 +2,54 @@
 declare(strict_types=1);
 ?>
 
-<?php function drawNav(String $permission,String $selected){ ?>
+<?php function drawNav(User $user, $db, String $selected){ ?>
     <main>
         <nav class="nav-bar">
             <ul>
                 <?php
-                  if($permission=='isClient' || $permission== 'isAgent') drawNavClient($selected); 
+                  if($user->whatPermition($db)=='Client' || $user->whatPermition($db)== 'Agent') drawNavClient($selected); 
                  ?>
-                <?php if($permission=='isAgent') drawNavAgent($selected); ?>
+                <?php if($user->whatPermition($db)=='Agent') drawNavAgent($selected); ?>
                 <!-- //Admin -->
                 <li class="nav-item unselectable" selected="false">
-                    <div class="option-container">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="Iconly/Curved/Profile">
-                                <g id="Profile">
-                                    <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M11.8445 21.6618C8.15273 21.6618 5 21.0873 5 18.7865C5 16.4858 8.13273 14.3618 11.8445 14.3618C15.5364 14.3618 18.6891 16.4652 18.6891 18.766C18.6891 21.0658 15.5564 21.6618 11.8445 21.6618Z" />
-                                    <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M11.8372 11.1735C14.26 11.1735 16.2236 9.2099 16.2236 6.78718C16.2236 4.36445 14.26 2.3999 11.8372 2.3999C9.41452 2.3999 7.44998 4.36445 7.44998 6.78718C7.4418 9.20172 9.3918 11.1654 11.8063 11.1735C11.8172 11.1735 11.8272 11.1735 11.8372 11.1735Z"/>
+                    <a href="#">
+                        <div class="option-container">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="Iconly/Curved/Profile">
+                                    <g id="Profile">
+                                        <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M11.8445 21.6618C8.15273 21.6618 5 21.0873 5 18.7865C5 16.4858 8.13273 14.3618 11.8445 14.3618C15.5364 14.3618 18.6891 16.4652 18.6891 18.766C18.6891 21.0658 15.5564 21.6618 11.8445 21.6618Z" />
+                                        <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M11.8372 11.1735C14.26 11.1735 16.2236 9.2099 16.2236 6.78718C16.2236 4.36445 14.26 2.3999 11.8372 2.3999C9.41452 2.3999 7.44998 4.36445 7.44998 6.78718C7.4418 9.20172 9.3918 11.1654 11.8063 11.1735C11.8172 11.1735 11.8272 11.1735 11.8372 11.1735Z"/>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                        <p>Profile</p>
-                    </div>
+                            </svg>
+                            <p>Profile</p>
+                        </div>
+                    </a>
                 </li>
                 <li class="nav-item unselectable" selected="false">
-                    <div class="option-container">
+                    <a href="#">
+                        <div class="option-container">
                         <svg fill="#000000" width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,22A10,10,0,1,0,2,12,10,10,0,0,0,12,22Zm0-2a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,20ZM8,8.994a3.907,3.907,0,0,1,2.319-3.645,4.061,4.061,0,0,1,3.889.316,4,4,0,0,1,.294,6.456,3.972,3.972,0,0,0-1.411,2.114,1,1,0,0,1-1.944-.47,5.908,5.908,0,0,1,2.1-3.2,2,2,0,0,0-.146-3.23,2.06,2.06,0,0,0-2.006-.14,1.937,1.937,0,0,0-1.1,1.8A1,1,0,0,1,8,9Z"/></svg>
                         <p>FAQ</p>
-                    </div>
+                        </div>
+                    </a>
                 </li>
                 <li class="nav-item unselectable" selected="false">
-                    <div class="option-container">
-                        <svg width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                            <title>about-filled</title>
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="drop" fill="#000000" transform="translate(42.666667, 42.666667)">
-                                    <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape">
+                    <a href="#">
+                        <div class="option-container">
+                            <svg width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                <title>about-filled</title>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="drop" fill="#000000" transform="translate(42.666667, 42.666667)">
+                                        <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape">
 
-                                    </path>
+                                        </path>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                        <p>About</p>
-                    </div>
+                            </svg>
+                            <p>About</p>
+                        </div>
+                    </a>
                 </li>
             </ul>
             <div class="user-info unselectable">
@@ -51,8 +57,8 @@ declare(strict_types=1);
                     <img src="source/avatar.jpg" alt="user_image">
                 </div>
                 <div>
-                    <p class="name">Cristiano Rocha</p>
-                    <p class="role">Client</p>
+                    <p class="name"><?php echo $user->fullName?></p>
+                    <p class="role"><?php echo $user->whatPermition($db) ?></p>
                 </div>
                 <a href="../../Login_Register_pages/login.html">
                     <svg class="log-out" fill="#000000" width="50" height="50" viewBox="0 0 24 24"

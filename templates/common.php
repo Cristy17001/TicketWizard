@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>TicketWizard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="constants.css">
     <link rel="stylesheet" href="navigation.css">
@@ -25,7 +25,7 @@
             <h1 class="unselectable">TicketWizard</h1>
         </div>
         <?php 
-        if($permition=='isClient' || $permition=='isAgent'){
+        if($permition=='Client' || $permition=='Agent'){
             drawAddBotton();
         }
          ?>
