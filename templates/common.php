@@ -1,12 +1,12 @@
 <?php declare(strict_types=1); ?>
 
 
-<?php function drawHeader(String $permition){ ?>
+<?php function drawHeader(String $permission, String $page) { ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>TicketWizard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="constants.css">
     <link rel="stylesheet" href="navigation.css">
@@ -25,7 +25,7 @@
             <h1 class="unselectable">TicketWizard</h1>
         </div>
         <?php 
-        if($permition=='isClient' || $permition=='isAgent'){
+        if(($permission=='Client' || $permission=='Agent') && $page=='client' ){
             drawAddBotton();
         }
          ?>

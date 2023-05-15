@@ -13,7 +13,7 @@
 
   if ($user) {
     echo 'woooo'. '<br>';
-    echo $user->whatPermition($db);
+    echo $user->whatPermission($db);
     $session->setId($user->id);
     $session->setName($user->username);
     $session->addMessage('success', 'Login successful!');
