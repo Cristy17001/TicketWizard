@@ -7,7 +7,7 @@ class User{
     public string $username;
     public string $password;
     public string $email;
-    public string $full_name;
+    public string $fullName;
     // public datetime $created_at;
 
     public function __construct(?int $id, string $username, string $password, string $email, string $fullName) {
@@ -62,20 +62,20 @@ class User{
         return ($result !== false);
     }
 
-    public function whatPermition($db) {
+    public function whatPermission($db) {
 
         $stmt = $db->prepare("SELECT * FROM Admin WHERE id = ?");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
-        if($result !== false) return 'isAdmin';
+        if($result !== false) return 'Admin';
         $stmt = $db->prepare("SELECT * FROM Agent WHERE id = ?");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
-        if($result !== false) return 'isAgent';
+        if($result !== false) return 'Agent';
         $stmt = $db->prepare("SELECT * FROM Client WHERE id = ?");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
-        if($result !== false) return 'isClient';
+        if($result !== false) return 'Client';
     }
 
 

@@ -7,9 +7,9 @@ declare(strict_types=1);
         <nav class="nav-bar">
             <ul>
                 <?php
-                  if($user->whatPermition($db)=='Client' || $user->whatPermition($db)== 'Agent') drawNavClient($selected); 
+                  if($user->whatPermission($db)=='Client' || $user->whatPermission($db)== 'Agent') drawNavClient($selected); 
                  ?>
-                <?php if($user->whatPermition($db)=='Agent') drawNavAgent($selected); ?>
+                <?php if($user->whatPermission($db)=='Agent' || $user->whatPermission($db)=='Admin') drawNavAgent($selected); ?>
                 <!-- //Admin -->
                 <li class="nav-item unselectable" selected="false">
                     <a href="#">
@@ -58,7 +58,7 @@ declare(strict_types=1);
                 </div>
                 <div>
                     <p class="name"><?php echo $user->fullName?></p>
-                    <p class="role"><?php echo $user->whatPermition($db) ?></p>
+                    <p class="role"><?php echo $user->whatPermission($db) ?></p>
                 </div>
                 <a href="../../Login_Register_pages/login.html">
                     <svg class="log-out" fill="#000000" width="50" height="50" viewBox="0 0 24 24"

@@ -1,6 +1,6 @@
 
 <?php function drawClientTickets($tickets){ ?>
-<div class="main-content">
+        <div class="main-content">
             <form class="filter">
                 <label for="search"></label>
                 <input id="search" type="text" placeholder="Search...">

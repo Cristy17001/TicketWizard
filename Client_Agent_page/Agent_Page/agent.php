@@ -15,10 +15,10 @@
 
 $user = User::getUser($db, $session->getId());
 
-if($user->whatPermition($db)!='Agent' && $user->whatPermition($db)!='Admin'){
+if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin'){
     echo 'No permission!';
 } else {
-  drawHeader($user->whatPermition($db));
+  drawHeader($user->whatPermission($db), 'agent');
   drawNav($user, $db,'agent');
 }
 ?>

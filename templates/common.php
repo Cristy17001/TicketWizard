@@ -1,7 +1,7 @@
 <?php declare(strict_types=1); ?>
 
 
-<?php function drawHeader(String $permition){ ?>
+<?php function drawHeader(String $permission, String $page) { ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +25,7 @@
             <h1 class="unselectable">TicketWizard</h1>
         </div>
         <?php 
-        if($permition=='Client' || $permition=='Agent'){
+        if(($permission=='Client' || $permission=='Agent') && $page=='client' ){
             drawAddBotton();
         }
          ?>

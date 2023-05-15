@@ -18,10 +18,10 @@
 $user = User::getUser($db, $session->getId());
 $tickets= getTicketsFromClient($db,$session->getId());
 
-  if($user->whatPermition($db)!='Agent' && $user->whatPermition($db)!='Client') {
+  if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Client') {
     echo 'No permission!';
   } else
-  drawHeader($user->whatPermition($db));
+  drawHeader($user->whatPermission($db), 'client');
   drawNav($user, $db,'client');
   drawClientTickets($tickets);
 ?>
