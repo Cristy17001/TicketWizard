@@ -10,7 +10,7 @@ class User{
     public string $full_name;
     // public datetime $created_at;
 
-    public function __construct(?int $id,string $username,string $password,string $email,string $fullName) {
+    public function __construct(?int $id, string $username, string $password, string $email, string $fullName) {
         $this->id=$id;
         $this->username = $username;
         $this->password = $password;
@@ -18,10 +18,18 @@ class User{
         $this->fullName = $fullName;
     }
 
+    public function register_save($db) {
+        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName));
+        $this->id = intval($db->lastInsertId());
+
+        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
+    }
     public function save($db){
         $stmt = $db->prepare('INSERT INTO User(username,password,email, full_name, created_at) VALUES (?, ?, ?, ?,2015-12-17)');
         $stmt->execute(array($this->username, $this->password, strtolower($this->email),$this->fullName));
-        $this->$id=$db->lastInsertId();
+        $this->id = intval($db->lastInsertId());
     }
 
     static function getUserWithPassword($db, string $username, string $password){
