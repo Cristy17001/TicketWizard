@@ -7,10 +7,10 @@ class User{
     public string $username;
     public string $password;
     public string $email;
-    public string $full_name;
+    public string $fullName;
     // public datetime $created_at;
 
-    public function __construct(?int $id,string $username,string $password,string $email,string $fullName) {
+    public function __construct(?int $id, string $username, string $password, string $email, string $fullName) {
         $this->id=$id;
         $this->username = $username;
         $this->password = $password;
@@ -18,10 +18,18 @@ class User{
         $this->fullName = $fullName;
     }
 
+    public function register_save($db) {
+        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName));
+        $this->id = intval($db->lastInsertId());
+
+        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
+    }
     public function save($db){
         $stmt = $db->prepare('INSERT INTO User(username,password,email, full_name, created_at) VALUES (?, ?, ?, ?,2015-12-17)');
         $stmt->execute(array($this->username, $this->password, strtolower($this->email),$this->fullName));
-        $this->$id=$db->lastInsertId();
+        $this->id = intval($db->lastInsertId());
     }
 
     static function getUserWithPassword($db, string $username, string $password){
@@ -54,20 +62,20 @@ class User{
         return ($result !== false);
     }
 
-    public function whatPermition($db) {
+    public function whatPermission($db) {
 
         $stmt = $db->prepare("SELECT * FROM Admin WHERE id = ?");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
-        if($result !== false) return 'isAdmin';
+        if($result !== false) return 'Admin';
         $stmt = $db->prepare("SELECT * FROM Agent WHERE id = ?");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
-        if($result !== false) return 'isAgent';
+        if($result !== false) return 'Agent';
         $stmt = $db->prepare("SELECT * FROM Client WHERE id = ?");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
-        if($result !== false) return 'isClient';
+        if($result !== false) return 'Client';
     }
 
 

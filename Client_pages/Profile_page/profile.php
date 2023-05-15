@@ -17,7 +17,10 @@
 
   $user = User::getUser($db, $session->getId());
 
-    drawProfile($user);
+  drawHeader($user->whatPermission($db), 'profile');
+  drawNav($user, $db,'profile');
+  drawProfile($user);
+    
   
 ?>
 

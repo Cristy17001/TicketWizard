@@ -34,12 +34,12 @@ declare(strict_types=1);
             <section class="personal-section">
                 <div class="personal-form">
                     <h2>Personal Information:</h2>
-                    <label for="name"><?= $user->fullname?>:</label>
-                    <input id="name" class="input-field" type="text" placeholder="Cristiano Rocha">
-                    <label for="username"><?= $user->username?>:</label>
-                    <input id="username" class="input-field" type="text" placeholder="Cristy1700">
-                    <label for="email"><?= $user->email?>:</label>
-                    <input id="email" class="input-field" type="email" placeholder="cristianorocha170@gmail.com">
+                    <label for="name">Name:</label>
+                    <input id="name" class="input-field" type="text" placeholder=<?= $user->fullName?>>
+                    <label for="username">Username:</label>
+                    <input id="username" class="input-field" type="text" placeholder=<?= $user->username?>>
+                    <label for="email">Email:</label>
+                    <input id="email" class="input-field" type="email" placeholder=<?= $user->email?>>
                     <button>UPDATE</button>
                 </div>
             </section>

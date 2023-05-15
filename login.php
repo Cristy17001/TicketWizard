@@ -25,7 +25,7 @@
     </div>
     <div class="right">
         <h1 class="highlight">Log in</h1>
-        <form action="../actions/actionlogin.php" method="post">
+        <form action="actions/actionlogin.php" method="post">
             <div class="group">
                 <input required="" type="text" class="input" name="username">
                 <label>Username</label>
