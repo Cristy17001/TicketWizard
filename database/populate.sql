@@ -22,6 +22,16 @@ INSERT INTO Department (id, name) VALUES (8, 'Customer Service');
 
 --MESSAGE
 
+--FAQ
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (1, 'How can I contact customer support?', 'You can contact our customer support team by submitting a ticket through our website. Our agents will respond to your inquiry promptly.', 'Admin', '2023-05-15 15:41:04');
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (2, 'What are the customer support hours?', 'Our customer support team is available 24/7 to assist you with your troubleshooting tickets.', 'Admin', '2023-05-15 15:41:32');
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (3, 'How long does it typically take to receive a response from customer support?', 'We strive to respond to customer inquiries within 24-48 hours. Please note that response times may vary depending on the volume of inquiries.', 'Admin', '2023-05-15 15:42:01');
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (4, 'How long does it typically take to receive a response from customer support?', 'We strive to respond to troubleshooting tickets within 24 hours. However', 'Admin', '2023-05-15 15:42:16');
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (5, 'What is the process for submitting a troubleshooting ticket?', 'To submit a troubleshooting ticket', 'Admin', '2023-05-15 15:42:16');
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (6, 'Can I cancel or modify a troubleshooting ticket?', 'Once a ticket has been submitted', 'Admin', '2023-05-15 15:42:16');
+INSERT INTO Faq (id, title, response, creator, created_at) VALUES (7, 'How do I track the progress of my troubleshooting ticket?', 'You can track the progress of your troubleshooting ticket by logging in to your account and accessing the "My Tickets" section. There', 'Admin', '2023-05-15 15:42:16');
+
+
 --TICKET
 
 --USER

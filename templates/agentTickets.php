@@ -1,0 +1,122 @@
+<?php declare(strict_types=1);?>
+
+<?php function drawAgentTickets($tickets, $db){ ?>
+    <div class="main-content">
+    <form class="filter">
+                <label for="search"></label>
+                <input id="search" type="text" placeholder="Agent...">
+                <label for="Department"></label>
+                <select id="Department" name="Department">
+                    <option value="" disabled selected>Department</option>
+                    <option value="option1">Informatics</option>
+                    <option value="option2">Design</option>
+                    <option value="option3">Real State</option>
+                </select>
+                <label for="State"></label>
+                <select id="State" name="State">
+                    <option value="" disabled selected>State</option>
+                    <option value="option1">Open</option>
+                    <option value="option2">Closed</option>
+                    <option value="option3">Assigned</option>
+                </select>
+                <label for="Hashtags"></label>
+                <select id="Hashtags" name="Hashtags">
+                    <option value="" disabled selected>Hashtags</option>
+                    <option value="option1">#informatics</option>
+                    <option value="option2">#bug</option>
+                    <option value="option3">#information</option>
+                    <option value="option4">#needhelp</option>
+                </select>
+                <label for="Sort"></label>
+                <button id="Sort">Sort by date</button>
+                <input type="submit" value="Filter">
+            </form>
+            <div class="tickets-container">
+                <div class="ticket unselectable" state="pending">
+                    <div class="innerCard transition">
+                        <div class="frontSide">
+                            <p class="state">PENDING</p>
+                            <h2 class="title">Computer blue screen</h2>
+                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="hashtags">#informatics #something</p>
+                            <p class="created">Created, April 14 2023</p>
+                        </div>
+                        <div class="backSide">
+                            <h2>Assigned</h2>
+                            <p class="agent"><span>Agent:</span> Agent1234</p>
+                            <p class="department"><span>Department:</span> Informatics</p>
+                            <div class="circle">
+                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                            </div>
+                            <p class="date">Updated, April 15 2023</p>
+                            <p class="time">19:12</p>
+                        </div>
+                    </div>
+                </div>
+                <dialog class="edit-ticket-card-dialog">
+                    <div class="edit-ticket-card">
+                        <svg class="close" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 1024 1024"><path
+                                fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
+                        </svg>
+                        <div class="top">
+                            <h1>Computer blue screen</h1>
+                            <p>State</p>
+                        </div>
+                        <p class="description">
+                            Some description about the problem, like blue screen happened when turning
+                            on the pc with a maximum amount of words, or it will run out of space
+                        </p>
+                        <label for="assigned-depart">Assigned Department:</label>
+                        <select id="assigned-depart" name="Department-assign">
+                            <option value="" disabled selected>Department</option>
+                            <option value="option1">Informatics</option>
+                            <option value="option2">Design</option>
+                            <option value="option3">Real State</option>
+                        </select>
+                        <label for="assigned-agent">Assigned agent:</label>
+                        <select id="assigned-agent" name="agent-assign">
+                            <option value="" disabled selected>Agent</option>
+                            <option value="option1">User123</option>
+                            <option value="option2">User1234</option>
+                            <option value="option3">User12345</option>
+                        </select>
+                        <label for="assigned-status">Status:</label>
+                        <select id="assigned-status" name="agent-assign">
+                            <option value="" disabled selected>Status</option>
+                            <option value="option1">Open</option>
+                            <option value="option2">Closed</option>
+                            <option value="option3">Assigned</option>
+                        </select>
+                        <label for="add-chip">Hashtags:</label>
+                        <input id="add-chip" type="text" placeholder="Enter a #...">
+                        <div class="chip-container">
+                            <div class="chip">#Informatics<span>X</span></div>
+                            <div class="chip">#Something<span>X</span></div>
+                        </div>
+                        <a href="#">Ticket History</a>
+                        <h2>Chat:</h2>
+                        <div class="chat">
+                            <div class="chat-display">
+                                <div class="left">
+                                    <img src="source/avatar.jpg" alt="replier image">
+                                    <p>I really don't know how to solve this can you help me?</p>
+                                </div>
+                                <div class="right">
+                                    <p>Sure you give me a little more context, what does it say in the blue screen?</p>
+                                    <img src="source/agent_avatar.jpg" alt="my image">
+                                </div>
+                            </div>
+                            <form class="chat-response">
+                                <label><textarea placeholder="Enter your message..."></textarea></label>
+                                <button class="send-message">
+                                    <svg width="30" height="30" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.4165 17.5833L14.9204 25.7591C15.4026 26.8844 16.9027 27.0034 17.5039 25.9368C18.6905 23.8325 20.4493 20.4388 22.2082 16.0417C25.2915 8.33332 26.8332 2.16666 26.8332 2.16666C26.8332 2.16666 20.6665 3.70832 12.9582 6.79166C8.56107 8.55048 5.16729 10.3093 3.06295 11.4959C1.99652 12.0971 2.11541 13.5972 3.24069 14.0794L11.4165 17.5833Z" stroke="white" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+                </div>
+
+    <?php } ?>

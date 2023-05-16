@@ -50,13 +50,12 @@ function getTicketsFromClient($db,int $user_id) {
     $tickets = $stmt->fetchAll();
     return $tickets;
 }
-function getTicketsFromAgent($db,int $user_assigned_id) {
+function getTicketsToAgent($db) {
     $stmt = $db->prepare('
-    SELECT id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed
-    FROM Ticket 
-    WHERE user_assigned_id = ?
+    SELECT *
+    FROM Ticket
     ');
-    $stmt->execute(array($user_assigned_id));
+    $stmt->execute();
     $tickets = $stmt->fetchAll();
     return $tickets;
 }

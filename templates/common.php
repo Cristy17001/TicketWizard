@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="ticket.css">
     <link rel="stylesheet" href="create_ticket.css">
     <link rel="stylesheet" href="open_ticket.css">
+    <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/Agent.css">
+    <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/edit_ticket.css">
     <script src="rotate_ticket.js"></script>
 </head>
 <body>
