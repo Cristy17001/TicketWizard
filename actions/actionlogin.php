@@ -6,8 +6,10 @@
 
   require_once('../database/connection.db.php');
   require_once('../database/User.class.php');
+  require_once('../templates/errorPage.php');
 
-  $db = getDatabaseConnection();
+
+$db = getDatabaseConnection();
 
   $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
 
@@ -18,7 +20,7 @@
     $session->addMessage('success', 'Login successful!');
     header('Location: /../Client_pages/Home_page/client.php');
   } else {
-    echo 'fack';
+    drawErrorPage("Error: Login Failed!");
     $session->addMessage('error', 'Wrong password!');
   }
 

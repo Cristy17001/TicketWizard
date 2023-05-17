@@ -13,17 +13,20 @@
   require_once('../../templates/common.php');
   require_once('../../templates/nav.tpl.php');
   require_once('../../templates/clientTickets.php');
-  $db = getDatabaseConnection();
+  require_once('../../templates/errorPage.php');
+
+$db = getDatabaseConnection();
 
 $user = User::getUser($db, $session->getId());
 $tickets= getTicketsFromClient($db,$session->getId());
 
   if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Client') {
-    echo 'No permission!';
-  } else
-  drawHeader($user->whatPermission($db), 'client', $db);
-  drawNav($user, $db,'client');
-  drawClientTickets($tickets, $db);
+    drawErrorPage("You dont have access!");
+  } else {
+      drawHeader($user->whatPermission($db), 'client', $db);
+      drawNav($user, $db, 'client');
+      drawClientTickets($tickets, $db);
+  }
 ?>
 
 <!-- # NAO ESQUECER POR ESPECIFICO PARA ADMIN !!!! -->
