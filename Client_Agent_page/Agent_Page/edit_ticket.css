@@ -33,6 +33,28 @@
     justify-content: space-between;
 }
 
+.edit-ticket-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-ticket-form button {
+    color: var(--text-color);
+    background: var(--dark-blue-highlight);
+    font-family: var(--text-font);
+    font-weight: bold;
+    min-width: 5rem;
+    width: 10%;
+    border: none;
+    border-radius: 25px;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 .top h1 {
     font-family: var(--hightlight-font);
     color: var(--highlight-color);

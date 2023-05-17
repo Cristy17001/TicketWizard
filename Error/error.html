@@ -19,7 +19,7 @@
             </svg>
           <h2 class="highlight">TicketWizard</h2>
       </div>
-      <a href="#">Back</a>
+      <a href="../index.php">Back</a>
   </main>
 </body>
 </html>
