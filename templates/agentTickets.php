@@ -8,9 +8,9 @@
                 <label for="Department"></label>
                 <select id="Department" name="Department">
                     <option value="" disabled selected>Department</option>
-                    <option value="option1">Informatics</option>
-                    <option value="option2">Design</option>
-                    <option value="option3">Real State</option>
+                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                    <option><?php echo $department['name'] ?></option>
+                     <?php } ?>
                 </select>
                 <label for="State"></label>
                 <select id="State" name="State">
@@ -32,24 +32,24 @@
                 <input type="submit" value="Filter">
             </form>
             <div class="tickets-container">
+            <?php foreach($tickets as $ticket) { ?>
                 <div class="ticket unselectable" state="pending">
                     <div class="innerCard transition">
                         <div class="frontSide">
-                            <p class="state">PENDING</p>
-                            <h2 class="title">Computer blue screen</h2>
-                            <p class="description">Some description about the problem, like blue screen happened when turning on the pc with a maximum amount of words, or it will run out of space</p>
+                            <p class="state"> <?=$ticket['status']?></p>
+                            <h2 class="title"><?=$ticket['title']?></h2>
+                            <p class="description"><?=$ticket['description']?></p>
                             <p class="hashtags">#informatics #something</p>
-                            <p class="created">Created, April 14 2023</p>
+                            <p class="created"> Created at,<?=$ticket['created_at']?></p>
                         </div>
                         <div class="backSide">
                             <h2>Assigned</h2>
-                            <p class="agent"><span>Agent:</span> Agent1234</p>
-                            <p class="department"><span>Department:</span> Informatics</p>
+                            <p class="agent"><span>Agent:</span> <?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?></p>
+                            <p class="department"><span>Department:</span> <?=$ticket['department']?></p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
-                            <p class="date">Updated, April 15 2023</p>
-                            <p class="time">19:12</p>
+                            <p class="date"><?php if($ticket['updated_at']!='') { echo 'Updated at, ' . $ticket['updated_at']; }?></p>
                         </div>
                     </div>
                 </div>
@@ -59,19 +59,17 @@
                                 fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
                         </svg>
                         <div class="top">
-                            <h1>Computer blue screen</h1>
-                            <p>State</p>
+                            <h1><?=$ticket['title']?></h1>
+                            <p><?=$ticket['status']?></p>
                         </div>
-                        <p class="description">
-                            Some description about the problem, like blue screen happened when turning
-                            on the pc with a maximum amount of words, or it will run out of space
+                        <p class="description"><?=$ticket['description']?>
                         </p>
                         <label for="assigned-depart">Assigned Department:</label>
                         <select id="assigned-depart" name="Department-assign">
-                            <option value="" disabled selected>Department</option>
-                            <option value="option1">Informatics</option>
-                            <option value="option2">Design</option>
-                            <option value="option3">Real State</option>
+                            <option value="" disabled selected><?php if($ticket['department']!='') { echo $ticket['department']; } else { echo 'Department';}?></option>
+                            <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                            <option><?php echo $department['name'] ?></option>
+                        <?php } ?>
                         </select>
                         <label for="assigned-agent">Assigned agent:</label>
                         <select id="assigned-agent" name="agent-assign">
@@ -117,6 +115,7 @@
                         </div>
                     </div>
                 </dialog>
+                <?php } ?>
                 </div>
 
     <?php } ?>
