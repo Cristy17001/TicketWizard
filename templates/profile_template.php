@@ -23,11 +23,11 @@ declare(strict_types=1);
                     <div class="optional-form">
                         <h2>Optional:</h2>
                         <label for="current-pass"></label>
-                        <input id="current-pass" class="input-field" type="password" placeholder="Current Password">
+                        <input id="current-pass" class="input-field" type="password" name = "current-pass" placeholder="Current Password">
                         <label for="new-pass"></label>
-                        <input id="new-pass" class="input-field" type="password" placeholder="New Password">
+                        <input id="new-pass" class="input-field" type="password" name = "new-pass" placeholder="New Password">
                         <label for="confirm-pass"></label>
-                        <input id="confirm-pass" class="input-field" type="password" placeholder="Confirm Password">
+                        <input id="confirm-pass" class="input-field" type="password" name = "confirm-pass" placeholder="Confirm Password">
                     </div>
                 </section>
             </section>
@@ -37,9 +37,9 @@ declare(strict_types=1);
                     <label for="name">Full name:</label>
                     <input id="name" class="input-field" type="text" name="name" placeholder="<?= $user->fullName ?>">
                     <label for="username">Username:</label>
-                    <input id="username" class="input-field" type="text" placeholder=<?= $user->username?>>
+                    <input id="username" class="input-field" type="text" name="username"  placeholder=<?= $user->username?>>
                     <label for="email">Email:</label>
-                    <input id="email" class="input-field" type="email" placeholder=<?= $user->email?>>
+                    <input id="email" class="input-field" type="email" name="email" placeholder=<?= $user->email?>>
                     <button type="submit">UPDATE</button>
                 </div>
             </section>

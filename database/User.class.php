@@ -28,8 +28,8 @@ class User{
     }
 
     function save($db) {
-        $stmt = $db->prepare('UPDATE User SET username = ?, full_name  = ? WHERE id = ?');
-        $stmt->execute(array($this->username, $this->fullName , $this->id));
+        $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ?   WHERE id = ?');
+        $stmt->execute(array($this->username,$this->email,$this->fullName , $this->id));
     }
 
 
