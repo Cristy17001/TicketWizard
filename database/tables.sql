@@ -84,21 +84,21 @@ CREATE TABLE IF NOT EXISTS Ticket (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     user_assigned_id INTEGER ,
-    department_id INTEGER,
+    department VARCHAR(100),
 
     --CONTENT
     title VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    priority VARCHAR(20) NOT NULL,
-    created_at DATETIME NOT NULL,
-    updated_at DATETIME NOT NULL,
+    status VARCHAR(20),
+    priority VARCHAR(20) ,
+    created_at DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME,
     isClosed INTEGER NOT NULL CHECK (isClosed IN (0,1)),
     
     --FOREIGN KEYS
     FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (user_assigned_id) REFERENCES Users(id),
-    FOREIGN KEY (department_id) REFERENCES Department(id)
+    FOREIGN KEY (department) REFERENCES Department(name)
 );
 
 DROP TABLE IF EXISTS Message;

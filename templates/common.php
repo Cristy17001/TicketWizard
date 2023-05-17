@@ -1,7 +1,8 @@
-<?php declare(strict_types=1); ?>
+<?php declare(strict_types=1);?>
 
 
-<?php function drawHeader(String $permission, String $page) { ?>
+
+<?php function drawHeader(String $permission, String $page,$db) { ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,8 @@
     <link rel="stylesheet" href="ticket.css">
     <link rel="stylesheet" href="create_ticket.css">
     <link rel="stylesheet" href="open_ticket.css">
+    <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/Agent.css">
+    <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/edit_ticket.css">
     <script src="rotate_ticket.js"></script>
 </head>
 <body>
@@ -25,36 +28,32 @@
             <h1 class="unselectable">TicketWizard</h1>
         </div>
         <?php 
-        if(($permission=='Client' || $permission=='Agent') && $page=='client' ){
-            drawAddBotton();
-        }
-         ?>
-    </header>
-<?php } ?>
-
-<?php function drawAddBotton(){ ?>
-        <button class="add-btn">
+        if(($permission=='Client' || $permission=='Agent') && $page=='client' ){ ?>
+            <button class="add-btn">
             <svg width="50" height="50" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
                 <path fill="#000000" fill-rule="evenodd"
                       d="M9 17a1 1 0 102 0v-6h6a1 1 0 100-2h-6V3a1 1 0 10-2 0v6H3a1 1 0 000 2h6v6z"/>
             </svg>
         </button>
         <dialog data-modal class="create-card">
-            <form class="add-form">
+            <form class="add-form" action="../../actions/actioncreateticket.php" method="post">
                 <label for="title">Title:</label>
-                <input id="title" type="text" placeholder="Enter a title...">
+                <input name="title" id="title" type="text" placeholder="Enter a title...">
                 <label for="description">Description:</label>
-                <textarea id="description" placeholder="Enter a Description..."></textarea>
+                <textarea name="description" id="description" placeholder="Enter a Description..."></textarea>
                 <label for="optional">Optional:</label>
-                <select id="optional">
+                <select name="optional" id="optional">
                     <option value="" disabled selected>Select Department</option>
-                    <option value="option1">Informatics</option>
-                    <option value="option2">Design</option>
-                    <option value="option3">Real State</option>
+                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                    <option><?php echo $department['name'] ?></option>
+                     <?php } ?>
                 </select>
                 <button>Add</button>
             </form>
         </dialog>
+        <?php } ?>
+         ?>
+    </header>
 <?php } ?>
 
 

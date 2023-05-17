@@ -12,7 +12,6 @@
   $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
 
   if ($user) {
-    echo 'woooo'. '<br>';
     echo $user->whatPermission($db);
     $session->setId($user->id);
     $session->setName($user->username);
