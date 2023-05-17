@@ -204,8 +204,13 @@ button:hover {
     padding: 1rem;
 }
 
+
 .chat-response > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 8vh;
+    min-width: 3rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: var(--highlight-color);
