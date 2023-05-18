@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/register.css">
-    <link rel="stylesheet" href="style/input_styling.css">
-    <link rel="stylesheet" href="style/constants.css">
-    <script src='script.js'></script>
+    <link rel="stylesheet" href="../style/register.css">
+    <link rel="stylesheet" href="../style/input_styling.css">
+    <link rel="stylesheet" href="../style/constants_login_register.css">
+    <script src='../script.js'></script>
 </head>
 <body>
   <div class="left">

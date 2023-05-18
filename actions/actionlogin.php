@@ -18,7 +18,7 @@ $db = getDatabaseConnection();
     $session->setId($user->id);
     $session->setName($user->username);
     $session->addMessage('success', 'Login successful!');
-    header('Location: /../Client_pages/Home_page/client.php');
+    header('Location: ../pages/client.php');
   } else {
     drawErrorPage("Error: Login Failed!");
     $session->addMessage('error', 'Wrong password!');

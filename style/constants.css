@@ -1,44 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@100;400;500;700;900&display=swap');
 
 :root {
-    --text-color: #FFFFFF;
-    --highlight-color: #0077BE;
-    --left-color: #1C2331;
-    --right-color: #252D3D;
+    --highlight-color: #00A0FF;
+    --opened-color: #30B900;
+    --pending-color: #ABABAB;
+    --closed-color: #BF0000;
+    --dark-blue: #1C2331;
+    --background-color: #252D3D;
+    --text-color: #FFF;
+    --logo-color: #0077BE;
+    --dark-blue-highlight: #001AFF;
 
-    --text-font: 'Source Sans Pro', sans-serif;
-    --hightlight-font: 'DM Serif Text', serif;
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-}
-
-.text {
-    color: var(--text-color);
-    font-family: var(--text-color);
-}
-
-.highlight {
-    color: var(--highlight-color);
-    font-family: var(--hightlight-font);
-}
-
-.logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.logo > svg {
-    fill: var(--highlight-color);
-    max-width: 20vw;
-    max-height: 20vh;
-}
-
-.logo > h2 {
-    font-size: 2.5rem;
-    font-weight: normal;
+    --text-font: 'Roboto', sans-serif;
+    --hightlight-font: 'DM Serif Display', serif;
 }

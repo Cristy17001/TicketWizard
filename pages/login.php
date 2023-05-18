@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style/login.css">
-    <link rel="stylesheet" href="style/input_styling.css">
-    <link rel="stylesheet" href="style/constants.css">
+    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="../style/input_styling.css">
+    <link rel="stylesheet" href="../style/constants_login_register.css">
 
 </head>
 <body>
@@ -25,7 +25,7 @@
     </div>
     <div class="right">
         <h1 class="highlight">Log in</h1>
-        <form action="actions/actionlogin.php" method="post">
+        <form action="../actions/actionlogin.php" method="post">
             <div class="group">
                 <input required="" type="text" class="input" name="username">
                 <label>Username</label>

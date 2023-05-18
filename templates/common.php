@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);?>
 
-
-
 <?php function drawHeader(String $permission, String $page,$db) { ?>
     <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +7,14 @@
     <meta charset="UTF-8">
     <title>TicketWizard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="constants.css">
-    <link rel="stylesheet" href="navigation.css">
-    <link rel="stylesheet" href="ticket.css">
-    <link rel="stylesheet" href="create_ticket.css">
-    <link rel="stylesheet" href="open_ticket.css">
-    <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/Agent.css">
-    <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/edit_ticket.css">
-    <script src="rotate_ticket.js"></script>
+    <link rel="stylesheet" href="../style/constants.css">
+    <link rel="stylesheet" href="../style/navigation.css">
+    <link rel="stylesheet" href="../style/ticket.css">
+    <link rel="stylesheet" href="../style/create_ticket.css">
+    <link rel="stylesheet" href="../style/open_ticket.css">
+    <link rel="stylesheet" href="../style/Agent.css">
+    <link rel="stylesheet" href="../style/edit_ticket.css">
+    <script src="../scripts/rotate_ticket.js"></script>
 </head>
 <body>
     <header>
@@ -36,7 +34,7 @@
             </svg>
         </button>
         <dialog data-modal class="create-card">
-            <form class="add-form" action="../../actions/actioncreateticket.php" method="post">
+            <form class="add-form" action="../actions/actioncreateticket.php" method="post">
                 <label for="title">Title:</label>
                 <input name="title" id="title" type="text" placeholder="Enter a title...">
                 <label for="description">Description:</label>
@@ -44,7 +42,7 @@
                 <label for="optional">Optional:</label>
                 <select name="optional" id="optional">
                     <option value="" disabled selected>Select Department</option>
-                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                    <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>

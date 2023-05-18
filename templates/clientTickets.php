@@ -2,14 +2,14 @@
 
 
 <?php function drawClientTickets($tickets, $db){ ?>
-        <main class="main-content">
+        <div class="main-content">
             <form class="filter">
                 <label for="search"></label>
                 <input id="search" type="text" placeholder="Search...">
                 <label for="Department"></label>
                 <select id="Department" name="Department">
                     <option  disabled selected>Department</option>
-                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                    <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
@@ -65,12 +65,12 @@
                     <div class="chat">
                         <div class="chat-display">
                             <div class="left">
-                                <img src="source/avatar.jpg" alt="replier image">
+                                <img src="../source/avatar.jpg" alt="replier image">
                                 <p>I really don't know how to solve this can you help me?</p>
                             </div>
                             <div class="right">
                                 <p>Sure you give me a little more context, what does it say in the blue screen?</p>
-                                <img src="source/agent_avatar.jpg" alt="my image">
+                                <img src="../source/agent_avatar.jpg" alt="my image">
                             </div>
                         </div>
                         <form class="chat-response">
@@ -85,7 +85,5 @@
                 </dialog>
                 <?php } ?>
         </div>
-    </main>
-</body>
-</html>
+    </div>
 <?php } ?>
