@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../style/Agent.css">
     <link rel="stylesheet" href="../style/edit_ticket.css">
     <script src="../scripts/rotate_ticket.js"></script>
-    <script src="../../templates/filter.js"></script>
+    <script src="../scripts/filter.js"></script>
 </head>
 <body>
     <header>

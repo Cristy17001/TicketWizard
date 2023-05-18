@@ -9,7 +9,7 @@
                 <label for="Department"></label>
                 <select id="Department" name="Department">
                     <option  disabled selected>Department</option>
-                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                    <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
@@ -24,7 +24,7 @@
                 <label for="Department"></label>
                 <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
                     <option value="">Department</option>
-                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                    <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
@@ -94,4 +94,6 @@
                 <?php } ?>
         </div>
     </div>
+</body>
+</html>
 <?php } ?>
