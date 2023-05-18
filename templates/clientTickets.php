@@ -2,7 +2,7 @@
 
 
 <?php function drawClientTickets($tickets, $db){ ?>
-        <div class="main-content">
+        <main class="main-content">
             <form class="filter">
                 <label for="search"></label>
                 <input id="search" type="text" placeholder="Search...">
