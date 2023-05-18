@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/Agent.css">
     <link rel="stylesheet" href="../../Client_Agent_page/Agent_Page/edit_ticket.css">
     <script src="rotate_ticket.js"></script>
+    <script src="../../templates/filter.js"></script>
 </head>
 <body>
     <header>
@@ -52,7 +53,6 @@
             </form>
         </dialog>
         <?php } ?>
-         ?>
     </header>
 <?php } ?>
 
