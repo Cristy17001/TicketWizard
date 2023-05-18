@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);?>
 
+
+
 <?php function drawHeader(String $permission, String $page,$db) { ?>
     <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +17,7 @@
     <link rel="stylesheet" href="../style/Agent.css">
     <link rel="stylesheet" href="../style/edit_ticket.css">
     <script src="../scripts/rotate_ticket.js"></script>
+    <script src="../../templates/filter.js"></script>
 </head>
 <body>
     <header>

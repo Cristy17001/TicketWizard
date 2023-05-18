@@ -6,26 +6,27 @@
                 <label for="search"></label>
                 <input id="search" type="text" placeholder="Agent...">
                 <label for="Department"></label>
-                <select id="Department" name="Department">
-                    <option value="" disabled selected>Department</option>
-                    <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                <label for="State"></label>
+                <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
+                    <option value="" >State</option>
+                    <option>Open</option>
+                    <option>Closed</option>
+                    <option>Pending</option>
+                    <option">Assigned</option>
+                </select>
+                <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
+                    <option value="">Department</option>
+                    <?php require_once('../../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
-                <label for="State"></label>
-                <select id="State" name="State">
-                    <option value="" disabled selected>State</option>
-                    <option value="option1">Open</option>
-                    <option value="option2">Closed</option>
-                    <option value="option3">Assigned</option>
-                </select>
                 <label for="Hashtags"></label>
                 <select id="Hashtags" name="Hashtags">
-                    <option value="" disabled selected>Hashtags</option>
-                    <option value="option1">#informatics</option>
-                    <option value="option2">#bug</option>
-                    <option value="option3">#information</option>
-                    <option value="option4">#needhelp</option>
+                    <option value="">Hashtags</option>
+                    <option >#informatics</option>
+                    <option >#bug</option>
+                    <option >#information</option>
+                    <option >#needhelp</option>
                 </select>
                 <label for="Sort"></label>
                 <button id="Sort">Sort by date</button>
@@ -33,19 +34,19 @@
             </form>
             <div class="tickets-container">
             <?php foreach($tickets as $ticket) { ?>
-                <div class="ticket unselectable" state="pending">
+                <div id="ticket" class="ticket unselectable" state="pending">
                     <div class="innerCard transition">
                         <div class="frontSide">
-                            <p class="state"> <?=$ticket['status']?></p>
+                            <p class="state"> <?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></p>
                             <h2 class="title"><?=$ticket['title']?></h2>
                             <p class="description"><?=$ticket['description']?></p>
                             <p class="hashtags">#informatics #something</p>
                             <p class="created"> Created at,<?=$ticket['created_at']?></p>
                         </div>
                         <div class="backSide">
-                            <h2>Assigned</h2>
-                            <p class="agent"><span>Agent:</span> <?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?></p>
+                            <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
                             <p class="department"><span>Department:</span> <?=$ticket['department']?></p>
+                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?></p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
