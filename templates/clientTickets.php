@@ -6,13 +6,6 @@
             <form class="filter">
                 <label for="search"></label>
                 <input id="search" type="text" placeholder="Search...">
-                <label for="Department"></label>
-                <select id="Department" name="Department">
-                    <option  disabled selected>Department</option>
-                    <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
-                    <option><?php echo $department['name'] ?></option>
-                     <?php } ?>
-                </select>
                 <label for="State"></label>
                 <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
                     <option  value="">State</option>
@@ -33,13 +26,13 @@
             <div class="tickets-container">
             <?php foreach($tickets as $ticket) { ?>
                 <div id="ticket" class="ticket unselectable" state="pending">
-                    <div class="innerCard transition"  ticket_id =<?php echo $ticket['id'] ?>>
+                    <div class="innerCard transition"  ticket_id =<?=$ticket['id'] ?>>
                         <div class="frontSide">
                             <p class="state"><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></p>
                             <h2 class="title"><?=$ticket['title'] ?></h2>
                             <p class="description"><?=$ticket['description'] ?> </p>
                             <p class="hashtags">#informatics #something</p>
-                            <p class="created">Created, <?=$ticket['created_at'] ?></p>
+                            <p class="created">Created at, <?=$ticket['created_at'] ?></p>
                         </div>
                         <div class="backSide">
                             <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>

@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Ticket open and rotation necessary variables
     const tickets = document.querySelectorAll(".innerCard");
-    const opened = document.querySelector(".edit-ticket-card-dialog");
-    const opened_closed_btn = document.querySelector(".edit-ticket-card > .close");
-
 
     // TICKET LOGIC
     //====================================================================//
@@ -45,34 +42,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 ticket.style.transform = `rotateY(${n_dg}deg)`;
             }
         }
-        //====================================================================//
-
-        // TICKET OPENING
-        //====================================================================//
-        ticket.addEventListener("click", function (event) {
-            opened.showModal();
-        });
-
-        opened_closed_btn.addEventListener("click", function (event) {
-            opened.close();
-        });
-
-        opened.addEventListener("click", e => {
-            const dialogDimensions = opened.getBoundingClientRect()
-            if (
-                e.clientX < dialogDimensions.left ||
-                e.clientX > dialogDimensions.right ||
-                e.clientY < dialogDimensions.top ||
-                e.clientY > dialogDimensions.bottom
-            ) {
-                opened.close()
-            }
-        });
-        //====================================================================//
-
-
-
     });
-    //====================================================================//
-
 });

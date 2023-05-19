@@ -23,6 +23,6 @@ if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin'){
 } else {
   drawHeader($user->whatPermission($db), 'agent', $db);
   drawNav($user, $db,'agent');
-  drawAgentTickets($tickets,$db);
+  drawAgentTickets($tickets, $db);
 }
 ?>

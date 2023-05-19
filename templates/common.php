@@ -2,7 +2,7 @@
 
 
 
-<?php function drawHeader(String $permission, String $page,$db) { ?>
+<?php function drawHeader(String $permission, String $page, $db) { ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../style/open_ticket.css">
     <link rel="stylesheet" href="../style/Agent.css">
     <link rel="stylesheet" href="../style/edit_ticket.css">
-    <script src="../scripts/rotate_ticket.js"></script>
+
+    <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/rotateTicket.js"></script>';} ?>
+    <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/openTicket.js"></script>';} ?>
+    <?php if ($page == 'client') {echo '<script src="../scripts/addTicket.js"></script>';} ?>
+    <?php if ($page == 'faq' && ($permission == 'Agent' || $permission == 'Admin')) {echo '<script src="../scripts/copyFaq.js"></script>';} ?>
     <script src="../scripts/filter.js"></script>
 </head>
 <body>
@@ -53,7 +57,6 @@
             </form>
         </dialog>
         <?php } ?>
-         ?>
     </header>
 <?php } ?>
 

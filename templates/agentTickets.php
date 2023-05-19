@@ -5,7 +5,6 @@
     <form class="filter">
                 <label for="search"></label>
                 <input id="search" type="text" placeholder="Agent...">
-                <label for="Department"></label>
                 <label for="State"></label>
                 <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
                     <option value="" >State</option>
@@ -14,6 +13,7 @@
                     <option>Pending</option>
                     <option>Assigned</option>
                 </select>
+                <label for="Department"></label>
                 <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
                     <option value="">Department</option>
                     <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
@@ -35,18 +35,18 @@
             <div class="tickets-container">
             <?php foreach($tickets as $ticket) { ?>
                 <div id="ticket" class="ticket unselectable" state="pending">
-                    <div class="innerCard transition">
+                    <div class="innerCard transition"  ticket_id =<?=$ticket['id'] ?>>
                         <div class="frontSide">
-                            <p class="state"> <?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></p>
-                            <h2 class="title"><?=$ticket['title']?></h2>
-                            <p class="description"><?=$ticket['description']?></p>
+                            <p class="state"><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></p>
+                            <h2 class="title"><?=$ticket['title'] ?></h2>
+                            <p class="description"><?=$ticket['description'] ?> </p>
                             <p class="hashtags">#informatics #something</p>
-                            <p class="created"> Created at,<?=$ticket['created_at']?></p>
+                            <p class="created">Created at, <?=$ticket['created_at'] ?></p>
                         </div>
                         <div class="backSide">
                             <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
-                            <p class="department"><span>Department:</span> <?=$ticket['department']?></p>
-                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?></p>
+                            <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
+                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?> </p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <dialog class="edit-ticket-card-dialog">
+                <dialog data-modal class="opened-ticket" ticket_id =<?=$ticket['id'] ?>>
                     <div class="edit-ticket-card">
                         <svg class="close" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 1024 1024"><path
                                 fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
