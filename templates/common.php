@@ -23,6 +23,7 @@
     <?php if ($page == 'client') {echo '<script src="../scripts/addTicket.js"></script>';} ?>
     <?php if ($page == 'faq' && ($permission == 'Agent' || $permission == 'Admin')) {echo '<script src="../scripts/copyFaq.js"></script>';} ?>
     <?php if ($page == 'faq') {echo '<script src="../scripts/highlightFaq.js"></script>';} ?>
+    <?php if ($page == 'faq') {echo '<script src="../scripts/removeFaq.js"></script>';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/filter.js"></script>';} ?>
 </head>
 <body>

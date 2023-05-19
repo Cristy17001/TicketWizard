@@ -28,3 +28,8 @@ function createFaqQuestion($db, $user_id, $title, $response) {
     $stmt = $db->prepare('INSERT INTO Faq(title, response, creator) VALUES(?, ?, ?)');
     $stmt->execute(array($title, $response, $user_id));
 }
+
+function removeFaqQuestion($db, $faqId) {
+    $stmt = $db->prepare('DELETE FROM Faq WHERE id = ?');
+    $stmt->execute(array($faqId));
+}
