@@ -25,24 +25,8 @@ declare(strict_types=1);
                     </a>
                 </li>
                 <?php if($user->whatPermission($db)=='Agent' || $user->whatPermission($db)=='Admin' || $user->whatPermission($db)== 'Client') drawNavFaq($selected); ?>
+                <?php if($user->whatPermission($db)=='Agent' || $user->whatPermission($db)=='Admin' || $user->whatPermission($db)== 'Client') drawNavAbout($selected); ?>
 
-                <li class="nav-item unselectable" selected="false">
-                    <a href="#">
-                        <div class="option-container">
-                            <svg width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                <title>about-filled</title>
-                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="drop" fill="#000000" transform="translate(42.666667, 42.666667)">
-                                        <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape">
-
-                                        </path>
-                                    </g>
-                                </g>
-                            </svg>
-                            <p>About</p>
-                        </div>
-                    </a>
-                </li>
             </ul>
             <div class="user-info unselectable">
                 <div class="square">
@@ -94,6 +78,27 @@ declare(strict_types=1);
             <div class="option-container">
                 <svg fill="#000000" width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,22A10,10,0,1,0,2,12,10,10,0,0,0,12,22Zm0-2a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,20ZM8,8.994a3.907,3.907,0,0,1,2.319-3.645,4.061,4.061,0,0,1,3.889.316,4,4,0,0,1,.294,6.456,3.972,3.972,0,0,0-1.411,2.114,1,1,0,0,1-1.944-.47,5.908,5.908,0,0,1,2.1-3.2,2,2,0,0,0-.146-3.23,2.06,2.06,0,0,0-2.006-.14,1.937,1.937,0,0,0-1.1,1.8A1,1,0,0,1,8,9Z"/></svg>
                 <p>FAQ</p>
+            </div>
+        </a>
+    </li>
+<?php } ?>
+
+<?php function drawNavAbout(String $selected){ ?>
+    <?php $selectedBool='false'; if($selected=='about') $selectedBool='true'; ?>
+    <li class="nav-item unselectable" selected=<?php echo $selectedBool ?>>
+        <a href="../pages/about.php">
+            <div class="option-container">
+                <svg width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <title>about-filled</title>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="drop" fill="#000000" transform="translate(42.666667, 42.666667)">
+                            <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape">
+
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+                <p>About</p>
             </div>
         </a>
     </li>
