@@ -99,5 +99,14 @@ class User{
       }
 
 }
+function getAgents($db){
+    $stmt = $db->prepare('
+    SELECT id,username
+    FROM Agent
+  ');
+  $stmt->execute();
+  $agents=$stmt->fetchAll();
+  return $agents;
+  }
 
 ?>
