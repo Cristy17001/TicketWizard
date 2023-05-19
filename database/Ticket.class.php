@@ -40,7 +40,7 @@ class Ticket {
 
     
 }
-function getTicketsFromClient($db,int $user_id) {
+function getTicketsFromClient($db, int $user_id) {
     $stmt = $db->prepare('
     SELECT id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed
     FROM Ticket 

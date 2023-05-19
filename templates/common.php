@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../style/open_ticket.css">
     <link rel="stylesheet" href="../style/Agent.css">
     <link rel="stylesheet" href="../style/edit_ticket.css">
+    <link rel="stylesheet" href="../style/faq.css">
+
 
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/rotateTicket.js"></script>';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/openTicket.js"></script>';} ?>
