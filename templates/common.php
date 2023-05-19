@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/constants.css">
     <link rel="stylesheet" href="../style/navigation.css">
+    <link rel="icon" href="../source/icon.png">
+
     <?php if ($page == 'client' || $page == 'agent') {echo '<link rel="stylesheet" href="../style/ticket.css">';} ?>
     <?php if ($page == 'client') {echo '<link rel="stylesheet" href="../style/create_ticket.css">';} ?>
     <?php if ($page == 'client') {echo '<link rel="stylesheet" href="../style/open_ticket.css">';} ?>
