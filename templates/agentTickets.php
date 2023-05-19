@@ -46,7 +46,7 @@
                         <div class="backSide">
                             <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
                             <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
-                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?> </p>
+                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Undefined';} else { echo $ticket['user_assigned_at']; }?> </p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
@@ -69,21 +69,21 @@
 
                             <label for="assigned-depart">Assigned Department:</label>
                             <select id="assigned-depart" name="Department-assign">
-                                <option value="" disabled selected><?php if($ticket['department']!='') { echo $ticket['department']; } else { echo 'Department';}?></option>
+                                <option value=""><?php if($ticket['department']!='') { echo $ticket['department']; } else { echo 'Department';}?></option>
                                 <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                                 <option><?php echo $department['name'] ?></option>
                             <?php } ?>
                             </select>
                             <label for="assigned-agent">Assigned agent:</label>
                             <select id="assigned-agent" name="agent-assign">
-                                <option value="" disabled selected>Agent</option>
-                                <option value="option1">User123</option>
-                                <option value="option2">User1234</option>
-                                <option value="option3">User12345</option>
+                                <option value="">Agent</option>
+                                <?php require_once('../database/User.class.php'); $agents=getAgents($db); foreach($agents as $agent){ ?>
+                                <option><?= $agent['username'] ?></option>
+                                <?php } ?>
                             </select>
                             <label for="assigned-status">Status:</label>
                             <select id="assigned-status" name="agent-assign">
-                                <option value="" disabled selected>Status</option>
+                                <option value="">Status</option>
                                 <option value="option1">Open</option>
                                 <option value="option2">Closed</option>
                                 <option value="option3">Assigned</option>

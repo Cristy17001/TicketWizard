@@ -37,7 +37,7 @@
                         <div class="backSide">
                             <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
                             <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
-                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?> </p>
+                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Undefined';} else { echo $ticket['user_assigned_at']; }?> </p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
@@ -59,7 +59,7 @@
                     <h2>Assigned Department:</h2>
                     <p><?=$ticket['department']?></p>
                     <h2>Assigned agent:</h2>
-                    <p><?php if($ticket['user_assigned_at']==''){ echo ' Yet to be defined';} else { echo $ticket['user_assigned_at']; }?></p>
+                    <p><?php if($ticket['user_assigned_at']==''){ echo ' Undefined';} else { echo $ticket['user_assigned_at']; }?></p>
                     <h2>Hashtags:</h2>
                     <p>#informatics #something</p>
                     <h2>Chat:</h2>
