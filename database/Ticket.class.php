@@ -67,6 +67,4 @@ function createTicket($db, $user_id, $department, $title, $description) {
     ');
     $stmt->execute(array($user_id,$department, $title, $description, 1));
 }
-
-
 ?>

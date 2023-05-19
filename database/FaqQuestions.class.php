@@ -21,6 +21,10 @@ class Faq {
 function getQuestions($db) {
     $stmt = $db->prepare('SELECT * FROM Faq');
     $stmt->execute();
-    $data = $stmt->fetchAll();
-    return $data;
+    return $stmt->fetchAll();
+}
+
+function createFaqQuestion($db, $user_id, $title, $response) {
+    $stmt = $db->prepare('INSERT INTO Faq(title, response, creator) VALUES(?, ?, ?)');
+    $stmt->execute(array($title, $response, $user_id));
 }
