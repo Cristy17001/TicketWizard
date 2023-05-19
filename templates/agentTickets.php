@@ -65,33 +65,37 @@
                         </div>
                         <p class="description"><?=$ticket['description']?>
                         </p>
-                        <label for="assigned-depart">Assigned Department:</label>
-                        <select id="assigned-depart" name="Department-assign">
-                            <option value="" disabled selected><?php if($ticket['department']!='') { echo $ticket['department']; } else { echo 'Department';}?></option>
-                            <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
-                            <option><?php echo $department['name'] ?></option>
-                        <?php } ?>
-                        </select>
-                        <label for="assigned-agent">Assigned agent:</label>
-                        <select id="assigned-agent" name="agent-assign">
-                            <option value="" disabled selected>Agent</option>
-                            <option value="option1">User123</option>
-                            <option value="option2">User1234</option>
-                            <option value="option3">User12345</option>
-                        </select>
-                        <label for="assigned-status">Status:</label>
-                        <select id="assigned-status" name="agent-assign">
-                            <option value="" disabled selected>Status</option>
-                            <option value="option1">Open</option>
-                            <option value="option2">Closed</option>
-                            <option value="option3">Assigned</option>
-                        </select>
-                        <label for="add-chip">Hashtags:</label>
-                        <input id="add-chip" type="text" placeholder="Enter a #...">
-                        <div class="chip-container">
-                            <div class="chip">#Informatics<span>X</span></div>
-                            <div class="chip">#Something<span>X</span></div>
-                        </div>
+                        <form class="edit-ticket-form">
+
+                            <label for="assigned-depart">Assigned Department:</label>
+                            <select id="assigned-depart" name="Department-assign">
+                                <option value="" disabled selected><?php if($ticket['department']!='') { echo $ticket['department']; } else { echo 'Department';}?></option>
+                                <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
+                                <option><?php echo $department['name'] ?></option>
+                            <?php } ?>
+                            </select>
+                            <label for="assigned-agent">Assigned agent:</label>
+                            <select id="assigned-agent" name="agent-assign">
+                                <option value="" disabled selected>Agent</option>
+                                <option value="option1">User123</option>
+                                <option value="option2">User1234</option>
+                                <option value="option3">User12345</option>
+                            </select>
+                            <label for="assigned-status">Status:</label>
+                            <select id="assigned-status" name="agent-assign">
+                                <option value="" disabled selected>Status</option>
+                                <option value="option1">Open</option>
+                                <option value="option2">Closed</option>
+                                <option value="option3">Assigned</option>
+                            </select>
+                            <label for="add-chip">Hashtags:</label>
+                            <input id="add-chip" type="text" placeholder="Enter a #...">
+                            <div class="chip-container">
+                                <div class="chip">#Informatics<span>X</span></div>
+                                <div class="chip">#Something<span>X</span></div>
+                            </div>
+                            <button>Update</button>
+                        </form>
                         <a href="#">Ticket History</a>
                         <h2>Chat:</h2>
                         <div class="chat">

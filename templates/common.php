@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);?>
 
-
-
 <?php function drawHeader(String $permission, String $page, $db) { ?>
     <!DOCTYPE html>
 <html lang="en">
