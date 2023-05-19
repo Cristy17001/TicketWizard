@@ -198,3 +198,7 @@
     width: fit-content;
     margin-left: auto;
 }
+
+.highlight_faq {
+    background: yellow;
+}

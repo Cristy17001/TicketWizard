@@ -9,19 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/constants.css">
     <link rel="stylesheet" href="../style/navigation.css">
-    <link rel="stylesheet" href="../style/ticket.css">
-    <link rel="stylesheet" href="../style/create_ticket.css">
-    <link rel="stylesheet" href="../style/open_ticket.css">
-    <link rel="stylesheet" href="../style/Agent.css">
-    <link rel="stylesheet" href="../style/edit_ticket.css">
-    <link rel="stylesheet" href="../style/faq.css">
-
-
+    <?php if ($page == 'client' || $page == 'agent') {echo '<link rel="stylesheet" href="../style/ticket.css">';} ?>
+    <?php if ($page == 'client') {echo '<link rel="stylesheet" href="../style/create_ticket.css">';} ?>
+    <?php if ($page == 'client') {echo '<link rel="stylesheet" href="../style/open_ticket.css">';} ?>
+    <?php if ($page == 'agent') {echo '<link rel="stylesheet" href="../style/Agent.css">';} ?>
+    <?php if ($page == 'agent') {echo '<link rel="stylesheet" href="../style/edit_ticket.css">';} ?>
+    <?php if ($page == 'faq') {echo '<link rel="stylesheet" href="../style/faq.css">';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/rotateTicket.js"></script>';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/openTicket.js"></script>';} ?>
     <?php if ($page == 'client') {echo '<script src="../scripts/addTicket.js"></script>';} ?>
     <?php if ($page == 'faq' && ($permission == 'Agent' || $permission == 'Admin')) {echo '<script src="../scripts/copyFaq.js"></script>';} ?>
-    <script src="../scripts/filter.js"></script>
+    <?php if ($page == 'faq') {echo '<script src="../scripts/highlightFaq.js"></script>';} ?>
+    <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/filter.js"></script>';} ?>
 </head>
 <body>
     <header>

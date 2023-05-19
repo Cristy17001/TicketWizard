@@ -19,6 +19,8 @@ class Faq {
 }
 
 function getQuestions($db) {
-    $stmt = $db->prepare('SELECT id, title, response, creator, created_at FROM Faq');
-    return $stmt->fetchAll();
+    $stmt = $db->prepare('SELECT * FROM Faq');
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+    return $data;
 }

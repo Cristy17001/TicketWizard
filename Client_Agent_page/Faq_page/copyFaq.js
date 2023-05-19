@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-            let link = event.currentTarget.getAttribute("link");
             let id = event.currentTarget.getAttribute("id")
-            navigator.clipboard.writeText(link + "#" + id).then(() => {
-                console.log("Link copied to clipboard:", link);
+            let data = '#' + id;
+            navigator.clipboard.writeText(data).then(() => {
+                //console.log("Link copied to clipboard:", link);
             })
                 .catch((error) => {
                     console.error("Failed to copy link to clipboard:", error);
