@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS Ticket (
     --CONTENT
     title VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
-    status VARCHAR(20),
+    status VARCHAR(20) DEFAULT "Pending",
     priority VARCHAR(20) ,
     created_at DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME,
@@ -148,7 +148,6 @@ CREATE TABLE IF NOT EXISTS Message (
     --CONTENT
     content TEXT NOT NULL,
     created_at DATETIME NOT NULL,
-    updated_at DATATIME NOT NULL,
 
     --FOREIGN KEYS
     FOREIGN KEY (user_id) REFERENCES User(id),

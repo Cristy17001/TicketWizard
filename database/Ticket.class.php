@@ -79,3 +79,47 @@ function getStates($db) {
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function updateTicketDepartment($db, $ticket_id, $optional) {
+    $stmt = $db->prepare('
+    UPDATE Ticket 
+    SET department = ?
+    WHERE id= ?
+    ');
+    $stmt->execute(array($optional,$ticket_id));
+}
+function updateTicketAgent($db, $ticket_id,$agent) {
+    $stmt = $db->prepare('
+    UPDATE Ticket 
+    SET user_assigned_id = ?
+    WHERE id= ?
+    ');
+    $stmt->execute(array($agent,$ticket_id));
+}
+function updateTicketStatus($db, $ticket_id,$status) {
+    $stmt = $db->prepare('
+    UPDATE Ticket 
+    SET status = ?
+    WHERE id= ?
+    ');
+    $stmt->execute(array($status, $ticket_id));
+}
+function updatedTicket($db, $ticket_id) {
+    $stmt = $db->prepare('
+    UPDATE Ticket 
+    SET updated_at = TIME()
+    WHERE id= ?
+    ');
+    $stmt->execute(array($ticket_id));
+}
+function messageFromTicket($db, $ticket_id) {
+    $stmt = $db->prepare('
+    SELECT * 
+    FROM Message
+    WHERE ticket_id = ?
+    ');
+    $stmt->execute(array($ticket_id));
+    $messages = $stmt->fetchAll();
+    return $messages;
+}
+

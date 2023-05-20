@@ -18,11 +18,11 @@
     $user = User::getUser($db, $session->getId());
     $tickets=getTicketsToAgent($db);
 
-    if ($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin') {
-        drawErrorPage("Error 403: No Permission!");
+    if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin'){
+      drawErrorPage("Error 403: No Permission!");
     } else {
       drawHeader($user->whatPermission($db), 'agent', $db);
       drawNav($user, $db,'agent');
-      drawAgentTickets($tickets, $db);
+      drawAgentTickets($user,$tickets, $db);
     }
 ?>

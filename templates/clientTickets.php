@@ -25,10 +25,10 @@
             </form>
             <div class="tickets-container">
             <?php foreach($tickets as $ticket) { ?>
-                <div id="ticket" class="ticket unselectable" state="pending">
+                <div id="ticket" class="ticket unselectable" state="<?=$ticket['status']?>">
                     <div class="innerCard transition"  ticket_id =<?=$ticket['id'] ?>>
                         <div class="frontSide">
-                            <p class="state"><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></p>
+                            <p class="state"><?=$ticket['status']?></p>
                             <h2 class="title"><?=$ticket['title'] ?></h2>
                             <p class="description"><?=$ticket['description'] ?> </p>
                             <p class="hashtags">#informatics #something</p>
@@ -37,7 +37,7 @@
                         <div class="backSide">
                             <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
                             <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
-                            <p class="agent"><span>Agent:</span><?php if($ticket['user_assigned_at']==''){ echo ' Undefined';} else { echo $ticket['user_assigned_at']; }?> </p>
+                            <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
@@ -59,23 +59,29 @@
                     <h2>Assigned Department:</h2>
                     <p><?=$ticket['department']?></p>
                     <h2>Assigned agent:</h2>
-                    <p><?php if($ticket['user_assigned_at']==''){ echo ' Undefined';} else { echo $ticket['user_assigned_at']; }?></p>
+                    <p><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                     <h2>Hashtags:</h2>
                     <p>#informatics #something</p>
                     <h2>Chat:</h2>
                     <div class="chat">
                         <div class="chat-display">
-                            <div class="left">
-                                <img src="../source/avatar.jpg" alt="replier image">
-                                <p>I really don't know how to solve this can you help me?</p>
-                            </div>
-                            <div class="right">
-                                <p>Sure you give me a little more context, what does it say in the blue screen?</p>
-                                <img src="../source/agent_avatar.jpg" alt="my image">
-                            </div>
+                        <?php $messages= messageFromTicket($db,$ticket['id']); foreach($messages as $message) { if($message['user_id']==$ticket['user_id']) { ?>
+                                <div class="left">
+                                    <img src="../source/avatar.jpg" alt="replier image">
+                                    <p><?=$message['content'] ?></p>
+                                </div>
+                                <?php } else { ?>
+                                <div class="right">
+                                    <p><?=$message['content'] ?></p>
+                                    <img src="../source/agent_avatar.jpg" alt="my image">
+                                </div>
+                                <?php }; }?>
                         </div>
-                        <form class="chat-response">
-                            <label><textarea placeholder="Enter your message..."></textarea></label>
+                        <form class="chat-response" name="client" method="post" action="../actions/actionAddMessage.php">
+                            <input type="hidden" name="page" value="client">
+                            <input type="hidden" name="ticket_id" value="<?=$ticket['id']?>">
+                            <input type="hidden" name="user" value="<?=$ticket['user_id']?>">
+                            <label><textarea name="message" placeholder="Enter your message..."></textarea></label>
                             <button class="send-message">
                                 <svg width="30" height="30" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.4165 17.5833L14.9204 25.7591C15.4026 26.8844 16.9027 27.0034 17.5039 25.9368C18.6905 23.8325 20.4493 20.4388 22.2082 16.0417C25.2915 8.33332 26.8332 2.16666 26.8332 2.16666C26.8332 2.16666 20.6665 3.70832 12.9582 6.79166C8.56107 8.55048 5.16729 10.3093 3.06295 11.4959C1.99652 12.0971 2.11541 13.5972 3.24069 14.0794L11.4165 17.5833Z" stroke="white" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
