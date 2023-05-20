@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastUrlSegment = window.location.hash.substring(1);
     console.log(lastUrlSegment);
     let question = document.getElementById(lastUrlSegment);
-
-    question.classList.add("highlight_faq");
+    if (question !== null) {
+        question.classList.add("highlight_faq");
+    }
 });

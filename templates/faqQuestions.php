@@ -60,9 +60,9 @@
             <h2>ADD QUESTION</h2>
             <form class="add-question" action="../actions/actionnewfaq.php" method="post">
                 <label for="title">TITLE:</label>
-                <input id="title" name="title" type="text" placeholder="Enter a title...">
+                <input id="title" name="title" type="text" placeholder="Enter a title..." required>
                 <label for="response">RESPONSE:</label>
-                <textarea id="response" name="response" placeholder="Enter a response..."></textarea>
+                <textarea id="response" name="response" placeholder="Enter a response..." required></textarea>
                 <button>Submit</button>
             </form>
         </div>'; ?>

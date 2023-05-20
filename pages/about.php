@@ -23,6 +23,6 @@
         drawNav($user, $db,'about');
         drawAbout();
     } else {
-        echo "error";
+        drawErrorPage("Error 403: No Permission!");
     }
 ?>

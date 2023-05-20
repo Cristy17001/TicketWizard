@@ -17,5 +17,5 @@
   $db = getDatabaseConnection();
   $User= new User(null, $username, $pwd, $email, $name);
   $User->register_save($db);
-  header('Location: ../login.php');
+  header('Location: ../pages/login.php');
 //   header('Location: ' . $_SERVER['HTTP_REFERER']);

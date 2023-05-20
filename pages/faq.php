@@ -22,7 +22,7 @@
     $questions = getQuestions($db);
 
     if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Client' && $user->whatPermission($db)!='Admin') {
-        echo 'error No Permission!';
+        drawErrorPage("Error 403: No Permission!");
     } else {
         drawHeader($user->whatPermission($db), 'faq', $db);
         drawNav($user, $db, 'faq');

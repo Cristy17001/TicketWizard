@@ -111,16 +111,22 @@
     stroke: var(--highlight-color);
 }
 
+.faq-questions .buttons {
+    min-width: fit-content;
+}
+
 .faq-questions h2 {
     color: var(--highlight-color);
     font-family: var(--hightlight-font);
     margin-bottom: 0.75rem;
+    overflow-wrap: anywhere;
 }
 
 .faq-questions p {
     color: black;
     font-weight: 400;
     font-family: var(--text-font);
+    overflow-wrap: anywhere;
 }
 
 .faq-questions > span {

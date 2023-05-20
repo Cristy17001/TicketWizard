@@ -19,7 +19,7 @@
     $tickets=getTicketsToAgent($db);
 
     if ($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin') {
-        echo 'No permission!';
+        drawErrorPage("Error 403: No Permission!");
     } else {
       drawHeader($user->whatPermission($db), 'agent', $db);
       drawNav($user, $db,'agent');

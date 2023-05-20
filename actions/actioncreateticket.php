@@ -9,9 +9,9 @@
     require_once('../database/Ticket.class.php');
 
     $db = getDatabaseConnection();
-    $optional = htmlspecialchars(filter_var($_POST['optional'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
-    $title = htmlspecialchars(filter_var($_POST['title'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
-    $description = htmlspecialchars(filter_var($_POST['description'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
+    $optional = htmlspecialchars(filter_var($_POST['optional'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES), ENT_NOQUOTES, 'UTF-8');
+    $title = htmlspecialchars(filter_var($_POST['title'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES), ENT_NOQUOTES, 'UTF-8');
+    $description = htmlspecialchars(filter_var($_POST['description'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES), ENT_NOQUOTES, 'UTF-8');
     createTicket($db, $session->getId(), $optional, $title, $description);
     header('Location:../pages/client.php');
 ?>

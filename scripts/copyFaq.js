@@ -22,7 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             let id = event.currentTarget.closest(".question").getAttribute("id");
-            let faqUrl = "http://localhost:9000/pages/faq.php"
+            let hostname = window.location.hostname;
+            let port = window.location.port;
+
+            if (port) {
+                hostname += ':' + port;
+            }
+
+            let faqUrl = hostname + "/pages/faq.php";
             let data = faqUrl + '#' + id;
             navigator.clipboard.writeText(data).then(() => {
                 console.log("Link copied to clipboard:", data);
