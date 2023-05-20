@@ -67,4 +67,15 @@ function createTicket($db, $user_id, $department, $title, $description) {
     ');
     $stmt->execute(array($user_id,$department, $title, $description, 1));
 }
-?>
+
+function getHashtags($db) {
+    $stmt = $db->prepare('SELECT * FROM Hashtags');
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getStates($db) {
+    $stmt = $db->prepare('SELECT * FROM State_');
+    $stmt->execute();
+    return $stmt->fetchAll();
+}

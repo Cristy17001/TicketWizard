@@ -110,17 +110,27 @@ class User{
             $user['email'],
             $user['full_name']
         );
-      }
+    }
 
 }
-function getAgents($db){
-    $stmt = $db->prepare('
-    SELECT id,username
-    FROM Agent
-  ');
-  $stmt->execute();
-  $agents=$stmt->fetchAll();
-  return $agents;
-  }
+    function getAgents($db){
+        $stmt = $db->prepare('
+        SELECT id,username
+        FROM Agent
+      ');
+      $stmt->execute();
+      $agents=$stmt->fetchAll();
+      return $agents;
+    }
+
+    function getUsers($db) {
+        $stmt = $db->prepare('SELECT id, username, full_name, email FROM User');
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+
 
 ?>
+
