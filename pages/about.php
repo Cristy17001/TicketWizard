@@ -1,4 +1,4 @@
-<?php 
+<?php
     declare(strict_types=1);
 
     require_once('../session.php');
@@ -8,21 +8,21 @@
 
     require_once('../database/connection.db.php');
     require_once('../database/User.class.php');
-    require_once('../database/Ticket.class.php');
+
 
     require_once('../templates/common.php');
     require_once('../templates/nav.tpl.php');
-    require_once('../templates/agentTickets.php');
+    require_once('../templates/about.tpl.php');
+
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
-    $tickets=getTicketsToAgent($db);
 
-    if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin'){
-      drawErrorPage("Error 403: No Permission!");
+    if($user->whatPermission($db) == 'Client' || $user->whatPermission($db) == 'Agent' || $user->whatPermission($db) == 'Admin'){
+        drawHeader($user->whatPermission($db), 'about', $db);
+        drawNav($user, $db,'about');
+        drawAbout();
     } else {
-      drawHeader($user->whatPermission($db), 'agent', $db);
-      drawNav($user, $db,'agent');
-      drawAgentTickets($user,$tickets, $db);
+        drawErrorPage("Error 403: No Permission!");
     }
 ?>

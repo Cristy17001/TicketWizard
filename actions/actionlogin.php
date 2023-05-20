@@ -22,7 +22,7 @@ $password=htmlspecialchars(filter_var($_POST['password'], FILTER_SANITIZE_STRING
     $session->addMessage('success', 'Login successful!');
     header('Location: ../pages/client.php');
   } else {
-    drawErrorPage("Error: Login Failed!");
+    drawErrorPage("Error: Login Failed Username and Password don't match!");
     $session->addMessage('error', 'Wrong password!');
   }
 

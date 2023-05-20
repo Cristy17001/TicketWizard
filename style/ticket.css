@@ -58,35 +58,58 @@
 /*Card frontside*/
 .ticket .state {
     width: 85%;
+    max-height: 10%;
     font-size: 0.8rem;
     text-align: end;
     margin-top: 3%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .ticket .title {
     width: 85%;
+    max-height: 36%;
     color: var(--highlight-color);
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: start;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .ticket .description {
     width: 85%;
+    max-height: 36%;
     color: var(--text-color);
     font-size: 0.8rem;
     font-weight: 400;
     text-align: start;
     margin-top: 2%;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .ticket .hashtags {
     width: 85%;
+    max-width: 85%;
     color: var(--text-color);
     font-size: 0.625rem;
     font-weight: bold;
     text-align: end;
     margin-top: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .ticket .created {
@@ -101,16 +124,24 @@
 /*Card backside*/
 
 .backSide h2 {
+    width: 95%;
     font-size: 1.125rem;
     font-weight: 800;
     margin-top: 5%;
     margin-bottom: 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .backSide .agent, .department {
+    width: 95%;
     color: var(--text-color);
     font-size: 1rem;
     font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .backSide span {

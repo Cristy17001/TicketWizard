@@ -40,7 +40,7 @@ class Ticket {
 
     
 }
-function getTicketsFromClient($db,int $user_id) {
+function getTicketsFromClient($db, int $user_id) {
     $stmt = $db->prepare('
     SELECT id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed
     FROM Ticket 
@@ -67,6 +67,7 @@ function createTicket($db, $user_id, $department, $title, $description) {
     ');
     $stmt->execute(array($user_id,$department, $title, $description, 1));
 }
+<<<<<<< HEAD
 function updateTicketDepartment($db, $ticket_id, $optional) {
     $stmt = $db->prepare('
     UPDATE Ticket 
@@ -111,4 +112,6 @@ function messageFromTicket($db, $ticket_id) {
 }
 
 
+=======
+>>>>>>> 3a30c9e87db4823d80c1c40b0da18b86b2fe881f
 ?>

@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);?>
 
 <?php function drawErrorPage($error) { ?>
+    <?php header("Location ../pages/error.php"); ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
