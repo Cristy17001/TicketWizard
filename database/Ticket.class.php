@@ -67,7 +67,6 @@ function createTicket($db, $user_id, $department, $title, $description) {
     ');
     $stmt->execute(array($user_id,$department, $title, $description, 1));
 }
-<<<<<<< HEAD
 function updateTicketDepartment($db, $ticket_id, $optional) {
     $stmt = $db->prepare('
     UPDATE Ticket 
@@ -112,6 +111,4 @@ function messageFromTicket($db, $ticket_id) {
 }
 
 
-=======
->>>>>>> 3a30c9e87db4823d80c1c40b0da18b86b2fe881f
 ?>

@@ -9,10 +9,10 @@
                 <label for="State"></label>
                 <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
                     <option  value="">State</option>
-                    <option >Open</option>
-                    <option >Closed</option>
-                    <option >Pending</option>
-                    <option >Assigned</option>
+                    <option>Open</option>
+                    <option>Closed</option>
+                    <option>Pending</option>
+                    <option>Assigned</option>
                 </select>
                 <label for="Department"></label>
                 <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
