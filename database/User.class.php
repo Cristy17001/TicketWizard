@@ -90,10 +90,11 @@ class User{
         $stmt->execute([$this->id]);
         $result = $stmt->fetch();
         if($result !== false) return 'Client';
+        return null;
     }
 
 
-    static function getUser($db, int $id) : User {
+    static function getUser($db, int $id) {
         $stmt = $db->prepare('
         SELECT id, username, password, email, full_name
         FROM User 
@@ -102,7 +103,9 @@ class User{
   
         $stmt->execute(array($id));
         $user = $stmt->fetch();
-        
+        if ($user === false) {
+            return null;
+        }
         return new User(
             $user['id'],
             $user['username'],
@@ -130,7 +133,48 @@ class User{
         return $stmt->fetchAll();
     }
 
+    function promoteUser($db, $id) {
+    
+        $permission = (User::getUser($db, intval($id)))->whatPermission($db);
 
+        // GET all user info
+        $stmt = $db->prepare('SELECT id, username, password, email, full_name, created_at FROM User WHERE id = ?');
+        $stmt->execute(array($id));
+        $user = $stmt->fetch();
+        
+        
+        if ($permission == "Client") {
+            $stmt = $db->prepare('INSERT INTO Agent (id, username, password, email, full_name, department_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], 1, $user["created_at"]));
+        }
+        else if ($permission == "Agent") {
+            $stmt = $db->prepare('INSERT INTO Admin (id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], $user["created_at"]));
+        }
 
+    }
+
+    function demoteUser($db, $id) {
+        $permission = (User::getUser($db, intval($id)))->whatPermission($db);
+
+        if ($permission == "Admin") {
+            $stmt = $db->prepare('DELETE FROM Admin WHERE id = ?');
+            $stmt->execute(array($id));
+        }
+        else if ($permission == "Agent") {
+            $stmt = $db->prepare('DELETE FROM Agent WHERE id = ?');
+            $stmt->execute(array($id));
+        }
+    }
+
+    function banUser($db, $id) {
+        $stmt = $db->prepare('DELETE FROM User WHERE id = ?');
+        $stmt->execute(array($id));
+        $stmt = $db->prepare('DELETE FROM Client WHERE id = ?');
+        $stmt->execute(array($id));
+        $stmt = $db->prepare('DELETE FROM Agent WHERE id = ?');
+        $stmt->execute(array($id));
+        $stmt = $db->prepare('DELETE FROM Admin WHERE id = ?');
+        $stmt->execute(array($id));
+    }
 ?>
-

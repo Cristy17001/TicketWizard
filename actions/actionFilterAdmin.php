@@ -12,21 +12,27 @@
     require_once('../templates/common.php');
     require_once('../templates/nav.tpl.php');
     require_once('../templates/adminPage.php');
+    require_once('../templates/errorPage.php');
+
 
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
     $selected = htmlspecialchars(filter_var($_POST['data'], FILTER_SANITIZE_STRING), ENT_QUOTES);
-
-    if ($user->whatPermission($db) !='Agent' && $user->whatPermission($db) != 'Admin') {
-        drawErrorPage("Error 403: No Permission!");
-    } else {
-        if ($selected) {
-            drawAdminTables($db, $selected);
-        }
-        else {
+    if ($user) {
+        if ($user->whatPermission($db) !='Agent' && $user->whatPermission($db) != 'Admin') {
+            drawErrorPage("Error 403: No Permission!");
+        } else {
             drawHeader($user->whatPermission($db), 'admin', $db);
             drawNav($user, $db,'admin');
-            drawAdminTables($db, "");
+            if ($selected) {
+                drawAdminTables($db, $selected);
+            }
+            else {
+                drawAdminTables($db, "");
+            }
         }
+    }
+    else {
+        drawErrorPage("Error: Your were banned!");
     }

@@ -28,6 +28,8 @@
     <?php if ($page == 'faq') {echo '<script src="../scripts/highlightFaq.js"></script>';} ?>
     <?php if ($page == 'faq') {echo '<script src="../scripts/removeFaq.js"></script>';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/filter.js"></script>';} ?>
+    <?php if ($page == 'admin') {echo '<script src="../scripts/filterAdmin.js"></script>';} ?>
+    <?php if ($page == 'admin') {echo '<script src="../scripts/promoteDemoteBan.js"></script>';} ?>
 </head>
 <body>
 <header>
@@ -39,7 +41,7 @@
         <h1 class="unselectable">TicketWizard</h1>
     </div>
     <?php
-    if(($permission=='Client' || $permission=='Agent') && $page=='client' ){ ?>
+    if(($permission=='Client' || $permission=='Agent' || $permission == 'Admin') && $page=='client' ){ ?>
         <button class="add-btn">
             <svg width="50" height="50" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
                 <path fill="#000000" fill-rule="evenodd"

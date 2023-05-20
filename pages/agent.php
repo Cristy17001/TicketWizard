@@ -13,6 +13,8 @@
     require_once('../templates/common.php');
     require_once('../templates/nav.tpl.php');
     require_once('../templates/agentTickets.php');
+    require_once('../templates/errorPage.php');
+
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());

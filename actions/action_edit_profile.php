@@ -8,12 +8,12 @@
 
   require_once('../database/connection.db.php');
   require_once('../database/User.class.php');
+  require_once('../templates/errorPage.php');
+
 
   $db = getDatabaseConnection();
 
   $user = User::getUser($db, $session->getId());
-
-
 
   if ($user) {
     $optional = true;
@@ -37,8 +37,12 @@
     //saves the altered info
     $user->save($db);
     $session->setName($user->fullName);
+
+    header('Location: ../pages/profile.php');
+  }
+  else {
+      drawErrorPage("Error: Your were banned!");
   }
 
 
-  header('Location: ../pages/profile.php');
 ?>
