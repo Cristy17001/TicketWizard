@@ -1,12 +1,20 @@
-<?php declare(strict_types=1);?>
+<?php declare(strict_types=1); ?>
 
-<?php function drawHeader(String $permission, String $page, $db) { ?>
+
+<?php function drawHeader(String $permission, String $page) { ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>TicketWizard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="constants.css">
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="ticket.css">
+    <link rel="stylesheet" href="create_ticket.css">
+    <link rel="stylesheet" href="open_ticket.css">
+    <link rel="stylesheet" href="profile.css">
+    <script src="rotate_ticket.js"></script>
     <link rel="stylesheet" href="../style/constants.css">
     <link rel="stylesheet" href="../style/navigation.css">
     <link rel="icon" href="../source/icon.png">

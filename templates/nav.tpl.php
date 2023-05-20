@@ -9,8 +9,9 @@ declare(strict_types=1);
                 <?php if($user->whatPermission($db)=='Client' || $user->whatPermission($db)== 'Agent') drawNavClient($selected);?>
                 <?php if($user->whatPermission($db)=='Agent' || $user->whatPermission($db)=='Admin') drawNavAgent($selected); ?>
                 <!-- //Admin -->
-                <li class="nav-item unselectable" selected="false">
-                    <a href="#">
+                <?php $selectedBool='false'; if($selected=='profile') $selectedBool='true'; ?>
+                <li class="nav-item unselectable" selected= <?= $selectedBool?>>
+                    <a href="/../Client_pages/Profile_page/profile.php">
                         <div class="option-container">
                             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Iconly/Curved/Profile">
@@ -58,6 +59,7 @@ declare(strict_types=1);
     </li>
 <?php } ?>
 
+
 <?php function drawNavAgent(String $selected){ ?>
     <?php $selectedBool='false'; if($selected=='agent') $selectedBool='true'; ?>
     <li class="nav-item unselectable" selected =<?php echo $selectedBool ?>>
@@ -103,3 +105,4 @@ declare(strict_types=1);
         </a>
     </li>
 <?php } ?>
+

@@ -26,11 +26,25 @@ class User{
         $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
         $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
     }
-    public function save($db){
-        $stmt = $db->prepare('INSERT INTO User(username,password,email, full_name, created_at) VALUES (?, ?, ?, ?,2015-12-17)');
-        $stmt->execute(array($this->username, $this->password, strtolower($this->email),$this->fullName));
-        $this->id = intval($db->lastInsertId());
+
+    function save($db) {
+        $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+        $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password ,$this->id));
+        if($this->hasPermition($db,'Agent')){
+            $stmt = $db->prepare('UPDATE Agent SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password , $this->id));
+        }
+        if($this->hasPermition($db,'Client')){
+            $stmt = $db->prepare('UPDATE Client SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password , $this->id));
+        }
+        if($this->hasPermition($db,'Admin')){
+            $stmt = $db->prepare('UPDATE Admin SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password, $this->id));
+        }
+
     }
+
 
     static function getUserWithPassword($db, string $username, string $password){
         $stmt = $db->prepare('
