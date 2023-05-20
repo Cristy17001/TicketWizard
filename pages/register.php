@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style/register.css">
     <link rel="stylesheet" href="../style/input_styling.css">
     <link rel="stylesheet" href="../style/constants_login_register.css">
-    <script src='../script.js'></script>
+    <script src='../scripts/checkPassword.js'></script>
 </head>
 <body>
   <div class="left">
