@@ -21,6 +21,19 @@ INSERT INTO Department (id, name) VALUES (6, 'Sales');
 INSERT INTO Department (id, name) VALUES (7, 'Finance ');
 INSERT INTO Department (id, name) VALUES (8, 'Customer Service');
 
+--State_
+INSERT INTO State_ (id, name) VALUES (1, 'opened');
+INSERT INTO State_ (id, name) VALUES (2, 'closed');
+INSERT INTO State_ (id, name) VALUES (3, 'pending');
+INSERT INTO State_ (id, name) VALUES (4, 'other');
+
+--Hashtags
+INSERT INTO Hashtags (id, name) VALUES (1, '#informatics');
+INSERT INTO Hashtags (id, name) VALUES (2, '#something');
+INSERT INTO Hashtags (id, name) VALUES (3, '#somethingElse');
+INSERT INTO Hashtags (id, name) VALUES (4, '#important');
+INSERT INTO Hashtags (id, name) VALUES (5, '#urgent');
+
 --MESSAGE
 
 --FAQ
@@ -35,8 +48,15 @@ INSERT INTO Faq (id, title, response) VALUES (8, 'What should I do if I forgot m
 INSERT INTO Faq (id, title, response) VALUES (9, 'Are there any self-help resources available?', 'Yes, we provide a comprehensive knowledge base on our website with troubleshooting guides, FAQs, and tutorials. You can access these resources to find solutions to common issues.');
 INSERT INTO Faq (id, title, response) VALUES (10, 'How do I provide feedback on the service I received?', 'We welcome your feedback on the service you received. After your ticket has been resolved, you will have the opportunity to rate and provide feedback on the agent''s assistance.');
 
-
 --TICKET
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (1, 2, null, 'informatics', 'LLLLL', 'Take ', null, null, '2023-05-16 21:10:31', null, 1);
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (2, 3, null, 'informatics', 'Bluescreen', 'After being on my computer for a while it always gets bluescreen.', null, null, '2023-05-16 21:24:40', null, 1);
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (3, 2, null, 'informatics', 'Bluescreen', 'o meu computador tem problemas a ligar', null, null, '2023-05-16 21:54:01', null, 1);
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (4, 2, null, 'Marketing', 'lol', 'asijdoaisjdqweqwe', null, null, '2023-05-17 10:27:32', null, 1);
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (5, 3, null, 'Marketing', 'dasdasdasd', 'dasdasdasdasdsadasdasdasdsadas', null, null, '2023-05-19 10:35:02', null, 1);
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (6, 2, null, 'informatics', 'Noa estou a conseguir conectar ao wifi', 'Sempre que tento introduzir a password obtenho um erro, não sei o que se passa', null, null, '2023-05-19 13:08:38', null, 1);
+INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (7, 3, null, 'administration', 'Este titulo é só para testar uma cena', 'dasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasd', null, null, '2023-05-19 18:21:35', null, 1);
+
 
 --USER
 INSERT INTO User (id, username, password, email, full_name, created_at) VALUES (1, 'admin', '$2y$10$z11/BhRA6nqpf4sZU00SNe6LUFjuZGgRUonPLinvgKMkRMgS1cz4q', 'testegmail.com', 'teste', '20120618 10:34:09 AM');

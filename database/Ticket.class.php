@@ -67,6 +67,22 @@ function createTicket($db, $user_id, $department, $title, $description) {
     ');
     $stmt->execute(array($user_id,$department, $title, $description, 1));
 }
+<<<<<<< HEAD
+=======
+
+function getHashtags($db) {
+    $stmt = $db->prepare('SELECT * FROM Hashtags');
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getStates($db) {
+    $stmt = $db->prepare('SELECT * FROM State_');
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+>>>>>>> 19bb942954de775c8a6e1869e02c22711b336ed0
 function updateTicketDepartment($db, $ticket_id, $optional) {
     $stmt = $db->prepare('
     UPDATE Ticket 
@@ -110,5 +126,8 @@ function messageFromTicket($db, $ticket_id) {
     return $messages;
 }
 
+<<<<<<< HEAD
 
 ?>
+=======
+>>>>>>> 19bb942954de775c8a6e1869e02c22711b336ed0

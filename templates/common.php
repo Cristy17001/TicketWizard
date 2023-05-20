@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../style/navigation.css">
     <link rel="icon" href="../source/icon.png">
 
-
+    <?php if ($page == 'admin') {echo '<link rel="stylesheet" href="../style/admin.css">';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<link rel="stylesheet" href="../style/ticket.css">';} ?>
     <?php if ($page == 'client') {echo '<link rel="stylesheet" href="../style/create_ticket.css">';} ?>
     <?php if ($page == 'client') {echo '<link rel="stylesheet" href="../style/open_ticket.css">';} ?>
