@@ -16,7 +16,6 @@
 
 
   if ($user) {
-
     //passowords condtions
     if(empty($_POST['current-pass']) || empty($_POST['new-pass']) || empty($_POST['confirm-pass'])) die("Error: Missing password information.");
     if($_POST['new-pass'] != $_POST['confirm-pass']) die("Error: Wrong password information.");
@@ -24,8 +23,8 @@
 
 
     //conditon to see if the empty strings (passwords hash missing)
-    if(!empty($_POST['name']))$user->fullName = htmlspecialchars($_POST['name']);
-    if(!empty($_POST['username']))$user->username = htmlspecialchars($_POST['username']);
+    if(!empty($_POST['name'])) $user->fullName = htmlspecialchars($_POST['name']);
+    if(!empty($_POST['username'])) $user->username = htmlspecialchars($_POST['username']);
     if(!empty($_POST['email'])) $user->email = htmlspecialchars($_POST['email']);
     $user->password = password_hash($_POST['new-pass'],PASSWORD_DEFAULT);
 
@@ -36,5 +35,5 @@
   }
 
 
-  header('Location: ../Client_pages/Profile_page/profile.php');
+  header('Location: ../pages/profile.php');
 ?>

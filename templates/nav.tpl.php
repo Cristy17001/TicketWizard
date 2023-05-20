@@ -11,7 +11,7 @@ declare(strict_types=1);
                 <!-- //Admin -->
                 <?php $selectedBool='false'; if($selected=='profile') $selectedBool='true'; ?>
                 <li class="nav-item unselectable" selected= <?= $selectedBool?>>
-                    <a href="/../Client_pages/Profile_page/profile.php">
+                    <a href="../pages/profile.php">
                         <div class="option-container">
                             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Iconly/Curved/Profile">
