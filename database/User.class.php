@@ -8,14 +8,16 @@ class User{
     public string $password;
     public string $email;
     public string $fullName;
+    public string $image;
     // public datetime $created_at;
 
-    public function __construct(?int $id, string $username, string $password, string $email, string $fullName) {
+    public function __construct(?int $id, string $username, string $password, string $email, string $fullName,string $image) {
         $this->id=$id;
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
         $this->fullName = $fullName;
+        $this->image = $image;
     }
 
     public function register_save($db) {
@@ -28,19 +30,19 @@ class User{
     }
 
     function save($db) {
-        $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
-        $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password ,$this->id));
+        $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ? ,password = ? , image= ?  WHERE id = ?');
+        $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password,$this->image ,$this->id));
         if($this->hasPermition($db,'Agent')){
-            $stmt = $db->prepare('UPDATE Agent SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
-            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password , $this->id));
+            $stmt = $db->prepare('UPDATE Agent SET username = ?,email = ? ,full_name  = ? ,password = ?,image=?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password,$this->image , $this->id));
         }
         if($this->hasPermition($db,'Client')){
-            $stmt = $db->prepare('UPDATE Client SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
-            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password , $this->id));
+            $stmt = $db->prepare('UPDATE Client SET username = ?,email = ? ,full_name  = ? ,password = ?,image=?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password,$this->image , $this->id));
         }
         if($this->hasPermition($db,'Admin')){
-            $stmt = $db->prepare('UPDATE Admin SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
-            $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password, $this->id));
+            $stmt = $db->prepare('UPDATE Admin SET username = ?,email = ? ,full_name  = ? ,password = ?,image=?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password,$this->image, $this->id));
         }
 
     }
@@ -48,7 +50,7 @@ class User{
 
     static function getUserWithPassword($db, string $username, string $password){
         $stmt = $db->prepare('
-        SELECT id, username, password, email, full_name
+        SELECT *
         FROM User 
         WHERE username = ?
       ');
@@ -61,7 +63,8 @@ class User{
             $user['username'],
             $user['password'],
             $user['email'],
-            $user['full_name']
+            $user['full_name'],
+            $user['image']
         );
       } else return null;
     }
@@ -95,7 +98,7 @@ class User{
 
     static function getUser($db, int $id) : User {
         $stmt = $db->prepare('
-        SELECT id, username, password, email, full_name
+        SELECT *
         FROM User 
         WHERE id = ?
         ');
@@ -108,7 +111,8 @@ class User{
             $user['username'],
             $user['password'],
             $user['email'],
-            $user['full_name']
+            $user['full_name'],
+            $user['image']
         );
       }
 

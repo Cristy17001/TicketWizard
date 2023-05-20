@@ -28,6 +28,8 @@
     <?php if ($page == 'faq') {echo '<script src="../scripts/highlightFaq.js"></script>';} ?>
     <?php if ($page == 'faq') {echo '<script src="../scripts/removeFaq.js"></script>';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/filter.js"></script>';} ?>
+    <?php if ($page == 'profile') {echo '<script src="../scripts/uploadImage.js"></script>';} ?>
+
 </head>
 <body>
 <header>

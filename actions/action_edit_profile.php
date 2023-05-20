@@ -35,10 +35,13 @@
 
 
     //saves the altered info
+    /*
     $user->save($db);
     $session->setName($user->fullName);
+    */
   }
 
 
-  header('Location: ../pages/profile.php');
+  echo $user->image;
+  //header('Location: ../pages/profile.php');
 ?>
