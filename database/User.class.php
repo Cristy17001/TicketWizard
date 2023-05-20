@@ -28,8 +28,21 @@ class User{
     }
 
     function save($db) {
-        $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ?   WHERE id = ?');
-        $stmt->execute(array($this->username,$this->email,$this->fullName , $this->id));
+        $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+        $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password ,$this->id));
+        if($this->hasPermition($db,'Agent')){
+            $stmt = $db->prepare('UPDATE Agent SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password , $this->id));
+        }
+        if($this->hasPermition($db,'Client')){
+            $stmt = $db->prepare('UPDATE Client SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName,$this->password , $this->id));
+        }
+        if($this->hasPermition($db,'Admin')){
+            $stmt = $db->prepare('UPDATE Admin SET username = ?,email = ? ,full_name  = ? ,password = ?  WHERE id = ?');
+            $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password, $this->id));
+        }
+
     }
 
 
