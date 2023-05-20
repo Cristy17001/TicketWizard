@@ -198,15 +198,15 @@
     background-color: var(--logo-color);
 }
 
-.ticket[state="pending"] .state {
+.ticket[state="Pending"] .state {
     color: var(--pending-color);
 }
 
-.ticket[state="open"] .state {
+.ticket[state="Open"] .state {
     color: var(--opened-color);
 }
 
-.ticket[state="closed"] .state {
+.ticket[state="Closed"] .state {
     color: var(--closed-color);
 }
 
