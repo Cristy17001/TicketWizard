@@ -26,7 +26,7 @@
         $tickets= getTicketsFromClient($db,$session->getId());
     }
     else {
-        $tickets = getFilteredTicketsClient($db, $state, $department, $user->id);
+        $tickets = getFilteredTicketsClient($db, $state, $department, null, $user->id);
     }
 
     if ($user->whatPermission($db) != 'Agent' && $user->whatPermission($db) != 'Client' && $user->whatPermission($db) != 'Admin') {
