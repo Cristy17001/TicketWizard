@@ -4,7 +4,7 @@
     <div class="main-content">
         <form class="filter" method="post" action="../pages/agent.php">
                 <label for="State"></label>
-                <select class="form-filter" id="State" name="State" col-index=1 >
+                <select class="form-filter" id="State" name="State">
                     <option value="" >State</option>
                     <?php $status = getStates($db);
                     foreach($status as $state){ ?>
@@ -12,14 +12,14 @@
                      <?php } ?>
                 </select>
                 <label for="Department"></label>
-                <select class="form-filter" id="Department" name="Department" col-index=2 >
+                <select class="form-filter" id="Department" name="Department">
                     <option value="">Department</option>
                     <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option value="<?= $department["id"] ?>"><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
                 <label for="Hashtags"></label>
-                <select id="Hashtags" name="Hashtags" col-index=3 >
+                <select id="Hashtags" name="Hashtags">
                     <option value="">Hashtags</option>
                     <?php   $hashtags=getHashtags($db); foreach($hashtags as $hashtag){ ?>
                     <option value="<?= $hashtag["id"] ?>"><?=$hashtag['name'] ?></option>
