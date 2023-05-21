@@ -45,6 +45,7 @@
     border-radius: 10px;
     color: var(--text-color);
     font-family: var(--text-font);
+    overflow-wrap: anywhere;
 }
 
 .opened-ticket > h2 {

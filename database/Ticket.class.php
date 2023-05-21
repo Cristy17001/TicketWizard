@@ -64,10 +64,10 @@ function getTicketsToAgent($db,$id) {
 
 function createTicket($db, $user_id, $department, $title, $description) {
     $stmt = $db->prepare('
-    INSERT INTO Ticket(user_id, department, title, description, isClosed, status)
-    VALUES(?, ?, ?, ?, ?, ?)
+    INSERT INTO Ticket(user_id, department, title, description, isClosed)
+    VALUES(?, ?, ?, ?, ?)
     ');
-    $stmt->execute(array($user_id,$department, $title, $description, 1, "Pending"));
+    $stmt->execute(array($user_id,$department, $title, $description, 1));
 }
 
 function getHashtags($db) {
