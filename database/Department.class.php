@@ -21,6 +21,12 @@ function getDepartments($db) {
   $departments = $stmt->fetchAll();
   return $departments;
 }
+function getDepartmentName($db,$id){
+  $stmt = $db->prepare('SELECT name FROM Department WHERE id = ?');
+  $stmt->execute(array($id));
+  $department = $stmt->fetch();
+  return $department['name'];
+}
 
 function removeDepartment($db, $id) {
     $stmt = $db->prepare('DELETE FROM Department WHERE id = ?');

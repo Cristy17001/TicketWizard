@@ -13,7 +13,6 @@
 
     $db = getDatabaseConnection();
     $user = User::getUser($db, $session->getId());
-
     if ($user) {
         $ticket_id = $_POST['ticket_id'];
         $optional = $_POST['department-assign'];

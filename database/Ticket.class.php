@@ -55,19 +55,19 @@ function getTicketsToAgent($db,$id) {
     $stmt->execute(array($id));
     $tickets = $stmt->fetchAll();
     if(count($tickets)==0){
-        $stmt = $db->prepare('SELECT * FROM Ticket');
-        $stmt->execute();
+        $stmt = $db->prepare('SELECT * FROM Ticket WHERE status = 3 AND user_assigned_id != ?');
+        $stmt->execute(array($id));
         $tickets = $stmt->fetchAll();
     }
     return $tickets;
 }
 
-function createTicket($db, $user_id, $department, $title, $description) {
+function createTicket($db, $user_id, $optional, $title, $description) {
     $stmt = $db->prepare('
     INSERT INTO Ticket(user_id, department, title, description, isClosed, status)
     VALUES(?, ?, ?, ?, ?, ?)
     ');
-    $stmt->execute(array($user_id,$department, $title, $description, 1, "Pending"));
+    $stmt->execute(array($user_id,$optional, $title, $description, 1, 3));
 }
 
 function getHashtags($db) {
@@ -125,11 +125,43 @@ function messageFromTicket($db, $ticket_id) {
     return $messages;
 }
 function getFilteredTickets($db, $state, $department, $hashtag) {
-    //if (!$department) {$department = null;}
-    //if (!$state) {$state = null;}
     if (!$state) {$state = 3;}
-    $query = "SELECT * FROM Ticket WHERE status = ?";
-    $params = array($state);
+
+    $query = "SELECT t.* FROM Ticket AS t";
+    $params = array();
+
+    if ($hashtag) {
+        $query .= " INNER JOIN TicketHashtags AS th ON t.id = th.ticket_id";
+        $query .= " WHERE th.hashtag_id = ?";
+        $params[] = $hashtag;
+    } else {
+        $query .= " WHERE 1";
+    }
+
+    if (!$department) {
+        $query .= " AND t.department IS NULL";
+    } else {
+        $query .= " AND t.department = ?";
+        $params[] = $department;
+    }
+
+    $query .= " AND t.status = ?";
+    $params[] = $state;
+
+    $stmt = $db->prepare($query);
+    $stmt->execute($params);
+    return $stmt->fetchAll();
+}
+
+function getFilteredTicketsClient($db, $state, $department, $id) {
+    $query = "SELECT * FROM Ticket WHERE user_id = ?";
+    $params = array($id);
+    if (!$state) {
+        $query .= " AND status IS NULL";
+    } else {
+        $query .= " AND status = ?";
+        $params[] = $state;
+    }
 
     if (!$department) {
         $query .= " AND department IS NULL";
@@ -162,3 +194,23 @@ function removeHashtag($db, $id) {
     $stmt = $db->prepare('DELETE FROM Hashtags WHERE id = ?');
     $stmt->execute(array($id));
 }
+function getStatusName($db, $id) {
+    $stmt = $db->prepare('SELECT name FROM State_ WHERE id = ?');
+    $stmt->execute(array($id));
+    $status = $stmt->fetch();
+    return $status['name'];
+}
+function getHashtagName($db, $id) {
+    $stmt = $db->prepare('SELECT name FROM Hashtags WHERE id = ?');
+    $stmt->execute(array($id));
+    $hashtagname= $stmt->fetch();
+    return $hashtagname['name'];
+}
+function getTicketHashtags($db, $id) {
+    $stmt = $db->prepare('SELECT hashtag_id FROM TicketHashtags WHERE ticket_id = ?');
+    $stmt->execute(array($id));
+    $hashtags= $stmt->fetchAll();
+    return $hashtags;
+}
+
+

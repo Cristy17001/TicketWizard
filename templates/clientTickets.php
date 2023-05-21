@@ -1,21 +1,20 @@
 <?php declare(strict_types=1);?>
 
-
 <?php function drawClientTickets($tickets, $db){ ?>
         <div class="main-content">
-            <form class="filter">
+            <form class="filter" method="post" action="../pages/client.php">
                 <label for="State"></label>
-                <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
+                <select class="form-filter" id="State" name="State" col-index=1>
                     <option  value="">State</option>
                     <?php $status=getStates($db); foreach($status as $state){ ?>
-                    <option><?php echo $state['name'] ?></option>
+                    <option value="<?=$state['id']?>"><?php echo $state['name'] ?></option>
                      <?php } ?>
                 </select>
                 <label for="Department"></label>
-                <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
+                <select class="form-filter" id="Department" name="Department" col-index=2>
                     <option value="">Department</option>
                     <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
-                    <option><?php echo $department['name'] ?></option>
+                    <option value="<?=$department['id']?>"><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
                 <input type="submit" value="Filter">
@@ -25,19 +24,23 @@
                 <div id="ticket" class="ticket unselectable" state="<?=$ticket['status']?>">
                     <div class="innerCard transition"  ticket_id =<?=$ticket['id'] ?>>
                         <div class="frontSide">
-                            <p class="state"><?=$ticket['status']?></p>
+                            <p class="state"><?=getStatusName($db,$ticket['status'])?></p>
                             <h2 class="title"><?=$ticket['title'] ?></h2>
                             <p class="description"><?=$ticket['description'] ?> </p>
-                            <p class="hashtags">#informatics #something</p>
+                            <p class="hashtags"><?php $hashtags=getTicketHashtags($db,$ticket['id']); foreach($hashtags as $hashtag) { ?>
+                                <?=getHashtagName($db,$hashtag['hashtag_id'])?>
+                            <?php } ?></p></p>
                             <p class="created">Created at, <?=$ticket['created_at'] ?></p>
                         </div>
                         <div class="backSide">
-                            <h2><?=$ticket['status']?></h2>
-                            <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
+                            <h2><?=getStatusName($db,$ticket['status'])?></h2>
+                            <p class="department"><span>Department: </span><?= getDepartmentName($db,$ticket['department']) ?></p>
                             <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
+                            <?php if(getImage($db,$ticket['user_assigned_id'])!=null) { ?>
                             <div class="circle">
-                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                                <img src="<?=getImage($db,$ticket['user_assigned_id'])?>" alt="agent image">
                             </div>
+                            <?php } ?>
                             <p class="date"><?php if($ticket['updated_at']!='') { echo 'Updated at, ' . $ticket['updated_at']; }?></p>
                         </div>
                     </div>
@@ -48,13 +51,13 @@
                     </svg>
                     <div class="top">
                         <h1><?=$ticket['title'] ?></h1>
-                        <p><?=$ticket['status'] ?></p>
+                        <p><?=getStatusName($db,$ticket['status'])?></p>
                     </div>
                     <p class="description">
                     <?=$ticket['description'] ?>
                     </p>
                     <h2>Assigned Department:</h2>
-                    <p><?=$ticket['department']?></p>
+                    <p><?= getDepartmentName($db,$ticket['department']) ?></p>
                     <h2>Assigned agent:</h2>
                     <p><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                     <h2>Hashtags:</h2>
@@ -64,13 +67,13 @@
                         <div class="chat-display">
                         <?php $messages= messageFromTicket($db,$ticket['id']); foreach($messages as $message) { if($message['user_id']==$ticket['user_id']) { ?>
                                 <div class="left">
-                                    <img src="../source/avatar.jpg" alt="replier image">
+                                    <img src="<?=getImage($db,$message['user_id'])?>" alt="replier image">
                                     <p><?=$message['content'] ?></p>
                                 </div>
                                 <?php } else { ?>
                                 <div class="right">
                                     <p><?=$message['content'] ?></p>
-                                    <img src="../source/agent_avatar.jpg" alt="my image">
+                                    <img src="<?=getImage($db,$message['user_id'])?>" alt="my image">
                                 </div>
                                 <?php }; }?>
                         </div>
