@@ -88,7 +88,7 @@ function createTicket($db, $user_id, $optional, $title, $description) {
     INSERT INTO Ticket(user_id, department, title, description, isClosed)
     VALUES(?, ?, ?, ?, ?)
     ');
-    $stmt->execute(array($user_id,$optional, $title, $description, 1, 3));
+    $stmt->execute(array($user_id,$optional, $title, $description, 1));
 }
 
 function getHashtags($db) {
@@ -245,23 +245,9 @@ function getTicketHashtags($db, $id) {
     return $hashtags;
 }
 
-
-
 function createEvent($db,$user_id,$ticket_id,$title,$content){
     $stmt = $db->prepare('INSERT INTO Event(user_id,ticket_id,title,content) VALUES (?,?,?,?);');
     $stmt->execute(array($user_id,$ticket_id,$title,$content));
-}
-
-function getHashtagName($db, $id) {
-    $stmt = $db->prepare('SELECT name FROM Hashtags WHERE id = ?');
-    $stmt->execute(array($id));
-    $hashtagname= $stmt->fetch();
-    return $hashtagname['name'];
-}
-function getTicketHashtags($db, $id) {
-    $stmt = $db->prepare('SELECT hashtag_id FROM TicketHashtags WHERE ticket_id = ?');
-    $stmt->execute(array($id));
-    return $stmt->fetchAll();
 }
 
 function removeTicketHashtags($db, $ticket_id, $hashtag_id) {

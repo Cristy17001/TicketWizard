@@ -24,8 +24,6 @@
                     <option><?=$hashtag['name'] ?></option>
                      <?php } ?>
                 </select>
-                <label for="Sort"></label>
-                <div id="Sort">Sort by date</div>
                 <input type="submit" value="Filter">
             </form>
             <div class="sort-container">
@@ -46,9 +44,6 @@
                             <p class="created"><?=$ticket['created_at'] ?></p>
                         </div>
                         <div class="backSide">
-                            <h2><?=$ticket['status'] ?></h2>
-                            <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
-                            <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                             <h2><?=getStatusName($db,$ticket['status'])?></h2>
                             <p class="department"><span>Department: </span><?= getDepartmentName($db,$ticket['department']) ?></p>
                             <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
