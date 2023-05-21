@@ -33,7 +33,7 @@ function filter_rows() {
         if (display_row != true) {
             row.style.display = "none"
         } else {
-            row.style.display = "table-row"
+            row.style.display = "block"
         }
     })
 

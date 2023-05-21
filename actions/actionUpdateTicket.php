@@ -29,7 +29,7 @@
             updateTicketStatus($db, $ticket_id, $status);
         }
         updatedTicket($db, $ticket_id);
-        header('Location:../pages/agent.php');
+        header('Location: ../pages/agent.php#Ticket'.$ticket_id);
     }
     else {
         drawErrorPage("Error: Your were banned!");

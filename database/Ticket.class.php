@@ -50,22 +50,23 @@ function getTicketsFromClient($db, int $user_id) {
     $tickets = $stmt->fetchAll();
     return $tickets;
 }
-function getTicketsToAgent($db) {
+function getTicketsToAgent($db,$id) {
     $stmt = $db->prepare('
     SELECT *
     FROM Ticket
+    WHERE user_assigned_id = ?
     ');
-    $stmt->execute();
+    $stmt->execute(array($id));
     $tickets = $stmt->fetchAll();
     return $tickets;
 }
 
 function createTicket($db, $user_id, $department, $title, $description) {
     $stmt = $db->prepare('
-    INSERT INTO Ticket(user_id, department, title, description, isClosed)
-    VALUES(?, ?, ?, ?, ?)
+    INSERT INTO Ticket(user_id, department, title, description, isClosed, status)
+    VALUES(?, ?, ?, ?, ?, ?)
     ');
-    $stmt->execute(array($user_id,$department, $title, $description, 1));
+    $stmt->execute(array($user_id,$department, $title, $description, 1, "Pending"));
 }
 
 function getHashtags($db) {
@@ -121,6 +122,20 @@ function messageFromTicket($db, $ticket_id) {
     $stmt->execute(array($ticket_id));
     $messages = $stmt->fetchAll();
     return $messages;
+}
+function getFilteredTickets($db,$state,$department) {
+    $stmt = $db->prepare("
+    SELECT *
+    FROM Ticket
+    WHERE TRUE
+    AND (department = :department OR :department IS NULL)
+    AND (status = :status OR :status IS NULL)
+    ");
+    $stmt->bindParam(':department', $department);
+    $stmt->bindParam(':status', $state);
+    $stmt->execute();
+    $tickets = $stmt->fetchAll();
+    return $tickets;
 }
 
 function addStatus($db, $name) {

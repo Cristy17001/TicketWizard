@@ -4,15 +4,12 @@
 <?php function drawClientTickets($tickets, $db){ ?>
         <div class="main-content">
             <form class="filter">
-                <label for="search"></label>
-                <input id="search" type="text" placeholder="Search...">
                 <label for="State"></label>
                 <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
                     <option  value="">State</option>
-                    <option>Open</option>
-                    <option>Closed</option>
-                    <option>Pending</option>
-                    <option>Assigned</option>
+                    <?php $status=getStates($db); foreach($status as $state){ ?>
+                    <option><?php echo $state['name'] ?></option>
+                     <?php } ?>
                 </select>
                 <label for="Department"></label>
                 <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
@@ -35,7 +32,7 @@
                             <p class="created">Created at, <?=$ticket['created_at'] ?></p>
                         </div>
                         <div class="backSide">
-                            <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
+                            <h2><?=$ticket['status']?></h2>
                             <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
                             <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                             <div class="circle">
@@ -45,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <dialog data-modal class="opened-ticket" ticket_id =<?=$ticket['id'] ?>>
+                <dialog data-modal id=<?= "Ticket".$ticket['id'] ?> class="opened-ticket" ticket_id =<?=$ticket['id'] ?>>
                     <svg class="close" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 1024 1024"><path
                             fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
                     </svg>
@@ -93,6 +90,7 @@
                 <?php } ?>
         </div>
     </div>
+    <script src="../scripts/dialogOpen.js"></script>
 </body>
 </html>
 <?php } ?>
