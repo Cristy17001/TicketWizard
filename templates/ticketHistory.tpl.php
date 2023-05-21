@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);?>
 
-<?php function drawTicketHistory($db, $modifications) { ?>
+<?php function drawTicketHistory($db, $events) { ?>
     <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -30,11 +30,17 @@
                             <th>Description</th>
                             <th>Time</th>
                         </tr>
-                        <tr>
-                            <td>Client1234</td>
-                            <td>Modou blabla blaModou blabla bla</td>
-                            <td>14:00 21/05/2023</td>
-                        </tr>
+                        <?php foreach ($events as $event) : ?>
+                            <tr>
+                                
+                                <?php 
+                                    $user = User::getUser($db,$event['user_id']);
+                                ?>
+                                <td><?= $user->fullName; ?></td>
+                                <td><?= $event['content']; ?></td>
+                                <td><?= $event['time']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </table>
                 </div>
             </main>

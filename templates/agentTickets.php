@@ -93,7 +93,7 @@
                             </div>
                             <button >Update</button>
                         </form>
-                        <a href="../pages/ticketHistory.php">Ticket History</a>
+                        <a href="../pages/ticketHistory.php?id=<?= $ticket['id']; ?>" target="_blank">Ticket History</a>                        
                         <h2>Chat:</h2>
                         <div class="chat">
                             <div class="chat-display">

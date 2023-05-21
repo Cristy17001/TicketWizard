@@ -17,15 +17,14 @@
     require_once('../templates/errorPage.php');
 
 
-$db = getDatabaseConnection();
+    $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
-    $tickets= getTicketsFromClient($db,$session->getId());
-    $modification = array();
-
+    $events = getEvents($db,$_GET['id']);
     if ($user->whatPermission($db) != 'Agent' && $user->whatPermission($db) != 'Admin') {
         drawErrorPage("Error 403: No Permission!");
     }
     else {
-        drawTicketHistory($db, $modification);
+        drawTicketHistory($db, $events);
     }
+?>

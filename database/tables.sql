@@ -191,5 +191,25 @@ CREATE TABLE IF NOT EXISTS Post(
 
 );
 
+
+DROP TABLE IF EXISTS Event;
+CREATE TABLE IF NOT EXISTS Event(
+--ID'S
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    ticket_id INTEGER NOT NULL,
+
+
+    --CONTENT
+    title VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL,
+    created_at DEFAULT CURRENT_TIMESTAMP,
+
+    --FOREIGN KEYS
+    FOREIGN KEY (user_id) REFERENCES User(id)
+    FOREIGN KEY (ticket_id) REFERENCES User(id)
+
+);
+
 --ver relaçao Department e Agent
 --completar Department

@@ -35,5 +35,12 @@ function addDepartment($db, $name) {
     $stmt = $db->prepare('INSERT INTO Department(name) VALUES (?)');
     $stmt->execute(array($name));
 }
+
+function getDepartmentName($db,$id){
+  $stmt = $db->prepare('SELECT name FROM Department WHERE id = ?');
+  $stmt->execute(array($id));
+  $department = $stmt->fetch();
+  return $department['name'];
+}
     
 ?>
