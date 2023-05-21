@@ -10,6 +10,7 @@
             <link rel="stylesheet" href="../style/constants.css">
             <link rel="stylesheet" href="../style/navigation.css">
             <link rel="stylesheet" href="../style/ticketHistory.css">
+            <link rel="icon" href="../source/icon.png">
         </head>
         <body>
         <header>
