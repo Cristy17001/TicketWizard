@@ -20,6 +20,16 @@ function getDepartments($db) {
   $stmt->execute();
   $departments = $stmt->fetchAll();
   return $departments;
-} 
+}
+
+function removeDepartment($db, $id) {
+    $stmt = $db->prepare('DELETE FROM Department WHERE id = ?');
+    $stmt->execute(array($id));
+}
+
+function addDepartment($db, $name) {
+    $stmt = $db->prepare('INSERT INTO Department(name) VALUES (?)');
+    $stmt->execute(array($name));
+}
     
 ?>

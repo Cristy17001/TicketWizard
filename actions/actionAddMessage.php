@@ -8,9 +8,11 @@
   require_once('../database/User.class.php');
   require_once('../database/Ticket.class.php');
   require_once('../database/Message.class.php');
+  require_once('../templates/errorPage.php');
 
 
-  $db = getDatabaseConnection();
+
+    $db = getDatabaseConnection();
     $user = User::getUser($db, $session->getId());
     if ($user) {
         $ticket_id = $_POST['ticket_id'];

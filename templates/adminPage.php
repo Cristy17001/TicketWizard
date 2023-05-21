@@ -82,7 +82,7 @@ function drawAdminTables($db, $selected) {
                 <tr>
                     <td><?=htmlspecialchars(strval($department['id']), ENT_QUOTES) ?></td>
                     <td><?=htmlspecialchars($department['name'], ENT_QUOTES) ?></td>
-                    <td><button class="remove-btn">
+                    <td><button class="remove-btn" onclick="removeDepartment(<?=htmlspecialchars(strval($department['id']), ENT_QUOTES) ?>)">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.5 12.5V21.25M12.5 12.5V21.25M7.5 7.5V22.25C7.5 23.6501 7.5 24.3498 7.77249 24.8845C8.01216 25.3549 8.39434 25.7381 8.86475 25.9777C9.399 26.25 10.0987 26.25 11.4961 26.25H18.5039C19.9012 26.25 20.6 26.25 21.1343 25.9777C21.6046 25.7381 21.9881 25.3549 22.2277 24.8845C22.5 24.3503 22.5 23.6513 22.5 22.2539V7.5M7.5 7.5H10M7.5 7.5H5M22.5 7.5H20M22.5 7.5H25M10 7.5H20M10 7.5C10 6.33515 10 5.75301 10.1903 5.29357C10.444 4.68101 10.9304 4.19404 11.543 3.9403C12.0024 3.75 12.5851 3.75 13.75 3.75H16.25C17.4149 3.75 17.9972 3.75 18.4567 3.9403C19.0692 4.19404 19.5559 4.68101 19.8096 5.29357C19.9999 5.753 20 6.33515 20 7.5" stroke="#001AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -113,7 +113,7 @@ function drawAdminTables($db, $selected) {
                 <tr>
                     <td><?=htmlspecialchars(strval($status['id']), ENT_QUOTES) ?></td>
                     <td><?=htmlspecialchars($status['name'], ENT_QUOTES) ?></td>
-                    <td><button class="remove-btn">
+                    <td><button class="remove-btn" onclick="removeStatus(<?=htmlspecialchars(strval($status['id']), ENT_QUOTES) ?>)">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.5 12.5V21.25M12.5 12.5V21.25M7.5 7.5V22.25C7.5 23.6501 7.5 24.3498 7.77249 24.8845C8.01216 25.3549 8.39434 25.7381 8.86475 25.9777C9.399 26.25 10.0987 26.25 11.4961 26.25H18.5039C19.9012 26.25 20.6 26.25 21.1343 25.9777C21.6046 25.7381 21.9881 25.3549 22.2277 24.8845C22.5 24.3503 22.5 23.6513 22.5 22.2539V7.5M7.5 7.5H10M7.5 7.5H5M22.5 7.5H20M22.5 7.5H25M10 7.5H20M10 7.5C10 6.33515 10 5.75301 10.1903 5.29357C10.444 4.68101 10.9304 4.19404 11.543 3.9403C12.0024 3.75 12.5851 3.75 13.75 3.75H16.25C17.4149 3.75 17.9972 3.75 18.4567 3.9403C19.0692 4.19404 19.5559 4.68101 19.8096 5.29357C19.9999 5.753 20 6.33515 20 7.5" stroke="#001AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -143,7 +143,7 @@ function drawAdminTables($db, $selected) {
                 <tr>
                     <td><?=htmlspecialchars(strval($hashtag['id'])) ?></td>
                     <td><?=htmlspecialchars($hashtag['name'], ENT_QUOTES) ?></td>
-                    <td><button class="remove-btn">
+                    <td><button class="remove-btn" onclick="removeHashtag(<?=htmlspecialchars(strval($hashtag['id']), ENT_QUOTES) ?>)">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.5 12.5V21.25M12.5 12.5V21.25M7.5 7.5V22.25C7.5 23.6501 7.5 24.3498 7.77249 24.8845C8.01216 25.3549 8.39434 25.7381 8.86475 25.9777C9.399 26.25 10.0987 26.25 11.4961 26.25H18.5039C19.9012 26.25 20.6 26.25 21.1343 25.9777C21.6046 25.7381 21.9881 25.3549 22.2277 24.8845C22.5 24.3503 22.5 23.6513 22.5 22.2539V7.5M7.5 7.5H10M7.5 7.5H5M22.5 7.5H20M22.5 7.5H25M10 7.5H20M10 7.5C10 6.33515 10 5.75301 10.1903 5.29357C10.444 4.68101 10.9304 4.19404 11.543 3.9403C12.0024 3.75 12.5851 3.75 13.75 3.75H16.25C17.4149 3.75 17.9972 3.75 18.4567 3.9403C19.0692 4.19404 19.5559 4.68101 19.8096 5.29357C19.9999 5.753 20 6.33515 20 7.5" stroke="#001AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
