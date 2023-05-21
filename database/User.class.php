@@ -21,12 +21,12 @@ class User{
     }
 
     public function register_save($db) {
-        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, 2015-12-17)');
-        $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName));
+        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, image, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName,$this->image));
         $this->id = intval($db->lastInsertId());
 
-        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
-        $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
+        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name,image, created_at) VALUES (?, ?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName,$this->image));
     }
 
     function save($db) {
@@ -148,12 +148,12 @@ class User{
         
         
         if ($permission == "Client") {
-            $stmt = $db->prepare('INSERT INTO Agent (id, username, password, email, full_name, department_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], 1, $user["created_at"]));
+            $stmt = $db->prepare('INSERT INTO Agent (id, username, password, email, full_name, image, department_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], $user['image'], 1, $user["created_at"]));
         }
         else if ($permission == "Agent") {
-            $stmt = $db->prepare('INSERT INTO Admin (id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], $user["created_at"]));
+            $stmt = $db->prepare('INSERT INTO Admin (id, username, password, email, full_name, image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], $user['image'],$user["created_at"]));
         }
 
     }
