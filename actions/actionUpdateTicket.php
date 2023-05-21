@@ -26,7 +26,7 @@
         if ($optional) {
             if ($optional != $ticket['department']) {
                 $checkUpdate = true;
-                $content .= "Department was changed to " . $optional . "<br>";
+                $content .= "Department was changed to " . getDepartmentName($db, (int)$optional) . "<br>";
             }
             updateTicketDepartment($db, $ticket_id, $optional);
         }
@@ -34,7 +34,7 @@
         if ($agent) {
             if ($agent != $ticket['user_assigned_id']) {
                 $checkUpdate = true;
-                $content .= "Assigned agent was changed to " . $agent . "<br>";
+                $content .= "Assigned agent was changed to " . User::getUser($db, (int)$agent)->fullName . "<br>";
             }
             updateTicketAgent($db, $ticket_id, $agent);
         }
@@ -42,19 +42,21 @@
         if ($status) {
             if ($status != $ticket['status']) {
                 $checkUpdate = true;
-                $content .= "Status was changed to " . $status ."<br>";
+                $content .= "Status was changed to " . getStatusName($db, (int)$status) ."<br>";
             }
             updateTicketStatus($db, $ticket_id, $status);
         }
         $hashtag = $_POST['assigned-hashtag'];
         if ($hashtag) {
             $checkUpdate = true;
-            $content .= "Hashtag " . $hashtag ." was added <br>";
+            $content .= "Hashtag " . getHashtagName($db, (int)$hashtag) ." was added <br>";
             updateTicketHashtags($db, $ticket_id, $hashtag);
         }
 
 
-        if($checkUpdate){createEvent($db,$ticket['user_assigned_id'], $ticket['id'], $title, $content);updatedTicket($db, $ticket_id);}
+    if($checkUpdate){
+        createEvent($db, $user->id, $ticket['id'], $title, $content);
+        updatedTicket($db, $ticket_id);}
         header('Location: ../pages/agent.php#Ticket'.$ticket_id);
     } else {
         drawErrorPage("Error: You were banned!");

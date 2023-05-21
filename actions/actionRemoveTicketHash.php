@@ -21,7 +21,7 @@
             removeTicketHashtags($db, $ticket_id, $hashtag_id);
 
             $ticket = getTicket($db, $ticket_id);
-            createEvent($db, $ticket['user_assigned_id'], $ticket['id'], "", "Hashtag was changed from the ticket!");
+            createEvent($db, $user->id, $ticket['id'], "", "Hashtag" . getHashtagName($db, (int)$hashtag_id) . "was removed from the ticket!");
         }
         else {
             header("Location: ../pages/error.php");

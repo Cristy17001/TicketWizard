@@ -34,8 +34,8 @@
                         <?php foreach ($events as $event) : ?>
                             <tr>
                                 
-                                <?php 
-                                    $user = User::getUser($db,$event['user_id']);
+                                <?php
+                                    $user = User::getUser($db, $event['user_id']);
                                 ?>
                                 <td><?= $user->fullName; ?></td>
                                 <td><?= $event['content']; ?></td>
