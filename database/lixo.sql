@@ -1,2 +1,2 @@
 
-UPDATE User SET full_name = "-----------" , email = "--------------"  WHERE id = 3
+DELETE FROM Client Where id = 4 ;
