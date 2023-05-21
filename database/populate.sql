@@ -67,4 +67,3 @@ INSERT INTO TicketHashtags (ticket_id, hashtag_id) VALUES (2, 3);
 INSERT INTO User (id, username, password, email, full_name,image, created_at) VALUES (1, 'admin', '$2y$10$z11/BhRA6nqpf4sZU00SNe6LUFjuZGgRUonPLinvgKMkRMgS1cz4q', 'testegmail.com', 'teste','../source/avatar.jpg', '20120618 10:34:09 AM');
 INSERT INTO User (id, username, password, email, full_name,image, created_at) VALUES (2, 'client', '$2y$10$St7dCkTwluvFPWEZnNs5YucWyFuxAgBrxho5dMqzvA4sh8V/jrSNO', 'client@gmail.com', 'client','../source/avatar.jpg', '1986');
 INSERT INTO User (id, username, password, email, full_name,image, created_at) VALUES (3, 'agent', '$2y$10$g2D9SeuENLfRsIDAHAFTfO8BNWoNdZ9mUyqZeCgqfS2j2dfWkJxKK', 'agent@gmail.com', 'agent','../source/avatar.jpg', '1986');
-

@@ -206,8 +206,8 @@ CREATE TABLE IF NOT EXISTS Event(
     created_at DEFAULT CURRENT_TIMESTAMP,
 
     --FOREIGN KEYS
-    FOREIGN KEY (user_id) REFERENCES User(id)
-    FOREIGN KEY (ticket_id) REFERENCES User(id)
+    FOREIGN KEY (user_id) REFERENCES User(id),
+    FOREIGN KEY (ticket_id) REFERENCES Ticket(id)
 
 );
 
