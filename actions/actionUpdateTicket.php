@@ -18,40 +18,43 @@
 
     $content = "";
     $title = "";
-
+    $checkUpdate = false;
 
     if ($user) {
         $ticket_id = $_POST['ticket_id'];
         $optional = $_POST['department-assign'];
         if ($optional) {
             if ($optional != $ticket['department']) {
-                $content .= "Department was changed\n";
+                $checkUpdate = true;
+                $content .= "Department was changed to " . $optional . "<br>";
             }
             updateTicketDepartment($db, $ticket_id, $optional);
         }
         $agent = $_POST['agent-assign'];
         if ($agent) {
             if ($agent != $ticket['user_assigned_id']) {
-                $content .= "Assigned agent was changed\n";
+                $checkUpdate = true;
+                $content .= "Assigned agent was changed to " . $agent . "<br>";
             }
             updateTicketAgent($db, $ticket_id, $agent);
         }
         $status = $_POST['assigned-status'];
         if ($status) {
             if ($status != $ticket['status']) {
-                $content .= "Status was changed\n";
+                $checkUpdate = true;
+                $content .= "Status was changed to " . $status ."<br>";
             }
             updateTicketStatus($db, $ticket_id, $status);
         }
         $hashtag = $_POST['assigned-hashtag'];
         if ($hashtag) {
-            $content .= "Status was changed\n";
+            $checkUpdate = true;
+            $content .= "Hashtag " . $hashtag ." was added <br>";
             updateTicketHashtags($db, $ticket_id, $hashtag);
         }
 
 
-        createEvent($db,$ticket['user_assigned_id'], $ticket['id'], $title, $content);
-        updatedTicket($db, $ticket_id);
+        if($checkUpdate){createEvent($db,$ticket['user_assigned_id'], $ticket['id'], $title, $content);updatedTicket($db, $ticket_id);}
         header('Location: ../pages/agent.php#Ticket'.$ticket_id);
     } else {
         drawErrorPage("Error: You were banned!");
