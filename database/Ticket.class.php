@@ -50,6 +50,27 @@ function getTicketsFromClient($db, int $user_id) {
     $tickets = $stmt->fetchAll();
     return $tickets;
 }
+
+
+function getEvents($db,$id){
+    $stmt = $db->prepare('
+    SELECT *
+    FROM Event 
+    WHERE ticket_id = ?
+    ');
+    $stmt->execute(array($id));
+    $events = $stmt->fetchAll();
+    return $events;
+}
+
+function getTicket($db, $id) {
+    $stmt = $db->prepare('SELECT id, title, user_assigned_id, status, department FROM Ticket WHERE id = ?');
+    $stmt->execute(array($id));
+    $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $ticket;
+}
+
+
 function getTicketsToAgent($db,$id) {
     $stmt = $db->prepare('SELECT * FROM Ticket WHERE user_assigned_id = ?');
     $stmt->execute(array($id));
@@ -172,6 +193,11 @@ function addHashtag($db, $name) {
 function removeHashtag($db, $id) {
     $stmt = $db->prepare('DELETE FROM Hashtags WHERE id = ?');
     $stmt->execute(array($id));
+}
+
+function createEvent($db,$user_id,$ticket_id,$title,$content){
+    $stmt = $db->prepare('INSERT INTO Event(user_id,ticket_id,title,content) VALUES (?,?,?,?);');
+    $stmt->execute(array($user_id,$ticket_id,$title,$content));
 }
 
 function getHashtagName($db, $id) {
