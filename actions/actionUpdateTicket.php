@@ -45,6 +45,7 @@
         }
         $hashtag = $_POST['assigned-hashtag'];
         if ($hashtag) {
+            $content .= "Status was changed\n";
             updateTicketHashtags($db, $ticket_id, $hashtag);
         }
 
