@@ -18,7 +18,7 @@
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
-
+    $tickets = getTicketsToAgent($db, $user->id);
 
     $state = $_POST['State'];
     $department = $_POST['Department'];

@@ -49,7 +49,7 @@
                             <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                             <?php if(getImage($db,$ticket['user_assigned_id'])!=null) { ?>
                             <div class="circle">
-                                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
+                                <img src="<?=getImage($db,$ticket['user_assigned_id'])?>" alt="agent image">
                             </div>
                             <?php } ?>
                             <p class="date"><?php if($ticket['updated_at']!='') { echo 'Updated at, ' . $ticket['updated_at']; }?></p>

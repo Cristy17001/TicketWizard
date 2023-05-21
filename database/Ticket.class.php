@@ -76,8 +76,8 @@ function getTicketsToAgent($db,$id) {
     $stmt->execute(array($id));
     $tickets = $stmt->fetchAll();
     if(count($tickets)==0){
-        $stmt = $db->prepare('SELECT * FROM Ticket WHERE status = 3 AND user_assigned_id != ?');
-        $stmt->execute(array($id));
+        $stmt = $db->prepare('SELECT * FROM Ticket WHERE status = 3');
+        $stmt->execute();
         $tickets = $stmt->fetchAll();
     }
     return $tickets;
