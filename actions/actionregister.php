@@ -14,9 +14,15 @@
   $pwd = password_hash($_POST['password'],PASSWORD_DEFAULT);
   $image = "../source/avatar.jpg";
 
-  // Write to database
   $db = getDatabaseConnection();
   $User= new User(null, $username, $pwd, $email, $name,$image);
-  $User->register_save($db);
+
+
+  if(!$User->isThereUser($db)){
+    $User->register_save($db);
+  }
+  else{
+    die("Already existing user");
+  }
   header('Location: ../pages/login.php');
 //   header('Location: ' . $_SERVER['HTTP_REFERER']);
