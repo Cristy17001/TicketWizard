@@ -63,7 +63,7 @@
                 <select name="optional" id="optional">
                     <option value="" disabled selected>Select Department</option>
                     <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
-                        <option><?php echo $department['name'] ?></option>
+                        <option value="<?=$department['id'] ?>"><?php echo $department['name'] ?></option>
                     <?php } ?>
                 </select>
                 <button>Add</button>

@@ -18,7 +18,16 @@
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
-    $tickets= getTicketsFromClient($db,$session->getId());
+
+    $state = $_POST['State'];
+    $department = $_POST['Department'];
+
+    if (!$state && !$department) {
+        $tickets= getTicketsFromClient($db,$session->getId());
+    }
+    else {
+        $tickets = getFilteredTicketsClient($db, $state, $department, null, $user->id);
+    }
 
     if ($user->whatPermission($db) != 'Agent' && $user->whatPermission($db) != 'Client' && $user->whatPermission($db) != 'Admin') {
         drawErrorPage("Error 403: No Permission!");

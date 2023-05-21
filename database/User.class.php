@@ -205,4 +205,10 @@ class User{
         $stmt = $db->prepare('DELETE FROM Admin WHERE id = ?');
         $stmt->execute(array($id));
     }
+    function getImage($db,$id){
+      $stmt = $db->prepare('SELECT image FROM User WHERE id = ?');
+      $stmt->execute(array($id));
+      $image=$stmt->fetch();
+      return $image['image'];
+    }
 ?>

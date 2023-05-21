@@ -28,6 +28,6 @@
         }
     }
     else {
-        drawErrorPage("Error: Your were banned!");
+        // drawErrorPage("Error: Your were banned!");
     }
 ?>

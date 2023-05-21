@@ -18,31 +18,16 @@
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
-    $tickets = getTicketsToAgent($db, $user->id);
 
 
     $state = $_POST['State'];
     $department = $_POST['Department'];
     $hashtag = $_POST['Hashtags'];
-
-    echo "<script>";
-    echo "console.log('$state')";
-    echo "</script>";
-    echo "<script>";
-    echo "console.log('$department')";
-    echo "</script>";
-
-
     if (!$state && !$department && !$hashtag) {
         $tickets = getTicketsToAgent($db, $user->id);
     }
     else {
         $tickets = getFilteredTickets($db, $state, $department, $hashtag);
-        foreach ($tickets as $ticket) {
-            echo "<script>";
-            echo "console.log('ticket: $ticket')";
-            echo "</script>";
-        }
     }
 
     if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin'){
