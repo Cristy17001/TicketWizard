@@ -38,7 +38,7 @@
                                 ?>
                                 <td><?= $user->fullName; ?></td>
                                 <td><?= $event['content']; ?></td>
-                                <td><?= $event['time']; ?></td>
+                                <td><?= $event['created_at']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
