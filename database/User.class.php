@@ -29,6 +29,26 @@ class User{
         $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName, $this->image));
     }
 
+    public function isThereUser($db) {
+        // Filter by username
+        $stmt = $db->prepare('SELECT COUNT(*) FROM User WHERE username = ?');
+        $stmt->execute(array($this->username));
+        $countUsername = $stmt->fetchColumn();
+        if ($countUsername > 0) {
+            return 1;
+        }
+
+        // Filter by email
+        $stmt = $db->prepare('SELECT COUNT(*) FROM User WHERE email = ?');
+        $stmt->execute(array($this->email));
+        $countEmail = $stmt->fetchColumn();
+        if ($countEmail > 0) {
+            return 2;
+        }
+
+        return 0;
+    }
+
     function save($db) {
         $stmt = $db->prepare('UPDATE User SET username = ?,email = ? ,full_name  = ? ,password = ? , image= ?  WHERE id = ?');
         $stmt->execute(array($this->username,$this->email,$this->fullName ,$this->password,$this->image ,$this->id));
@@ -97,6 +117,7 @@ class User{
     }
 
 
+
     static function getUser($db, int $id) {
         $stmt = $db->prepare('
         SELECT *
@@ -118,7 +139,6 @@ class User{
             $user['image']
         );
     }
-
 }
     function getAgents($db){
       $stmt = $db->prepare('SELECT * FROM Agent');

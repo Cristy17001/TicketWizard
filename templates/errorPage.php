@@ -9,7 +9,6 @@
         <title>Error</title>
         <link rel="stylesheet" href="../style/error.css">
         <link rel="stylesheet" href="../style/constants.css">
-        <link rel="stylesheet" href="../Error/constants.css">
 
     </head>
     <body>
