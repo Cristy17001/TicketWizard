@@ -32,7 +32,7 @@ declare(strict_types=1);
             </ul>
             <div class="user-info unselectable">
                 <div class="square">
-                    <img src="../source/avatar.jpg" alt="user_image">
+                    <img src="<?= $user->image ?>" alt="user_image">
                 </div>
                 <div>
                     <p class="name"><?php echo $user->fullName?></p>

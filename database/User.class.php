@@ -131,7 +131,7 @@ class User{
     }
 
     function getUsers($db) {
-        $stmt = $db->prepare('SELECT id, username, full_name, email FROM User');
+        $stmt = $db->prepare('SELECT * FROM User');
 
         $stmt->execute();
         return $stmt->fetchAll();

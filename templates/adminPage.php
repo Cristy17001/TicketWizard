@@ -54,7 +54,7 @@ function drawAdminTables($db, $selected) {
                 <td>
                     <?php
                     require_once('../database/User.class.php');
-                    $user_instance = new User($user['id'], $user['username'], "dasdadsa", $user['email'], $user['full_name']);
+                    $user_instance = new User($user['id'], $user['username'], "dasdadsa", $user['email'], $user['full_name'], $user['image']);
                     echo $user_instance->whatPermission($db);
                     ?>
                 </td>
@@ -92,7 +92,7 @@ function drawAdminTables($db, $selected) {
             <?php } ?>
 
         </table>
-        <form class="add-department">
+        <form class="add-department" action="../adminActions/actionAddDepart.php" method="post">
             <label for="add-department-input">Add Department:</label>
             <input type="text" id="add-department-input" name="add-department-input"
                    placeholder="Enter a department...">
@@ -122,7 +122,7 @@ function drawAdminTables($db, $selected) {
                 </tr>
             <?php } ?>
         </table>
-        <form class="add-status">
+        <form class="add-status" action="../adminActions/actionAddStatus.php" method="post">
             <label for="add-status-input">Add Status:</label>
             <input type="text" id="add-status-input" name="add-status-input"
                    placeholder="Enter a status...">

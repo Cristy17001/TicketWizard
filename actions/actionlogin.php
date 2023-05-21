@@ -9,9 +9,9 @@
   require_once('../templates/errorPage.php');
 
 
-$db = getDatabaseConnection();
-$username=htmlspecialchars(filter_var($_POST['username'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
-$password=htmlspecialchars(filter_var($_POST['password'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
+    $db = getDatabaseConnection();
+    $username=htmlspecialchars(filter_var($_POST['username'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
+    $password=htmlspecialchars(filter_var($_POST['password'], FILTER_SANITIZE_STRING), ENT_QUOTES, 'UTF-8');
 
   $user = User::getUserWithPassword($db, $username, $password);
 

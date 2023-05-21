@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('image-upload');
-    const cameraIcon = document.querySelector('.camera-icon');
-
-    cameraIcon.addEventListener('click', () => {
-        fileInput.click();
-    });
 
     fileInput.addEventListener('change', () => {
         const file = fileInput.files[0]; // Get the selected file
@@ -18,14 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        
+                        location.reload();
                     } else {
                         console.error('Image upload failed!');
                     }
                 }
             };
             xhr.send(formData);
-            location.reload();
         }
     });
 });

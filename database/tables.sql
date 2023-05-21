@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS Ticket (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     user_assigned_id INTEGER ,
-    department VARCHAR(100),
+    department INTEGER,
 
     --CONTENT
     title VARCHAR(100) NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS Ticket (
     --FOREIGN KEYS
     FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (user_assigned_id) REFERENCES Users(id),
-    FOREIGN KEY (department) REFERENCES Department(name)
+    FOREIGN KEY (department) REFERENCES Department(id)
 );
 
 DROP TABLE IF EXISTS Message;
