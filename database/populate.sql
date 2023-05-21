@@ -57,6 +57,11 @@ INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, descriptio
 INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (6, 2, null, null, 'Noa estou a conseguir conectar ao wifi', 'Sempre que tento introduzir a password obtenho um erro, não sei o que se passa', 1, 1, '2023-05-19 13:08:38', null, 1);
 INSERT INTO Ticket (id, user_id, user_assigned_id, department, title, description, status, priority, created_at, updated_at, isClosed) VALUES (7, 3, null, 1, 'Este titulo é só para testar uma cena', 'dasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasddasdasdasdasd', 2, 2, '2023-05-19 18:21:35', null, 1);
 
+--TICKETHASHTAGS
+INSERT INTO TicketHashtags (ticket_id, hashtag_id) VALUES (1, 2);
+INSERT INTO TicketHashtags (ticket_id, hashtag_id) VALUES (1, 3);
+INSERT INTO TicketHashtags (ticket_id, hashtag_id) VALUES (2, 3);
+
 
 --USER
 INSERT INTO User (id, username, password, email, full_name,image, created_at) VALUES (1, 'admin', '$2y$10$z11/BhRA6nqpf4sZU00SNe6LUFjuZGgRUonPLinvgKMkRMgS1cz4q', 'testegmail.com', 'teste','../source/avatar.jpg', '20120618 10:34:09 AM');

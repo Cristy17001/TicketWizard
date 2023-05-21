@@ -127,9 +127,7 @@ function messageFromTicket($db, $ticket_id) {
 function getFilteredTickets($db, $state, $department, $hashtag) {
     //if (!$department) {$department = null;}
     //if (!$state) {$state = null;}
-    if (!$state) {
-        $state = 3;
-    }
+    if (!$state) {$state = 3;}
     $query = "SELECT * FROM Ticket WHERE status = ?";
     $params = array($state);
 
