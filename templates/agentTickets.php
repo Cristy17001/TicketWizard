@@ -6,22 +6,23 @@
                 <label for="State"></label>
                 <select class="form-filter" id="State" name="State" col-index=1 >
                     <option value="" >State</option>
-                    <?php $status=getStates($db); foreach($status as $state){ ?>
-                    <option><?php echo $state['name'] ?></option>
+                    <?php $status = getStates($db);
+                    foreach($status as $state){ ?>
+                        <option value="<?= $state["id"] ?>"><?php echo $state['name'] ?></option>
                      <?php } ?>
                 </select>
                 <label for="Department"></label>
                 <select class="form-filter" id="Department" name="Department" col-index=2 >
                     <option value="">Department</option>
                     <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
-                    <option><?php echo $department['name'] ?></option>
+                    <option value="<?= $department["id"] ?>"><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
                 <label for="Hashtags"></label>
                 <select id="Hashtags" name="Hashtags" col-index=3 >
                     <option value="">Hashtags</option>
                     <?php   $hashtags=getHashtags($db); foreach($hashtags as $hashtag){ ?>
-                    <option><?=$hashtag['name'] ?></option>
+                    <option value="<?= $hashtag["id"] ?>"><?=$hashtag['name'] ?></option>
                      <?php } ?>
                 </select>
                 <label for="Sort"></label>

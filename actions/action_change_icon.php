@@ -20,10 +20,12 @@
             $fileName = $file['name'];
 
             // Perform any necessary validation and security checks on the uploaded file
+            $imageInfo = getimagesize($tempFilePath);
+            if(!$imageInfo){die("Upload Image");}
 
             // Determine the destination directory and file path for storing the uploaded image
             $destinationDirectory = '../source';
-            $destinationFilePath = $destinationDirectory . '/' . $fileName;
+            $destinationFilePath = $destinationDirectory . '/' . $user->id .$fileName;
 
             // Move the uploaded file to the destination directory
             if (move_uploaded_file($tempFilePath, $destinationFilePath)) {
@@ -49,5 +51,5 @@
     else{
         drawErrorPage("Error: Your were banned!");
     }
-    
-    ?>
+
+?>

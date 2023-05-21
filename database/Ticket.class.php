@@ -51,13 +51,14 @@ function getTicketsFromClient($db, int $user_id) {
     return $tickets;
 }
 function getTicketsToAgent($db,$id) {
-    $stmt = $db->prepare('
-    SELECT *
-    FROM Ticket
-    WHERE user_assigned_id = ?
-    ');
+    $stmt = $db->prepare('SELECT * FROM Ticket WHERE user_assigned_id = ?');
     $stmt->execute(array($id));
     $tickets = $stmt->fetchAll();
+    if(count($tickets)==0){
+        $stmt = $db->prepare('SELECT * FROM Ticket');
+        $stmt->execute();
+        $tickets = $stmt->fetchAll();
+    }
     return $tickets;
 }
 
@@ -123,19 +124,25 @@ function messageFromTicket($db, $ticket_id) {
     $messages = $stmt->fetchAll();
     return $messages;
 }
-function getFilteredTickets($db,$state,$department) {
-    $stmt = $db->prepare("
-    SELECT *
-    FROM Ticket
-    WHERE TRUE
-    AND (department = :department OR :department IS NULL)
-    AND (status = :status OR :status IS NULL)
-    ");
-    $stmt->bindParam(':department', $department);
-    $stmt->bindParam(':status', $state);
-    $stmt->execute();
-    $tickets = $stmt->fetchAll();
-    return $tickets;
+function getFilteredTickets($db, $state, $department, $hashtag) {
+    //if (!$department) {$department = null;}
+    //if (!$state) {$state = null;}
+    if (!$state) {
+        $state = 3;
+    }
+    $query = "SELECT * FROM Ticket WHERE status = ?";
+    $params = array($state);
+
+    if (!$department) {
+        $query .= " AND department IS NULL";
+    } else {
+        $query .= " AND department = ?";
+        $params[] = $department;
+    }
+
+    $stmt = $db->prepare($query);
+    $stmt->execute($params);
+    return $stmt->fetchAll();
 }
 
 function addStatus($db, $name) {

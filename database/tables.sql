@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS Ticket (
     --CONTENT
     title VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
-    status VARCHAR(20) DEFAULT "Pending",
+    status INTEGER DEFAULT 3,
     priority VARCHAR(20) ,
     created_at DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME,
@@ -107,6 +107,17 @@ CREATE TABLE IF NOT EXISTS Ticket (
     FOREIGN KEY (user_assigned_id) REFERENCES Users(id),
     FOREIGN KEY (department) REFERENCES Department(id)
 );
+
+
+DROP TABLE IF EXISTS TicketHashtags;
+CREATE TABLE IF NOT EXISTS TicketHashtags (
+    ticket_id INTEGER,
+    hashtag_id INTEGER,
+
+    FOREIGN KEY (ticket_id) REFERENCES Ticket(id),
+    FOREIGN KEY (hashtag_id) REFERENCES Hashtags(id)
+);
+
 
 DROP TABLE IF EXISTS Message;
 CREATE TABLE IF NOT EXISTS Message (

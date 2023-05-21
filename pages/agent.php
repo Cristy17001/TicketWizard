@@ -18,18 +18,38 @@
     $db = getDatabaseConnection();
 
     $user = User::getUser($db, $session->getId());
-    $tickets=getTicketsToAgent($db,$user->id);
-    
-    $state=$_POST['State'];
-    $department=$_POST['Department'];
-    $tickets=getFilteredTickets($db,$state,$department);
-    
+    $tickets = getTicketsToAgent($db, $user->id);
+
+
+    $state = $_POST['State'];
+    $department = $_POST['Department'];
+    $hashtag = $_POST['Hashtags'];
+
+    echo "<script>";
+    echo "console.log('$state')";
+    echo "</script>";
+    echo "<script>";
+    echo "console.log('$department')";
+    echo "</script>";
+
+
+    if (!$state && !$department && !$hashtag) {
+        $tickets = getTicketsToAgent($db, $user->id);
+    }
+    else {
+        $tickets = getFilteredTickets($db, $state, $department, $hashtag);
+        foreach ($tickets as $ticket) {
+            echo "<script>";
+            echo "console.log('ticket: $ticket')";
+            echo "</script>";
+        }
+    }
 
     if($user->whatPermission($db)!='Agent' && $user->whatPermission($db)!='Admin'){
       drawErrorPage("Error 403: No Permission!");
     } else {
       drawHeader($user->whatPermission($db), 'agent', $db);
       drawNav($user, $db,'agent');
-      drawAgentTickets($user,$tickets, $db);
+      drawAgentTickets($user, $tickets, $db);
     }
 ?>
