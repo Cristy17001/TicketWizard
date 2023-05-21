@@ -23,7 +23,7 @@ $db = getDatabaseConnection();
     $tickets= getTicketsFromClient($db,$session->getId());
     $modification = array();
 
-    if ($user->whatPermission($db) != 'Agent' && $user->whatPermission($db) != 'Client' && $user->whatPermission($db) != 'Admin') {
+    if ($user->whatPermission($db) != 'Agent' && $user->whatPermission($db) != 'Admin') {
         drawErrorPage("Error 403: No Permission!");
     }
     else {
