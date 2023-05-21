@@ -200,7 +200,7 @@ button:hover {
     border: none;
     border-radius: 10px;
     width: 50vw;
-    height: 5vh;
+    height: 10vh;
     resize: none;
     padding: 1rem;
 }

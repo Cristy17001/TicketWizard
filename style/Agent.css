@@ -243,7 +243,7 @@
     padding-inline: 0.6rem;
 }
 
-.filter input[type="submit"] {
+.filter input[type="submit"], #Sort {
     color: var(--text-color);
     border-radius: 20px;
     border: none;
@@ -254,8 +254,18 @@
     font-family: var(--text-font);
 }
 
-.filter input[type="submit"], .filter button {
+.filter input[type="submit"], .filter button, #Sort {
     cursor: pointer;
+}
+
+.sort-container {
+    width: 89%;
+    margin-inline: auto;
+    text-align: start;
+}
+
+#Sort {
+    margin-top: 0.5rem;
 }
 
 .filter button {

@@ -2,7 +2,7 @@
 
 <?php function drawAgentTickets($user,$tickets, $db){ ?>
     <div class="main-content">
-        <form class="filter" method="post" action="../pages/agent.php">   
+        <form class="filter" method="post" action="../pages/agent.php">
                 <label for="State"></label>
                 <select class="form-filter" id="State" name="State" col-index=1 >
                     <option value="" >State</option>
@@ -28,7 +28,9 @@
                 <label for="Sort"></label>
                 <input type="submit" value="Filter">
             </form>
-            <button id="Sort">Sort by date</button>
+            <div class="sort-container">
+                <button id="Sort">Sort by date</button>
+            </div>
             <div class="tickets-container">
             <?php foreach($tickets as $ticket) { ?>
                 <div id="ticket" class="ticket unselectable" state="<?=$ticket['status'] ?>">
@@ -43,7 +45,7 @@
                         <div class="backSide">
                             <h2><?=$ticket['status'] ?></h2>
                             <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
-                            <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p> 
+                            <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p>
                             <div class="circle">
                                 <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&50=format&fit=crop&w=1170&q=80" alt="agent image">
                             </div>
@@ -85,11 +87,25 @@
                                 <option value="<?=$state['name'] ?>"><?=$state['name'] ?></option>
                                 <?php } ?>
                             </select>
-                            <label for="add-chip">Hashtags:</label>
-                            <input id="add-chip" type="text" placeholder="Enter a #...">
+                            <label for="assigned-hashtag">Hashtags:</label>
+                            <select id="assigned-hashtag" name="assigned-hashtag">
+                                <option value="">#...</option>
+                                <?php
+                                $hashtags = getHashtags($db);
+                                foreach ($hashtags as $hashtag) {
+                                    ?>
+                                    <option value="<?= $hashtag['id'] ?>"><?= $hashtag['name'] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                             <div class="chip-container">
-                                <div class="chip">#Informatics<span>X</span></div>
-                                <div class="chip">#Something<span>X</span></div>
+                                <?php $hashtags=getTicketHashtags($db, $ticket['id']); foreach($hashtags as $hashtag) { ?>
+                                    <div class="chip">
+                                        <?=getHashtagName($db,$hashtag['hashtag_id'])?>
+                                        <span onclick="removeTicketHashtag(<?=$ticket['id']?>,<?=$hashtag['hashtag_id']?>)">X</span>
+                                    </div>
+                                <?php } ?>
                             </div>
                             <button >Update</button>
                         </form>

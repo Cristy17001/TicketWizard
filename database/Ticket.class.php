@@ -106,6 +106,17 @@ function updateTicketStatus($db, $ticket_id,$status) {
     ');
     $stmt->execute(array($status, $ticket_id));
 }
+
+function updateTicketHashtags($db, $ticket_id, $hashtag) {
+    $stmt = $db->prepare('SELECT * FROM TicketHashtags WHERE ticket_id = ? AND hashtag_id = ?');
+    $stmt->execute(array($ticket_id, $hashtag));
+    $check_repetition = $stmt->fetchAll();
+    if (count($check_repetition) === 0) {
+        $stmt = $db->prepare('INSERT INTO TicketHashtags (ticket_id, hashtag_id) VALUES (?, ?)');
+        $stmt->execute(array($ticket_id, $hashtag));
+    }
+}
+
 function updatedTicket($db, $ticket_id) {
     $stmt = $db->prepare('
     UPDATE Ticket 
@@ -161,4 +172,21 @@ function addHashtag($db, $name) {
 function removeHashtag($db, $id) {
     $stmt = $db->prepare('DELETE FROM Hashtags WHERE id = ?');
     $stmt->execute(array($id));
+}
+
+function getHashtagName($db, $id) {
+    $stmt = $db->prepare('SELECT name FROM Hashtags WHERE id = ?');
+    $stmt->execute(array($id));
+    $hashtagname= $stmt->fetch();
+    return $hashtagname['name'];
+}
+function getTicketHashtags($db, $id) {
+    $stmt = $db->prepare('SELECT hashtag_id FROM TicketHashtags WHERE ticket_id = ?');
+    $stmt->execute(array($id));
+    return $stmt->fetchAll();
+}
+
+function removeTicketHashtags($db, $ticket_id, $hashtag_id) {
+    $stmt = $db->prepare('DELETE FROM TicketHashtags WHERE ticket_id = ? AND hashtag_id = ?');
+    $stmt->execute(array($ticket_id, $hashtag_id));
 }

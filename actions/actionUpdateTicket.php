@@ -28,6 +28,11 @@
         if ($status) {
             updateTicketStatus($db, $ticket_id, $status);
         }
+        $hashtag = $_POST['assigned-hashtag'];
+        if ($hashtag) {
+            updateTicketHashtags($db, $ticket_id, $hashtag);
+        }
+
         updatedTicket($db, $ticket_id);
         header('Location: ../pages/agent.php#Ticket'.$ticket_id);
     }

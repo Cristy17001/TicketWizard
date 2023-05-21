@@ -29,7 +29,7 @@
     <?php if ($page == 'faq') {echo '<script src="../scripts/removeFaq.js"></script>';} ?>
     <?php if ($page == 'client' || $page == 'agent') {echo '<script src="../scripts/filter.js"></script>';} ?>
     <?php if ($page == 'profile') {echo '<script src="../scripts/uploadImage.js"></script>';} ?>
-
+    <?php if ($page == 'agent') {echo '<script src="../scripts/ticketHashtags.js"></script>';} ?>
     <?php if ($page == 'admin') {echo '<script src="../scripts/filterAdmin.js"></script>';} ?>
     <?php if ($page == 'admin') {echo '<script src="../scripts/promoteDemoteBan.js"></script>';} ?>
     <?php if ($page == 'admin') {echo '<script src="../scripts/departManipulation.js"></script>';} ?>
