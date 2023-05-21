@@ -21,12 +21,12 @@ class User{
     }
 
     public function register_save($db) {
-        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, 2015-12-17)');
-        $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName));
+        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, image, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName, $this->image));
         $this->id = intval($db->lastInsertId());
 
-        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
-        $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
+        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, image, created_at) VALUES (?, ?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName, $this->image));
     }
 
     function save($db) {
@@ -121,13 +121,17 @@ class User{
 
 }
     function getAgents($db){
-        $stmt = $db->prepare('
-        SELECT id,username
-        FROM Agent
-      ');
+      $stmt = $db->prepare('SELECT * FROM Agent');
       $stmt->execute();
-      $agents=$stmt->fetchAll();
-      return $agents;
+      return $stmt->fetchAll();
+    }
+
+    function changeAgentDepart($db, $department_id, $user_id) {
+        if ($department_id === "") {
+            $department_id = null;
+        }
+        $stmt = $db->prepare('UPDATE Agent SET department_id = ? WHERE id = ?');
+        $stmt->execute(array($department_id, $user_id));
     }
 
     function getUsers($db) {
@@ -142,18 +146,18 @@ class User{
         $permission = (User::getUser($db, intval($id)))->whatPermission($db);
 
         // GET all user info
-        $stmt = $db->prepare('SELECT id, username, password, email, full_name, created_at FROM User WHERE id = ?');
+        $stmt = $db->prepare('SELECT id, username, password, email, full_name, image, created_at FROM User WHERE id = ?');
         $stmt->execute(array($id));
         $user = $stmt->fetch();
         
         
         if ($permission == "Client") {
-            $stmt = $db->prepare('INSERT INTO Agent (id, username, password, email, full_name, department_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], 1, $user["created_at"]));
+            $stmt = $db->prepare('INSERT INTO Agent (id, username, password, email, full_name, image, department_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"],$user["image"], null, $user["created_at"]));
         }
         else if ($permission == "Agent") {
-            $stmt = $db->prepare('INSERT INTO Admin (id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], $user["created_at"]));
+            $stmt = $db->prepare('INSERT INTO Admin (id, username, password, email, full_name, image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($id, $user["username"], $user["password"], $user["email"], $user["full_name"], $user["image"], $user["created_at"]));
         }
 
     }

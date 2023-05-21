@@ -27,6 +27,8 @@ function removeDepartment($db, $id) {
     $stmt->execute(array($id));
     $stmt = $db->prepare('UPDATE Ticket SET department = null WHERE department = ?');
     $stmt->execute(array($id));
+    $stmt = $db->prepare('UPDATE Agent SET department_id = null WHERE department_id = ?');
+    $stmt->execute(array($id));
 }
 
 function addDepartment($db, $name) {

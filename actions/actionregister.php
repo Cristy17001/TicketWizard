@@ -15,6 +15,6 @@
 
   // Write to database
   $db = getDatabaseConnection();
-  $User= new User(null, $username, $pwd, $email, $name);
+  $User= new User(null, $username, $pwd, $email, $name, "../source/avatar.jpg");
   $User->register_save($db);
   header('Location: ../pages/login.php');

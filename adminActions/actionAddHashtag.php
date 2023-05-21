@@ -6,7 +6,7 @@
 
     require_once('../database/connection.db.php');
     require_once('../database/User.class.php');
-    require_once('../database/Department.class.php');
+    require_once('../database/Ticket.class.php');
     require_once('../templates/errorPage.php');
 
     $db = getDatabaseConnection();
@@ -14,8 +14,8 @@
 
     if ($user) {
         if ($user->whatPermission($db) == "Admin") {
-            $depart = htmlspecialchars(filter_var($_POST['add-department-input'], FILTER_SANITIZE_STRING), ENT_QUOTES);
-            addDepartment($db, $depart);
+            $hashtag = htmlspecialchars(filter_var($_POST['add-hashtags-input'], FILTER_SANITIZE_STRING), ENT_QUOTES);
+            addHashtag($db, $hashtag);
             header("Location: ../pages/admin.php");
         }
         else {

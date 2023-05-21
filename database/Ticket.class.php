@@ -122,3 +122,23 @@ function messageFromTicket($db, $ticket_id) {
     $messages = $stmt->fetchAll();
     return $messages;
 }
+
+function addStatus($db, $name) {
+    $stmt = $db->prepare('INSERT INTO State_(name) VALUES (?)');
+    $stmt->execute(array($name));
+}
+
+function removeStatus($db, $id) {
+    $stmt = $db->prepare('DELETE FROM State_ WHERE id = ?');
+    $stmt->execute(array($id));
+}
+
+function addHashtag($db, $name) {
+    $stmt = $db->prepare('INSERT INTO Hashtags(name) VALUES (?)');
+    $stmt->execute(array($name));
+}
+
+function removeHashtag($db, $id) {
+    $stmt = $db->prepare('DELETE FROM Hashtags WHERE id = ?');
+    $stmt->execute(array($id));
+}

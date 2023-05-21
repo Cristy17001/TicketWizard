@@ -152,7 +152,7 @@ function drawAdminTables($db, $selected) {
                 </tr>
             <?php } ?>
         </table>
-        <form class="add-hashtags">
+        <form class="add-hashtags" action="../adminActions/actionAddHashtag.php" method="post">
             <label for="add-hashtags-input">Add Hashtag:</label>
             <input type="text" id="add-hashtags-input" name="add-hashtags-input"
                    placeholder="Enter a hashtag...">
@@ -174,20 +174,26 @@ function drawAdminTables($db, $selected) {
         </tr>
 
         <?php
-        foreach(getUsers($db) as $user) { ?>
+        foreach (getAgents($db) as $agent) {
+            $agentDepartment = htmlspecialchars(strval($agent['department_id'] == null ? "" : $agent['department_id']), ENT_QUOTES); // Assuming 'department' is the column that stores the department name for each agent
+            ?>
             <tr>
-                <td><?= htmlspecialchars(strval($user['id']),ENT_QUOTES) ?></td>
-                <td><?= htmlspecialchars($user['username'],ENT_QUOTES) ?></td>
-                <td><?= htmlspecialchars($user['full_name'], ENT_QUOTES) ?></td>
-                <td><?= htmlspecialchars($user['email'], ENT_QUOTES) ?></td>
+                <td><?= htmlspecialchars(strval($agent['id']), ENT_QUOTES) ?></td>
+                <td><?= htmlspecialchars($agent['username'], ENT_QUOTES) ?></td>
+                <td><?= htmlspecialchars($agent['full_name'], ENT_QUOTES) ?></td>
+                <td><?= htmlspecialchars($agent['email'], ENT_QUOTES) ?></td>
                 <td>
                     <label>
-                        <select class = "department-select" name = "Modification">
-                            <option value="">Department</option>
+                        <select class="department-select" name="Modification" onchange="handleDepartChange(this)">
+                            <option value="<?= null . " " .  $agent["id"] ?>">Department</option>
                             <?php
                             require_once('../database/Department.class.php');
-                            foreach(getDepartments($db) as $department) { ?>
-                                <option><?= htmlspecialchars($department['name'], ENT_QUOTES) ?></option>
+                            foreach (getDepartments($db) as $department) {
+                                $departmentName = htmlspecialchars($department['name'], ENT_QUOTES);
+                                $departmentId = htmlspecialchars(strval($department['id']), ENT_QUOTES);
+                                $selected = ($departmentId == $agentDepartment) ? 'selected' : '';
+                                ?>
+                                <option value="<?= $departmentId . " " .  $agent["id"] ?>" <?= $selected ?>><?= $departmentName ?></option>
                             <?php } ?>
                         </select>
                     </label>

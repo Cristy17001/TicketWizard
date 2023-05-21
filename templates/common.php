@@ -33,6 +33,7 @@
     <?php if ($page == 'admin') {echo '<script src="../scripts/filterAdmin.js"></script>';} ?>
     <?php if ($page == 'admin') {echo '<script src="../scripts/promoteDemoteBan.js"></script>';} ?>
     <?php if ($page == 'admin') {echo '<script src="../scripts/departManipulation.js"></script>';} ?>
+    <?php if ($page == 'admin') {echo '<script src="../scripts/departAssignment.js"></script>';} ?>
 
 </head>
 <body>
