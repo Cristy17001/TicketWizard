@@ -24,3 +24,4 @@
         drawNav($user, $db,'admin');
         drawAdminTables($db);
     }
+?>

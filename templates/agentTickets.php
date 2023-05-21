@@ -2,49 +2,45 @@
 
 <?php function drawAgentTickets($user,$tickets, $db){ ?>
     <div class="main-content">
-    <form class="filter">
-                <label for="search"></label>
-                <input id="search" type="text" placeholder="Agent...">
+        <form class="filter" method="post" action="../pages/agent.php">   
                 <label for="State"></label>
-                <select class="form-filter" id="State" name="State" col-index=1 onchange="filter_rows()">
+                <select class="form-filter" id="State" name="State" col-index=1 >
                     <option value="" >State</option>
-                    <option>Open</option>
-                    <option>Closed</option>
-                    <option>Pending</option>
-                    <option>Assigned</option>
+                    <?php $status=getStates($db); foreach($status as $state){ ?>
+                    <option><?php echo $state['name'] ?></option>
+                     <?php } ?>
                 </select>
                 <label for="Department"></label>
-                <select class="form-filter" id="Department" name="Department" col-index=2 onchange="filter_rows()">
+                <select class="form-filter" id="Department" name="Department" col-index=2 >
                     <option value="">Department</option>
                     <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
                     <option><?php echo $department['name'] ?></option>
                      <?php } ?>
                 </select>
                 <label for="Hashtags"></label>
-                <select id="Hashtags" name="Hashtags">
+                <select id="Hashtags" name="Hashtags" col-index=3 >
                     <option value="">Hashtags</option>
-                    <option >#informatics</option>
-                    <option >#bug</option>
-                    <option >#information</option>
-                    <option >#needhelp</option>
+                    <?php   $hashtags=getHashtags($db); foreach($hashtags as $hashtag){ ?>
+                    <option><?=$hashtag['name'] ?></option>
+                     <?php } ?>
                 </select>
                 <label for="Sort"></label>
-                <button id="Sort">Sort by date</button>
                 <input type="submit" value="Filter">
             </form>
+            <button id="Sort">Sort by date</button>
             <div class="tickets-container">
             <?php foreach($tickets as $ticket) { ?>
                 <div id="ticket" class="ticket unselectable" state="<?=$ticket['status'] ?>">
-                    <div class="innerCard transition"  ticket_id =<?=$ticket['id'] ?>>
+                    <div class="innerCard transition"  ticket_id = <?=$ticket['id'] ?>>
                         <div class="frontSide">
                             <p class="state"><?= $ticket['status']?></p>
                             <h2 class="title"><?=$ticket['title'] ?></h2>
                             <p class="description"><?=$ticket['description'] ?> </p>
                             <p class="hashtags">#informatics #something</p>
-                            <p class="created">Created at, <?=$ticket['created_at'] ?></p>
+                            <p class="created"><?=$ticket['created_at'] ?></p>
                         </div>
                         <div class="backSide">
-                            <h2><?php if($ticket['status']==''){ echo 'Pending';} else { echo $ticket['status']; }?></h2>
+                            <h2><?=$ticket['status'] ?></h2>
                             <p class="department"><span>Department: </span><?=$ticket['department'] ?></p>
                             <p class="agent"><span>Agent:</span><?php if(is_null($ticket['user_assigned_id'])){ echo ' Undefined';} else { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; }?> </p> 
                             <div class="circle">
@@ -54,8 +50,8 @@
                         </div>
                     </div>
                 </div>
-                <dialog data-modal class="opened-ticket" ticket_id =<?=$ticket['id'] ?>>
-                    <div class="edit-ticket-card">
+                <dialog data-modal id=<?= "Ticket".$ticket['id'] ?> class="opened-ticket" ticket_id =<?=$ticket['id']?>>
+                    <div class="edit-ticket-card" >
                         <svg class="close" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 1024 1024"><path
                                 fill="#000000" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"/>
                         </svg>
@@ -65,28 +61,28 @@
                         </div>
                         <p class="description"><?=$ticket['description']?>
                         </p>
-                        <form class="edit-ticket-form" action="../actions/actionUpdateTicket.php" method="post">
-                         <input type="hidden" name="ticket_id" value="<?php echo $ticket['id'] ?>">
+                        <form class="edit-ticket-form" method="post" action="../actions/actionUpdateTicket.php">
+                         <input type="hidden" name="ticket_id" value="<?=$ticket['id'] ?>">
                             <label for="assigned-depart">Assigned Department:</label>
                             <select id="assigned-depart" name="department-assign">
                                 <option value=""><?php if($ticket['department']!='') { echo $ticket['department']; } else { echo 'Department';}?></option>
                                 <?php require_once('../database/Department.class.php'); $departments=getDepartments($db); foreach($departments as $department){ ?>
-                                <option><?php echo $department['name'] ?></option>
+                                <option value="<?=$department['name']?>"><?=$department['name'] ?></option>
                             <?php } ?>
                             </select>
                             <label for="assigned-agent">Assigned agent:</label>
                             <select id="assigned-agent" name="agent-assign">
                                 <option value=""><?php if($ticket['user_assigned_id']!='') { $agentName=User::getUser($db,$ticket['user_assigned_id']); echo $agentName->username; } else { echo 'Agent';}?></option>
                                 <?php require_once('../database/User.class.php'); $agents=getAgents($db); foreach($agents as $agent){ ?>
-                                <option name="agent_id" value="<?=$agent['id']?>"><?=$agent['username']?></option>
+                                <option id="agent_id" name="agent_id" value="<?=$agent['id']?>"><?=$agent['username']?></option>
                                 <?php } ?>
                             </select>
                             <label for="assigned-status">Status:</label>
                             <select id="assigned-status" name="assigned-status">
                                 <option value=""><?=$ticket['status'] ?></option>
-                                <option>Open</option>
-                                <option>Closed</option>
-                                <option>Assigned</option>
+                                <?php $status=getStates($db); foreach($status as $state){ ?>
+                                <option value="<?=$state['name'] ?>"><?=$state['name'] ?></option>
+                                <?php } ?>
                             </select>
                             <label for="add-chip">Hashtags:</label>
                             <input id="add-chip" type="text" placeholder="Enter a #...">
@@ -94,7 +90,7 @@
                                 <div class="chip">#Informatics<span>X</span></div>
                                 <div class="chip">#Something<span>X</span></div>
                             </div>
-                            <button>Update</button>
+                            <button >Update</button>
                         </form>
                         <a href="#">Ticket History</a>
                         <h2>Chat:</h2>
@@ -129,6 +125,8 @@
                     </div>
                 </dialog>
                 <?php } ?>
+                <script src="../scripts/orderByDate.js"></script>
+                <script src="../scripts/dialogOpen.js"></script>
                 </div>
 
     <?php } ?>

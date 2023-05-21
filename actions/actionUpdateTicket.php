@@ -11,17 +11,17 @@
   $db = getDatabaseConnection();
   $ticket_id= $_POST['ticket_id'];
   $optional= $_POST['department-assign'];
-  if($optional) {
+  if(!empty($optional)) {
     updateTicketDepartment($db,$ticket_id, $optional);
   }
   $agent=$_POST['agent-assign'];
-  if($agent) {
+  if(!empty($agent)) {
     updateTicketAgent($db,$ticket_id, $agent);
   }
   $status=$_POST['assigned-status'];
-  if($status) {
+  if(!empty($status)) {
     updateTicketStatus($db,$ticket_id, $status);
   }
   updatedTicket($db,$ticket_id);
-  header('Location:../pages/agent.php');
+  header('Location: ../pages/agent.php#Ticket'.$ticket_id);
 ?>
