@@ -21,11 +21,11 @@ class User{
     }
 
     public function register_save($db) {
-        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, 2015-12-17)');
+        $stmt = $db->prepare('INSERT INTO User(username, password, email, full_name,image, created_at) VALUES (?, ?, ?, ?,"../source/avatar.jpg", 2015-12-17)');
         $stmt->execute(array($this->username, $this->password, strtolower($this->email), $this->fullName));
         $this->id = intval($db->lastInsertId());
 
-        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name, created_at) VALUES (?, ?, ?, ?, ?, 2015-12-17)');
+        $stmt = $db->prepare('INSERT INTO Client(id, username, password, email, full_name,image, created_at) VALUES (?, ?, ?, ?, ?,"../source/avatar.jpg", 2015-12-17)');
         $stmt->execute(array($this->id, $this->username, $this->password, strtolower($this->email), $this->fullName));
     }
 

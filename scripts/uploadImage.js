@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        
+                        location.reload();
+                        console.log('Image uploaded and database updated successfully');
                     } else {
-                        console.error('Image upload failed!');
+                        console.error('Failed to upload the image or update the database');
                     }
                 }
             };
             xhr.send(formData);
-            location.reload();
         }
     });
 });
