@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS User (
     password VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
+    image VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS Client (
     password VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
+    image VARCHAR(100),
     created_at DATETIME NOT NULL,
 
     --FOREIGN KEYS
@@ -27,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Client (
     FOREIGN KEY (password) REFERENCES User(password),
     FOREIGN KEY (email) REFERENCES User(email),
     FOREIGN KEY (full_name) REFERENCES User(full_name), 
+    FOREIGN KEY (image) REFERENCES User(image), 
     FOREIGN KEY (created_at) REFERENCES User(created_at)  
 );
 
@@ -40,6 +43,7 @@ CREATE TABLE IF NOT EXISTS Agent (
     password VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
+    image VARCHAR(100),
     created_at DATETIME NOT NULL,
     department_id INTEGER,
 
@@ -49,6 +53,7 @@ CREATE TABLE IF NOT EXISTS Agent (
     FOREIGN KEY (password) REFERENCES User(password),
     FOREIGN KEY (email) REFERENCES User(email),
     FOREIGN KEY (full_name) REFERENCES User(full_name), 
+    FOREIGN KEY (image) REFERENCES User(image), 
     FOREIGN KEY (created_at) REFERENCES User(created_at),
     FOREIGN KEY (department_id) REFERENCES Department(id)  
 );
@@ -65,6 +70,7 @@ CREATE TABLE IF NOT EXISTS Admin (
     password VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
+    image VARCHAR(100),
     created_at DATETIME NOT NULL,
 
     --FOREIGN KEYS
@@ -73,48 +79,11 @@ CREATE TABLE IF NOT EXISTS Admin (
     FOREIGN KEY (password) REFERENCES User(password),
     FOREIGN KEY (email) REFERENCES User(email),
     FOREIGN KEY (full_name) REFERENCES User(full_name), 
+    FOREIGN KEY (image) REFERENCES User(image), 
     FOREIGN KEY (created_at) REFERENCES User(created_at)
 );
 
---
---
----- Triggers for updating Admin, Agent, and Client
---CREATE TRIGGER IF NOT EXISTS update_admin
---AFTER UPDATE ON User
---FOR EACH ROW
---WHEN (NEW.id = Admin.id)
---BEGIN
---    UPDATE Admin
---    SET username = NEW.username,
---        email = NEW.email,
---        full_name = NEW.full_name
---    WHERE id = NEW.id;
---END;
---
---CREATE TRIGGER IF NOT EXISTS update_agent
---AFTER UPDATE ON User
---FOR EACH ROW
---WHEN (NEW.id = Agent.id)
---BEGIN
---    UPDATE Agent
---    SET username = NEW.username,
---        email = NEW.email,
---        full_name = NEW.full_name
---    WHERE id = NEW.id;
---END;
---
---CREATE TRIGGER IF NOT EXISTS update_client
---AFTER UPDATE ON User
---FOR EACH ROW
---WHEN (NEW.id = Client.id)
---BEGIN
---    UPDATE Client
---    SET username = NEW.username,
---        email = NEW.email,
---        full_name = NEW.full_name
---    WHERE id = NEW.id;
---END;
---
+
 
 DROP TABLE IF EXISTS Ticket;
 CREATE TABLE IF NOT EXISTS Ticket (

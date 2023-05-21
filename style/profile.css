@@ -82,7 +82,14 @@
     justify-content: center;
 }
 
-.camera:hover {
+.camera-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.camera-icon:hover {
     cursor: pointer;
 }
 

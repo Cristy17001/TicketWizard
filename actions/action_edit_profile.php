@@ -37,7 +37,6 @@
     //saves the altered info
     $user->save($db);
     $session->setName($user->fullName);
-
     header('Location: ../pages/profile.php');
   }
   else {
